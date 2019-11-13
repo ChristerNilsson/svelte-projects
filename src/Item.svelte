@@ -4,5 +4,5 @@
 
 <div>
 	<button on:click={() => remove(id)}> Remove </button>
-	<b>{product.title}</b> ${product.price} {count}
+	{count} ${product.price} <b>{product.title}</b>
 </div>

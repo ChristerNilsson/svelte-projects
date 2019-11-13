@@ -4,5 +4,5 @@
 
 <div>
 	<button on:click={()=>add(id)}>Add</button>
-	<b>{product.title}</b> ${product.price}
+	${product.price} <b>{product.title}</b>
 </div>
