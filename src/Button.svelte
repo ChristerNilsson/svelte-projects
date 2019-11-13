@@ -4,7 +4,7 @@
 	export let title
 	export let klass
 
-	if (window.innerWidth < 600) klass=col1
+	if (window.innerWidth < 600) klass='col1'
 		
 </script>
 

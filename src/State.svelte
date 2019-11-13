@@ -8,6 +8,6 @@
 <style>
 </style>
 
-<button class=col1 on:click={fixState}>
+<button class='col1' on:click={fixState}>
 	{state.action} a:{state.a} b:{state.b} hist:[{state.hist}]
 </button>
