@@ -1,5 +1,5 @@
 <script>
-	import { col1,col2,col3 } from '../styles.js'
+	// import { col1,col2,col3 } from '../styles.js'
 	import {createEventDispatcher} from 'svelte'
 	const dispatch = createEventDispatcher()
 	export let state
@@ -9,6 +9,6 @@
 <style>
 </style>
 
-<button class=col1 on:click={fixState}>
+<button class='col1' on:click={fixState}>
 	{state.action} a:{state.a} b:{state.b} hist:[{state.hist}]
 </button>

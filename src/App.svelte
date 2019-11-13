@@ -1,6 +1,6 @@
 <script>	
 	import store from './store.js'
-	import { col1,col2,col3 } from '../styles.js'
+	// import { col1,col2,col3 } from '../styles.js'
 	import Button from './Button.svelte'
 	//import TimeMachine from './TimeMachine.svelte'
 
@@ -55,13 +55,13 @@
 	}
 </style>
 
-<h1 class={col2} style='font-size: 60px; color:red;'>{$store.a}</h1>
-<h1 class={col2} style='font-size: 60px; color:green;'>{$store.b}</h1>
-<Button klass={col3} title='+2'   click = {() => store.op(ADD)}  disabled = {$store.a==$store.b} />
-<Button klass={col3} title='*2'   click = {() => store.op(MUL)}  disabled = {$store.a==$store.b} />
-<Button klass={col3} title='/2'   click = {() => store.op(DIV)}  disabled = {$store.a==$store.b} />
-<Button klass={col2} title='New'  click = {() => store.op(NEW)}  disabled = {$store.a!=$store.b} />
-<Button klass={col2} title='Undo' click = {() => store.op(UNDO)} disabled = {$store.hist.length==0} /> 
+<h1 class='col2' style='font-size: 60px; color:red;'>{$store.a}</h1>
+<h1 class='col2' style='font-size: 60px; color:green;'>{$store.b}</h1>
+<Button klass='col3' title='+2'   click = {() => store.op(ADD)}  disabled = {$store.a==$store.b} />
+<Button klass='col3' title='*2'   click = {() => store.op(MUL)}  disabled = {$store.a==$store.b} />
+<Button klass='col3' title='/2'   click = {() => store.op(DIV)}  disabled = {$store.a==$store.b} />
+<Button klass='col2' title='New'  click = {() => store.op(NEW)}  disabled = {$store.a!=$store.b} />
+<Button klass='col2' title='Undo' click = {() => store.op(UNDO)} disabled = {$store.hist.length==0} /> 
 
 <!-- {#if USE_TIME_MACHINE}
 	<TimeMachine on:fixstate = {fixState} states={states} />
