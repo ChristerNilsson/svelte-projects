@@ -1,2 +1,1389 @@
-var app=function(){"use strict";function t(){}function e(t){return t()}function n(){return Object.create(null)}function r(t){t.forEach(e)}function a(t){return"function"==typeof t}function o(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function u(t,e){t.appendChild(e)}function i(t,e,n){t.insertBefore(e,n||null)}function c(t){t.parentNode.removeChild(t)}function d(t){return document.createElement(t)}function l(t){return document.createElementNS("http://www.w3.org/2000/svg",t)}function s(t){return document.createTextNode(t)}function f(){return s(" ")}function m(t,e,n,r){return t.addEventListener(e,n,r),()=>t.removeEventListener(e,n,r)}function v(t,e,n){null==n?t.removeAttribute(e):t.setAttribute(e,n)}function p(t,e){e=""+e,t.data!==e&&(t.data=e)}function g(t,e,n,r){t.style.setProperty(e,n,r?"important":"")}let h;function b(t){h=t}const y=[],_=[],$=[],x=[],w=Promise.resolve();let j=!1;function k(t){$.push(t)}function D(t){x.push(t)}function S(){const t=new Set;do{for(;y.length;){const t=y.shift();b(t),M(t.$$)}for(;_.length;)_.pop()();for(let e=0;e<$.length;e+=1){const n=$[e];t.has(n)||(n(),t.add(n))}$.length=0}while(y.length);for(;x.length;)x.pop()();j=!1}function M(t){t.fragment&&(t.update(t.dirty),r(t.before_update),t.fragment.p(t.dirty,t.ctx),t.dirty=null,t.after_update.forEach(k))}const A=new Set;let O;function N(t,e){t&&t.i&&(A.delete(t),t.i(e))}function U(t,e,n,r){if(t&&t.o){if(A.has(t))return;A.add(t),O.c.push(()=>{A.delete(t),r&&(n&&t.d(1),r())}),t.o(e)}}const I="undefined"!=typeof window?window:global;function E(t,e,n){-1!==t.$$.props.indexOf(e)&&(t.$$.bound[e]=n,n(t.$$.ctx[e]))}function L(t,n,o){const{fragment:u,on_mount:i,on_destroy:c,after_update:d}=t.$$;u.m(n,o),k(()=>{const n=i.map(e).filter(a);c?c.push(...n):r(n),t.$$.on_mount=[]}),d.forEach(k)}function F(t,e){t.$$.fragment&&(r(t.$$.on_destroy),t.$$.fragment.d(e),t.$$.on_destroy=t.$$.fragment=null,t.$$.ctx={})}function V(t,e){t.$$.dirty||(y.push(t),j||(j=!0,w.then(S)),t.$$.dirty=n()),t.$$.dirty[e]=!0}function q(e,a,o,u,i,c){const d=h;b(e);const l=a.props||{},s=e.$$={fragment:null,ctx:null,props:c,update:t,not_equal:i,bound:n(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(d?d.$$.context:[]),callbacks:n(),dirty:null};let f=!1;var m;s.ctx=o?o(e,l,(t,n,r=n)=>(s.ctx&&i(s.ctx[t],s.ctx[t]=r)&&(s.bound[t]&&s.bound[t](r),f&&V(e,t)),n)):l,s.update(),f=!0,r(s.before_update),s.fragment=u(s.ctx),a.target&&(a.hydrate?s.fragment.l((m=a.target,Array.from(m.childNodes))):s.fragment.c(),a.intro&&N(e.$$.fragment),L(e,a.target,a.anchor),S()),b(d)}class B{$destroy(){F(this,1),this.$destroy=t}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(){}}function P(t){var e,n,a,o,l,f,v=t.curr.a+"",g=t.curr.b+"";return{c(){e=d("span"),n=s(v),a=s("\r\n\t\tto \r\n\t\t"),o=d("span"),l=s(g),f=[m(e,"mousemove",t.mousemove_handler_1),m(o,"mousemove",t.mousemove_handler_2)]},m(t,r){i(t,e,r),u(e,n),i(t,a,r),i(t,o,r),u(o,l)},p(t,e){t.curr&&v!==(v=e.curr.a+"")&&p(n,v),t.curr&&g!==(g=e.curr.b+"")&&p(l,g)},d(t){t&&(c(e),c(a),c(o)),r(f)}}}function K(t){var e,n,r,a=t.curr.orig+"",o=t.curr.b+"";return{c(){e=s(a),n=s(" to "),r=s(o)},m(t,a){i(t,e,a),i(t,n,a),i(t,r,a)},p(t,n){t.curr&&a!==(a=n.curr.orig+"")&&p(e,a),t.curr&&o!==(o=n.curr.b+"")&&p(r,o)},d(t){t&&(c(e),c(n),c(r))}}}function z(e){var n,a,o,l,p,g,h,b,y,_,$,x;function w(t,e){return e.curr.a==e.curr.b?K:P}var j=w(0,e),k=j(e);return{c(){n=d("div"),a=d("button"),o=s("prev"),p=f(),g=d("div"),k.c(),h=f(),b=d("div"),y=d("button"),_=s("next"),v(a,"class","br svelte-1q5rvlm"),a.disabled=l=0==e.index,v(n,"class","col s3 fs left-align svelte-1q5rvlm"),v(g,"class","col s6 fs center-align svelte-1q5rvlm"),v(y,"class","br svelte-1q5rvlm"),y.disabled=$=e.index==e.data.N-1,v(b,"class","col s3 fs right-align svelte-1q5rvlm"),x=[m(a,"mousemove",e.mousemove_handler),m(a,"click",e.click_handler),m(y,"mousemove",e.mousemove_handler_3),m(y,"click",e.click_handler_1)]},m(t,e){i(t,n,e),u(n,a),u(a,o),i(t,p,e),i(t,g,e),k.m(g,null),i(t,h,e),i(t,b,e),u(b,y),u(y,_)},p(t,e){t.index&&l!==(l=0==e.index)&&(a.disabled=l),j===(j=w(0,e))&&k?k.p(t,e):(k.d(1),(k=j(e))&&(k.c(),k.m(g,null))),(t.index||t.data)&&$!==($=e.index==e.data.N-1)&&(y.disabled=$)},i:t,o:t,d(t){t&&(c(n),c(p),c(g)),k.d(),t&&(c(h),c(b)),r(x)}}}function R(t,e,n){let{data:r,curr:a,index:o}=e;return t.$set=(t=>{"data"in t&&n("data",r=t.data),"curr"in t&&n("curr",a=t.curr),"index"in t&&n("index",o=t.index)}),{data:r,curr:a,index:o,mousemove_handler:()=>r.mm("prev"),click_handler:()=>r.incr(-1),mousemove_handler_1:()=>r.mm("left"),mousemove_handler_2:()=>r.mm("right"),mousemove_handler_3:()=>r.mm("next"),click_handler_1:()=>r.incr(1)}}class H extends B{constructor(t){super(),q(this,t,R,z,o,["data","curr","index"])}}function T(t){var e,n,a,o,l,p,g,h,b,y,_,$,x=0!=t.data.ADD&&G(t),w=0!=t.data.SUB&&X(t),j=1!=t.data.MUL&&W(t),k=1!=t.data.DIV&&J(t);return{c(){e=d("div"),n=f(),a=d("div"),x&&x.c(),o=f(),w&&w.c(),l=f(),j&&j.c(),p=f(),k&&k.c(),g=f(),h=d("div"),b=d("button"),y=s("Undo"),v(e,"class","left col s3 fs marg center-align svelte-cghug5"),v(a,"class","left col s6 fs marg center-align svelte-cghug5"),v(b,"class","br svelte-cghug5"),b.disabled=_=0==t.curr.hist.length,v(h,"class","left col s3 fs marg right-align svelte-cghug5"),$=[m(b,"mousemove",t.mousemove_handler_4),m(b,"click",t.data.undo)]},m(t,r){i(t,e,r),i(t,n,r),i(t,a,r),x&&x.m(a,null),u(a,o),w&&w.m(a,null),u(a,l),j&&j.m(a,null),u(a,p),k&&k.m(a,null),i(t,g,r),i(t,h,r),u(h,b),u(b,y)},p(t,e){0!=e.data.ADD?x?x.p(t,e):((x=G(e)).c(),x.m(a,o)):x&&(x.d(1),x=null),0!=e.data.SUB?w?w.p(t,e):((w=X(e)).c(),w.m(a,l)):w&&(w.d(1),w=null),1!=e.data.MUL?j?j.p(t,e):((j=W(e)).c(),j.m(a,p)):j&&(j.d(1),j=null),1!=e.data.DIV?k?k.p(t,e):((k=J(e)).c(),k.m(a,null)):k&&(k.d(1),k=null),t.curr&&_!==(_=0==e.curr.hist.length)&&(b.disabled=_)},d(t){t&&(c(e),c(n),c(a)),x&&x.d(),w&&w.d(),j&&j.d(),k&&k.d(),t&&(c(g),c(h)),r($)}}}function C(t){var e,n,r,a=t.curr.hist.length+"";return{c(){e=d("div"),n=s(a),r=s(" steps"),v(e,"class","left col s12 fs marg center-align svelte-cghug5")},m(t,a){i(t,e,a),u(e,n),u(e,r)},p(t,e){t.curr&&a!==(a=e.curr.hist.length+"")&&p(n,a)},d(t){t&&c(e)}}}function G(t){var e,n,a,o,l=t.data.ADD+"";return{c(){e=d("button"),n=s("add "),a=s(l),v(e,"class","br svelte-cghug5"),e.disabled=t.done,o=[m(e,"mousemove",t.mousemove_handler),m(e,"click",t.click_handler)]},m(t,r){i(t,e,r),u(e,n),u(e,a)},p(t,n){t.data&&l!==(l=n.data.ADD+"")&&p(a,l),t.done&&(e.disabled=n.done)},d(t){t&&c(e),r(o)}}}function X(t){var e,n,a,o,l=t.data.SUB+"";return{c(){e=d("button"),n=s("sub "),a=s(l),v(e,"class","br svelte-cghug5"),e.disabled=t.done,o=[m(e,"mousemove",t.mousemove_handler_1),m(e,"click",t.click_handler_1)]},m(t,r){i(t,e,r),u(e,n),u(e,a)},p(t,n){t.data&&l!==(l=n.data.SUB+"")&&p(a,l),t.done&&(e.disabled=n.done)},d(t){t&&c(e),r(o)}}}function W(t){var e,n,a,o,l=t.data.MUL+"";return{c(){e=d("button"),n=s("mul "),a=s(l),v(e,"class","br svelte-cghug5"),e.disabled=t.done,o=[m(e,"mousemove",t.mousemove_handler_2),m(e,"click",t.click_handler_2)]},m(t,r){i(t,e,r),u(e,n),u(e,a)},p(t,n){t.data&&l!==(l=n.data.MUL+"")&&p(a,l),t.done&&(e.disabled=n.done)},d(t){t&&c(e),r(o)}}}function J(t){var e,n,a,o,l,f=t.data.DIV+"";return{c(){e=d("button"),n=s("div "),a=s(f),v(e,"class","br svelte-cghug5"),e.disabled=o=t.done||t.curr.a%t.data.DIV!=0,l=[m(e,"mousemove",t.mousemove_handler_3),m(e,"click",t.click_handler_3)]},m(t,r){i(t,e,r),u(e,n),u(e,a)},p(t,n){t.data&&f!==(f=n.data.DIV+"")&&p(a,f),(t.done||t.curr||t.data)&&o!==(o=n.done||n.curr.a%n.data.DIV!=0)&&(e.disabled=o)},d(t){t&&c(e),r(l)}}}function Q(e){var n;function r(t,e){return e.done?C:T}var a=r(0,e),o=a(e);return{c(){n=d("div"),o.c(),v(n,"class","row")},m(t,e){i(t,n,e),o.m(n,null)},p(t,e){a===(a=r(0,e))&&o?o.p(t,e):(o.d(1),(o=a(e))&&(o.c(),o.m(n,null)))},i:t,o:t,d(t){t&&c(n),o.d()}}}function Y(t,e,n){let{data:r,curr:a}=e;let o;return t.$set=(t=>{"data"in t&&n("data",r=t.data),"curr"in t&&n("curr",a=t.curr)}),t.$$.update=((t={curr:1})=>{t.curr&&n("done",o=a.a==a.b)}),{data:r,curr:a,done:o,mousemove_handler:t=>r.mm("add"),click_handler:()=>r.op(a.a+r.ADD),mousemove_handler_1:t=>r.mm("sub"),click_handler_1:()=>r.op(a.a-r.SUB),mousemove_handler_2:t=>r.mm("mul"),click_handler_2:()=>r.op(a.a*r.MUL),mousemove_handler_3:t=>r.mm("div"),click_handler_3:()=>r.op(a.a/r.DIV),mousemove_handler_4:t=>r.mm("undo")}}class Z extends B{constructor(t){super(),q(this,t,Y,Q,o,["data","curr"])}}function tt(e){var n,a,o,l,g,h,b,y,_,$,x,w,j,k,D=e.data.score+"",S=e.data.undos+"",M=e.data.optimum+"",A=(e.data.stopp-e.data.start)/1e3+"";return{c(){n=d("div"),a=d("div"),o=s(D),l=f(),g=d("div"),h=s(S),b=s(" undos"),y=f(),_=d("div"),$=s(M),x=f(),w=d("div"),j=s(A),v(a,"class","left col s6 fs marg green yellow-text left-align svelte-1uqam3d"),v(g,"class","left col s6 fs marg green right-align svelte-1uqam3d"),v(_,"class","left col s6 fs marg green left-align svelte-1uqam3d"),v(w,"class","left col s6 fs marg green right-align svelte-1uqam3d"),v(n,"class","row s12"),k=[m(a,"mousemove",e.mousemove_handler),m(g,"mousemove",e.mousemove_handler_1),m(_,"mousemove",e.mousemove_handler_2),m(w,"mousemove",e.mousemove_handler_3)]},m(t,e){i(t,n,e),u(n,a),u(a,o),u(n,l),u(n,g),u(g,h),u(g,b),u(n,y),u(n,_),u(_,$),u(n,x),u(n,w),u(w,j)},p(t,e){t.data&&D!==(D=e.data.score+"")&&p(o,D),t.data&&S!==(S=e.data.undos+"")&&p(h,S),t.data&&M!==(M=e.data.optimum+"")&&p($,M),t.data&&A!==(A=(e.data.stopp-e.data.start)/1e3+"")&&p(j,A)},i:t,o:t,d(t){t&&c(n),r(k)}}}function et(t,e,n){let{data:r}=e;return t.$set=(t=>{"data"in t&&n("data",r=t.data)}),{data:r,mousemove_handler:()=>r.mm("score"),mousemove_handler_1:()=>r.mm("undos"),mousemove_handler_2:()=>r.mm("optimum"),mousemove_handler_3:()=>r.mm("time")}}class nt extends B{constructor(t){super(),q(this,t,et,tt,o,["data"])}}var rt=1/0,at=9007199254740991,ot=1.7976931348623157e308,ut=NaN,it="[object Function]",ct="[object GeneratorFunction]",dt="[object Symbol]",lt=/^\s+|\s+$/g,st=/^[-+]0x[0-9a-f]+$/i,ft=/^0b[01]+$/i,mt=/^0o[0-7]+$/i,vt=/^(?:0|[1-9]\d*)$/,pt=parseInt,gt=Object.prototype.toString,ht=Math.ceil,bt=Math.max;function yt(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}function _t(t){return t?(t=function(t){if("number"==typeof t)return t;if(function(t){return"symbol"==typeof t||function(t){return!!t&&"object"==typeof t}(t)&&gt.call(t)==dt}(t))return ut;if(yt(t)){var e="function"==typeof t.valueOf?t.valueOf():t;t=yt(e)?e+"":e}if("string"!=typeof t)return 0===t?t:+t;t=t.replace(lt,"");var n=ft.test(t);return n||mt.test(t)?pt(t.slice(2),n?2:8):st.test(t)?ut:+t}(t))===rt||t===-rt?(t<0?-1:1)*ot:t==t?t:0:0===t?t:0}var $t,xt=function(t,e,n){return n&&"number"!=typeof n&&function(t,e,n){if(!yt(n))return!1;var r=typeof e;return!!("number"==r?function(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=at}(t.length)&&!function(t){var e=yt(t)?gt.call(t):"";return e==it||e==ct}(t)}(n)&&function(t,e){return!!(e=null==e?at:e)&&("number"==typeof t||vt.test(t))&&t>-1&&t%1==0&&t<e}(e,n.length):"string"==r&&e in n)&&function(t,e){return t===e||t!=t&&e!=e}(n[e],t)}(t,e,n)&&(e=n=void 0),t=_t(t),void 0===e?(e=t,t=0):e=_t(e),function(t,e,n,r){for(var a=-1,o=bt(ht((e-t)/(n||1)),0),u=Array(o);o--;)u[r?o:++a]=t,t+=n;return u}(t,e,n=void 0===n?t<e?1:-1:_t(n),$t)};function wt(t,e,n){const r=Object.create(t);return r.i=e[n],r}function jt(t){var e,n,a,o;function u(...e){return t.mousemove_handler(t,...e)}function d(){return t.click_handler(t)}return{c(){v(e=l("circle"),"cx",n=100/t.data.N*(t.i-t.data.N/2+.5)),v(e,"cy","0"),v(e,"r","1.5"),v(e,"fill",a=t.i==t.index?"white":t.data.cand[t.i].a==t.data.cand[t.i].b?"green":"black"),o=[m(e,"mousemove",u),m(e,"click",d)]},m(t,n){i(t,e,n)},p(r,o){t=o,r.data&&n!==(n=100/t.data.N*(t.i-t.data.N/2+.5))&&v(e,"cx",n),(r.data||r.index)&&a!==(a=t.i==t.index?"white":t.data.cand[t.i].a==t.data.cand[t.i].b?"green":"black")&&v(e,"fill",a)},d(t){t&&c(e),r(o)}}}function kt(e){var n;let r=xt(e.data.N),a=[];for(let t=0;t<r.length;t+=1)a[t]=jt(wt(e,r,t));return{c(){n=l("svg");for(let t=0;t<a.length;t+=1)a[t].c();v(n,"viewBox","-50 -2 100 4"),g(n,"width","100%"),g(n,"height","100%")},m(t,e){i(t,n,e);for(let t=0;t<a.length;t+=1)a[t].m(n,null)},p(t,e){if(t.data||t.range||t.index){let o;for(r=xt(e.data.N),o=0;o<r.length;o+=1){const u=wt(e,r,o);a[o]?a[o].p(t,u):(a[o]=jt(u),a[o].c(),a[o].m(n,null))}for(;o<a.length;o+=1)a[o].d(1);a.length=r.length}},i:t,o:t,d(t){t&&c(n),function(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}(a,t)}}}function Dt(t,e,n){let{data:r,index:a}=e;return t.$set=(t=>{"data"in t&&n("data",r=t.data),"index"in t&&n("index",a=t.index)}),{data:r,index:a,mousemove_handler:({i:t},e)=>r.mm("circle",t),click_handler:({i:t})=>r.click(t)}}class St extends B{constructor(t){super(),q(this,t,Dt,kt,o,["data","index"])}}function Mt(t){var e,n,r,a,o,l,s,m,p,g,h,b,y,$;function x(e){t.navigation_data_binding.call(null,e),n=!0,D(()=>n=!1)}function w(e){t.navigation_curr_binding.call(null,e),r=!0,D(()=>r=!1)}function j(e){t.navigation_index_binding.call(null,e),a=!0,D(()=>a=!1)}let k={};void 0!==t.data&&(k.data=t.data),void 0!==t.curr&&(k.curr=t.curr),void 0!==t.index&&(k.index=t.index);var S=new H({props:k});function M(e){t.commands_data_binding.call(null,e),l=!0,D(()=>l=!1)}function A(e){t.commands_curr_binding.call(null,e),s=!0,D(()=>s=!1)}_.push(()=>E(S,"data",x)),_.push(()=>E(S,"curr",w)),_.push(()=>E(S,"index",j));let O={};void 0!==t.data&&(O.data=t.data),void 0!==t.curr&&(O.curr=t.curr);var I=new Z({props:O});function V(e){t.statistics_data_binding.call(null,e),p=!0,D(()=>p=!1)}_.push(()=>E(I,"data",M)),_.push(()=>E(I,"curr",A));let q={};void 0!==t.data&&(q.data=t.data);var B=new nt({props:q});function P(e){t.indicator_data_binding.call(null,e),h=!0,D(()=>h=!1)}function K(e){t.indicator_index_binding.call(null,e),b=!0,D(()=>b=!1)}_.push(()=>E(B,"data",V));let z={};void 0!==t.data&&(z.data=t.data),void 0!==t.index&&(z.index=t.index);var R=new St({props:z});return _.push(()=>E(R,"data",P)),_.push(()=>E(R,"index",K)),{c(){e=d("div"),S.$$.fragment.c(),o=f(),I.$$.fragment.c(),m=f(),B.$$.fragment.c(),g=f(),R.$$.fragment.c(),v(e,"class",y="w row s12 br fs marg "+t.bgcolor+" lighten-1 black-text center-align svelte-1lrfqle")},m(t,n){i(t,e,n),L(S,e,null),u(e,o),L(I,e,null),u(e,m),L(B,e,null),u(e,g),L(R,e,null),$=!0},p(t,o){var u={};!n&&t.data&&(u.data=o.data),!r&&t.curr&&(u.curr=o.curr),!a&&t.index&&(u.index=o.index),S.$set(u);var i={};!l&&t.data&&(i.data=o.data),!s&&t.curr&&(i.curr=o.curr),I.$set(i);var c={};!p&&t.data&&(c.data=o.data),B.$set(c);var d={};!h&&t.data&&(d.data=o.data),!b&&t.index&&(d.index=o.index),R.$set(d),$&&!t.bgcolor||y===(y="w row s12 br fs marg "+o.bgcolor+" lighten-1 black-text center-align svelte-1lrfqle")||v(e,"class",y)},i(t){$||(N(S.$$.fragment,t),N(I.$$.fragment,t),N(B.$$.fragment,t),N(R.$$.fragment,t),$=!0)},o(t){U(S.$$.fragment,t),U(I.$$.fragment,t),U(B.$$.fragment,t),U(R.$$.fragment,t),$=!1},d(t){t&&c(e),F(S),F(I),F(B),F(R)}}}function At(t,e,n){let r,{data:a,curr:o,index:u}=e;return t.$set=(t=>{"data"in t&&n("data",a=t.data),"curr"in t&&n("curr",o=t.curr),"index"in t&&n("index",u=t.index)}),t.$$.update=((t={curr:1})=>{t.curr&&n("bgcolor",r=o.a==o.b?"green":"grey")}),{data:a,curr:o,index:u,bgcolor:r,navigation_data_binding:function(t){n("data",a=t)},navigation_curr_binding:function(t){n("curr",o=t)},navigation_index_binding:function(t){n("index",u=t)},commands_data_binding:function(t){n("data",a=t)},commands_curr_binding:function(t){n("curr",o=t)},statistics_data_binding:function(t){n("data",a=t)},indicator_data_binding:function(t){n("data",a=t)},indicator_index_binding:function(t){n("index",u=t)}}}class Ot extends B{constructor(t){super(),q(this,t,At,Mt,o,["data","curr","index"])}}var Nt=1/0,Ut=9007199254740991,It=1.7976931348623157e308,Et=NaN,Lt="[object Function]",Ft="[object GeneratorFunction]",Vt="[object Symbol]",qt=/^\s+|\s+$/g,Bt=/^[-+]0x[0-9a-f]+$/i,Pt=/^0b[01]+$/i,Kt=/^0o[0-7]+$/i,zt=/^(?:0|[1-9]\d*)$/,Rt=parseFloat,Ht=parseInt,Tt=Object.prototype.toString,Ct=Math.floor,Gt=Math.min,Xt=Math.random;function Wt(t,e,n){if(!Jt(n))return!1;var r=typeof e;return!!("number"==r?function(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=Ut}(t.length)&&!function(t){var e=Jt(t)?Tt.call(t):"";return e==Lt||e==Ft}(t)}(n)&&function(t,e){return!!(e=null==e?Ut:e)&&("number"==typeof t||zt.test(t))&&t>-1&&t%1==0&&t<e}(e,n.length):"string"==r&&e in n)&&function(t,e){return t===e||t!=t&&e!=e}(n[e],t)}function Jt(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}function Qt(t){return t?(t=function(t){if("number"==typeof t)return t;if(function(t){return"symbol"==typeof t||function(t){return!!t&&"object"==typeof t}(t)&&Tt.call(t)==Vt}(t))return Et;if(Jt(t)){var e="function"==typeof t.valueOf?t.valueOf():t;t=Jt(e)?e+"":e}if("string"!=typeof t)return 0===t?t:+t;t=t.replace(qt,"");var n=Pt.test(t);return n||Kt.test(t)?Ht(t.slice(2),n?2:8):Bt.test(t)?Et:+t}(t))===Nt||t===-Nt?(t<0?-1:1)*It:t==t?t:0:0===t?t:0}var Yt=function(t,e,n){if(n&&"boolean"!=typeof n&&Wt(t,e,n)&&(e=n=void 0),void 0===n&&("boolean"==typeof e?(n=e,e=void 0):"boolean"==typeof t&&(n=t,t=void 0)),void 0===t&&void 0===e?(t=0,e=1):(t=Qt(t),void 0===e?(e=t,t=0):e=Qt(e)),t>e){var r=t;t=e,e=r}if(n||t%1||e%1){var a=Xt();return Gt(t+a*(e-t+Rt("1e-"+((a+"").length-1))),e)}return function(t,e){return t+Ct(Xt()*(e-t+1))}(t,e)},Zt=9007199254740991,te="[object Arguments]",ee="[object Function]",ne="[object GeneratorFunction]",re=/^(?:0|[1-9]\d*)$/;function ae(t,e){return function(t,e){for(var n=-1,r=t?t.length:0,a=Array(r);++n<r;)a[n]=e(t[n],n,t);return a}(e,function(e){return t[e]})}var oe,ue,ie=Object.prototype,ce=ie.hasOwnProperty,de=ie.toString,le=ie.propertyIsEnumerable,se=Math.floor,fe=(oe=Object.keys,ue=Object,function(t){return oe(ue(t))}),me=Math.random;function ve(t,e){var n=he(t)||function(t){return function(t){return function(t){return!!t&&"object"==typeof t}(t)&&be(t)}(t)&&ce.call(t,"callee")&&(!le.call(t,"callee")||de.call(t)==te)}(t)?function(t,e){for(var n=-1,r=Array(t);++n<t;)r[n]=e(n);return r}(t.length,String):[],r=n.length,a=!!r;for(var o in t)!e&&!ce.call(t,o)||a&&("length"==o||ge(o,r))||n.push(o);return n}function pe(t){if(n=(e=t)&&e.constructor,r="function"==typeof n&&n.prototype||ie,e!==r)return fe(t);var e,n,r,a=[];for(var o in Object(t))ce.call(t,o)&&"constructor"!=o&&a.push(o);return a}function ge(t,e){return!!(e=null==e?Zt:e)&&("number"==typeof t||re.test(t))&&t>-1&&t%1==0&&t<e}var he=Array.isArray;function be(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=Zt}(t.length)&&!function(t){var e=function(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}(t)?de.call(t):"";return e==ee||e==ne}(t)}var ye=function(t){var e,n,r,a=be(t)?t:(e=t)?ae(e,function(t){return be(t)?ve(t):pe(t)}(e)):[],o=a.length;return o>0?a[(n=0,r=o-1,n+se(me()*(r-n+1)))]:void 0},_e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:{},$e=1/0,xe=9007199254740991,we=1.7976931348623157e308,je=NaN,ke=4294967295,De="[object Arguments]",Se="[object Function]",Me="[object GeneratorFunction]",Ae="[object Map]",Oe="[object Set]",Ne="[object String]",Ue="[object Symbol]",Ie=/^\s+|\s+$/g,Ee=/^[-+]0x[0-9a-f]+$/i,Le=/^0b[01]+$/i,Fe=/^\[object .+?Constructor\]$/,Ve=/^0o[0-7]+$/i,qe=/^(?:0|[1-9]\d*)$/,Be="[\\ud800-\\udfff]",Pe="[\\u0300-\\u036f\\ufe20-\\ufe23\\u20d0-\\u20f0]",Ke="\\ud83c[\\udffb-\\udfff]",ze="[^\\ud800-\\udfff]",Re="(?:\\ud83c[\\udde6-\\uddff]){2}",He="[\\ud800-\\udbff][\\udc00-\\udfff]",Te="(?:"+Pe+"|"+Ke+")"+"?",Ce="[\\ufe0e\\ufe0f]?"+Te+("(?:\\u200d(?:"+[ze,Re,He].join("|")+")[\\ufe0e\\ufe0f]?"+Te+")*"),Ge="(?:"+[ze+Pe+"?",Pe,Re,He,Be].join("|")+")",Xe=RegExp(Ke+"(?="+Ke+")|"+Ge+Ce,"g"),We=RegExp("[\\u200d\\ud800-\\udfff\\u0300-\\u036f\\ufe20-\\ufe23\\u20d0-\\u20f0\\ufe0e\\ufe0f]"),Je=parseInt,Qe="object"==typeof _e&&_e&&_e.Object===Object&&_e,Ye="object"==typeof self&&self&&self.Object===Object&&self,Ze=Qe||Ye||Function("return this")();function tn(t,e){return function(t,e){for(var n=-1,r=t?t.length:0,a=Array(r);++n<r;)a[n]=e(t[n],n,t);return a}(e,function(e){return t[e]})}function en(t){var e=-1,n=Array(t.size);return t.forEach(function(t,r){n[++e]=[r,t]}),n}function nn(t){var e=-1,n=Array(t.size);return t.forEach(function(t){n[++e]=t}),n}function rn(t){return function(t){return We.test(t)}(t)?function(t){return t.match(Xe)||[]}(t):function(t){return t.split("")}(t)}var an,on=Function.prototype,un=Object.prototype,cn=Ze["__core-js_shared__"],dn=(an=/[^.]+$/.exec(cn&&cn.keys&&cn.keys.IE_PROTO||""))?"Symbol(src)_1."+an:"",ln=on.toString,sn=un.hasOwnProperty,fn=un.toString,mn=RegExp("^"+ln.call(sn).replace(/[\\^$.*+?()[\]{}|]/g,"\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,"$1.*?")+"$"),vn=Ze.Symbol,pn=vn?vn.iterator:void 0,gn=un.propertyIsEnumerable,hn=Math.floor,bn=function(t,e){return function(n){return t(e(n))}}(Object.keys,Object),yn=Math.random,_n=En(Ze,"DataView"),$n=En(Ze,"Map"),xn=En(Ze,"Promise"),wn=En(Ze,"Set"),jn=En(Ze,"WeakMap"),kn=Vn(_n),Dn=Vn($n),Sn=Vn(xn),Mn=Vn(wn),An=Vn(jn);function On(t,e){var n=Bn(t)||function(t){return function(t){return Rn(t)&&Pn(t)}(t)&&sn.call(t,"callee")&&(!gn.call(t,"callee")||fn.call(t)==De)}(t)?function(t,e){for(var n=-1,r=Array(t);++n<t;)r[n]=e(n);return r}(t.length,String):[],r=n.length,a=!!r;for(var o in t)!e&&!sn.call(t,o)||a&&("length"==o||Fn(o,r))||n.push(o);return n}function Nn(t){return!(!zn(t)||(e=t,dn&&dn in e))&&(Kn(t)||function(t){var e=!1;if(null!=t&&"function"!=typeof t.toString)try{e=!!(t+"")}catch(t){}return e}(t)?mn:Fe).test(Vn(t));var e}function Un(t){if(n=(e=t)&&e.constructor,r="function"==typeof n&&n.prototype||un,e!==r)return bn(t);var e,n,r,a=[];for(var o in Object(t))sn.call(t,o)&&"constructor"!=o&&a.push(o);return a}function In(t,e){return t+hn(yn()*(e-t+1))}function En(t,e){var n=function(t,e){return null==t?void 0:t[e]}(t,e);return Nn(n)?n:void 0}var Ln=function(t){return fn.call(t)};function Fn(t,e){return!!(e=null==e?xe:e)&&("number"==typeof t||qe.test(t))&&t>-1&&t%1==0&&t<e}function Vn(t){if(null!=t){try{return ln.call(t)}catch(t){}try{return t+""}catch(t){}}return""}function qn(t,e,n){var r,a,o,u=-1,i=function(t){if(!t)return[];if(Pn(t))return function(t){return"string"==typeof t||!Bn(t)&&Rn(t)&&fn.call(t)==Ne}(t)?rn(t):function(t,e){var n=-1,r=t.length;for(e||(e=Array(r));++n<r;)e[n]=t[n];return e}(t);if(pn&&t[pn])return function(t){for(var e,n=[];!(e=t.next()).done;)n.push(e.value);return n}(t[pn]());var e=Ln(t);return(e==Ae?en:e==Oe?nn:Hn)(t)}(t),c=i.length,d=c-1;for((n?function(t,e,n){if(!zn(n))return!1;var r=typeof e;return!!("number"==r?Pn(n)&&Fn(e,n.length):"string"==r&&e in n)&&function(t,e){return t===e||t!=t&&e!=e}(n[e],t)}(t,e,n):void 0===e)?e=1:(r=function(t){var e=function(t){if(!t)return 0===t?t:0;if((t=function(t){if("number"==typeof t)return t;if(function(t){return"symbol"==typeof t||Rn(t)&&fn.call(t)==Ue}(t))return je;if(zn(t)){var e="function"==typeof t.valueOf?t.valueOf():t;t=zn(e)?e+"":e}if("string"!=typeof t)return 0===t?t:+t;t=t.replace(Ie,"");var n=Le.test(t);return n||Ve.test(t)?Je(t.slice(2),n?2:8):Ee.test(t)?je:+t}(t))===$e||t===-$e){var e=t<0?-1:1;return e*we}return t==t?t:0}(t),n=e%1;return e==e?n?e-n:e:0}(e),a=0,o=c,r==r&&(void 0!==o&&(r=r<=o?r:o),void 0!==a&&(r=r>=a?r:a)),e=r);++u<e;){var l=In(u,d),s=i[l];i[l]=i[u],i[u]=s}return i.length=e,i}(_n&&"[object DataView]"!=Ln(new _n(new ArrayBuffer(1)))||$n&&Ln(new $n)!=Ae||xn&&"[object Promise]"!=Ln(xn.resolve())||wn&&Ln(new wn)!=Oe||jn&&"[object WeakMap]"!=Ln(new jn))&&(Ln=function(t){var e=fn.call(t),n="[object Object]"==e?t.constructor:void 0,r=n?Vn(n):void 0;if(r)switch(r){case kn:return"[object DataView]";case Dn:return Ae;case Sn:return"[object Promise]";case Mn:return Oe;case An:return"[object WeakMap]"}return e});var Bn=Array.isArray;function Pn(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=xe}(t.length)&&!Kn(t)}function Kn(t){var e=zn(t)?fn.call(t):"";return e==Se||e==Me}function zn(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}function Rn(t){return!!t&&"object"==typeof t}function Hn(t){return t?tn(t,function(t){return Pn(t)?On(t):Un(t)}(t)):[]}var Tn=function(t){return qn(t,ke)};const{window:Cn}=I;function Gn(t){var e,n,a,o,l,h,b,y,_=new Ot({props:{data:t.data,index:t.index,curr:t.curr}});return{c(){(e=d("a")).innerHTML="<h1>Shortcut</h1>",n=f(),a=d("div"),_.$$.fragment.c(),o=f(),l=d("div"),h=s(t.message),v(e,"href","https://github.com/ChristerNilsson/Lab/wiki/Shortcut"),v(e,"class","center-align svelte-1yxvpcj"),v(e,"target","_blank"),g(a,"width","90%"),g(a,"margin","auto"),v(l,"class","w fs center-align svelte-1yxvpcj"),y=[m(Cn,"keydown",t.handleKeyDown),m(e,"mousemove",t.mousemove_handler)]},m(t,r){i(t,e,r),i(t,n,r),i(t,a,r),L(_,a,null),i(t,o,r),i(t,l,r),u(l,h),b=!0},p(t,e){var n={};t.data&&(n.data=e.data),t.index&&(n.index=e.index),t.curr&&(n.curr=e.curr),_.$set(n),b&&!t.message||p(h,e.message)},i(t){b||(N(_.$$.fragment,t),b=!0)},o(t){U(_.$$.fragment,t),b=!1},d(t){t&&(c(e),c(n),c(a)),F(_),t&&(c(o),c(l)),r(y)}}}function Xn(t,e,n){const r=new URL(window.location.href),a=(t,e)=>parseInt(r.searchParams.get(t)||e);let o={},u=0,i=null;n("data",o.M=a("M",3),o),n("data",o.N=a("N",24),o),n("data",o.MAX=a("MAX",20),o),n("data",o.SHUFFLE=a("SHUFFLE",0),o),n("data",o.ADD=a("ADD",2),o),n("data",o.MUL=a("MUL",2),o),n("data",o.DIV=a("DIV",2),o),n("data",o.SUB=a("SUB",0),o),n("data",o.score=0,o),n("data",o.undos=0,o),n("data",o.start=new Date,o),n("data",o.stopp=new Date,o),n("data",o.optimum=0,o);const c=t=>{let e=Yt(1,o.MAX),r=[e];const a={},u={};a[e.toString()]=0,u[e.toString()]=e;for(const e of xt(t)){const t=[],n=n=>{if(n<=o.MUL*o.MAX){const r=n.toString();r in u||(t.push(n),a[r]=e+1,u[r]=n)}};for(const t of r)n(t+o.ADD),n(t-o.SUB),n(t*o.MUL),t%o.DIV==0&&n(t/o.DIV);r=t}if(r.length>0){const t=ye(r),u=t.toString();return n("data",o.optimum+=a[u],o),{a:e,b:t,hist:[],orig:e}}{const t=ye(Object.keys(a));return n("data",o.optimum+=a[t],o),{a:e,b:u[t],hist:[],orig:e}}};let d=[];for(const t of xt(o.M))for(const e of xt(o.N/o.M))d.push(c(t+1));n("data",o.cand=1==o.SHUFFLE?Tn(d):d,o),n("data",o.op=(t=>{i.a!=t&&(i.hist.push(i.a),n("curr",i.a=t,i),n("data",o.score++,o),n("data",o.stopp=new Date,o))}),o),n("data",o.undo=(()=>{n("data",o.score--,o),n("data",o.undos++,o),n("curr",i.a=i.hist.pop(),i)}),o),n("data",o.reset=(()=>{n("data",o.start=new Date,o),n("data",o.stopp=new Date,o),n("data",o.score=0,o),n("data",o.undos=0,o),n("index",u=0);for(const t of o.cand)t.a=t.orig,t.hist=[]}),o),n("data",o.click=(t=>n("index",u=t)),o),n("data",o.incr=(t=>n("index",u+=t)),o);let l="";n("data",o.mm=((t,e="")=>{"info"==t&&n("message",l="click for info about how to use and customize Shortcut"),"score"==t&&n("message",l="number of operations you have used. Minimize!"),"optimum"==t&&n("message",l="the minimum number of operations necessary"),"undos"==t&&n("message",l="number of undoes. Minimize"),"time"==t&&n("message",l="number of seconds you have used. Minimize"),"left"==t&&n("message",l="make this number equal to the target number"),"right"==t&&n("message",l="this is the target number"),"prev"==t&&n("message",l="previous exercise. Key=leftArrow"),"next"==t&&n("message",l="next exercise. Key=rightArrow or space"),"add"==t&&n("message",l="addition operation on left number. Key=a"),"mul"==t&&n("message",l="multiplication operation on left number. Key=w or m"),"sub"==t&&n("message",l="subtraction operation on left number. Key=s"),"div"==t&&n("message",l="division operation on left number. Key=d"),"undo"==t&&n("message",l="last operation is undone. Key=z"),"circle"==t&&n("message",l="jump to exercise #"+e)}),o);return t.$$.update=((t={data:1,index:1})=>{(t.data||t.index)&&n("curr",i=o.cand[u])}),{data:o,index:u,curr:i,handleKeyDown:t=>{t.preventDefault(),"ArrowLeft"==t.key&&u>0&&n("index",u--,u),"ArrowRight"==t.key&&u<o.N-1&&n("index",u++,u)," "==t.key&&n("index",u=(u+1)%o.N),"Home"==t.key&&n("index",u=0),"End"==t.key&&n("index",u=o.N-1),"a"==t.key&&i.a!=i.b&&o.op(i.a+o.ADD),"s"==t.key&&i.a!=i.b&&o.op(i.a-o.SUB),"m"!=t.key&&"w"!=t.key||i.a==i.b||o.op(i.a*o.MUL),"d"==t.key&&i.a!=i.b&&i.a%o.DIV==0&&o.op(i.a/o.DIV),"z"==t.key&&i.hist.length>0&&o.undo(),"r"==t.key&&o.reset()},message:l,mousemove_handler:()=>o.mm("info")}}return new class extends B{constructor(t){super(),q(this,t,Xn,Gn,o,[])}}({target:document.body})}();
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.head.appendChild(r) })(window.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function null_to_empty(value) {
+        return value == null ? '' : value;
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function empty() {
+        return text('');
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    function flush() {
+        const seen_callbacks = new Set();
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            while (dirty_components.length) {
+                const component = dirty_components.shift();
+                set_current_component(component);
+                update(component.$$);
+            }
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    callback();
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+    }
+    function update($$) {
+        if ($$.fragment) {
+            $$.update($$.dirty);
+            run_all($$.before_update);
+            $$.fragment.p($$.dirty, $$.ctx);
+            $$.dirty = null;
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+
+    const globals = (typeof window !== 'undefined' ? window : global);
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        if (component.$$.fragment) {
+            run_all(component.$$.on_destroy);
+            component.$$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            component.$$.on_destroy = component.$$.fragment = null;
+            component.$$.ctx = {};
+        }
+    }
+    function make_dirty(component, key) {
+        if (!component.$$.dirty) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty = blank_object();
+        }
+        component.$$.dirty[key] = true;
+    }
+    function init(component, options, instance, create_fragment, not_equal, prop_names) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const props = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props: prop_names,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty: null
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, props, (key, ret, value = ret) => {
+                if ($$.ctx && not_equal($$.ctx[key], $$.ctx[key] = value)) {
+                    if ($$.bound[key])
+                        $$.bound[key](value);
+                    if (ready)
+                        make_dirty(component, key);
+                }
+                return ret;
+            })
+            : props;
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        $$.fragment = create_fragment($$.ctx);
+        if (options.target) {
+            if (options.hydrate) {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.l(children(options.target));
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set() {
+            // overridden by instance, if it has props
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, detail));
+    }
+    function append_dev(target, node) {
+        dispatch_dev("SvelteDOMInsert", { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev("SvelteDOMInsert", { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev("SvelteDOMRemove", { node });
+        detach(node);
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev("SvelteDOMRemoveAttribute", { node, attribute });
+        else
+            dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.data === data)
+            return;
+        dispatch_dev("SvelteDOMSetData", { node: text, data });
+        text.data = data;
+    }
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error(`'target' is a required option`);
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn(`Component was already destroyed`); // eslint-disable-line no-console
+            };
+        }
+    }
+
+    /**
+     * lodash (Custom Build) <https://lodash.com/>
+     * Build: `lodash modularize exports="npm" -o ./`
+     * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+     * Released under MIT license <https://lodash.com/license>
+     * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+     * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+     */
+
+    /** Used as references for various `Number` constants. */
+    var INFINITY = 1 / 0,
+        MAX_SAFE_INTEGER = 9007199254740991,
+        MAX_INTEGER = 1.7976931348623157e+308,
+        NAN = 0 / 0;
+
+    /** `Object#toString` result references. */
+    var funcTag = '[object Function]',
+        genTag = '[object GeneratorFunction]',
+        symbolTag = '[object Symbol]';
+
+    /** Used to match leading and trailing whitespace. */
+    var reTrim = /^\s+|\s+$/g;
+
+    /** Used to detect bad signed hexadecimal string values. */
+    var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+    /** Used to detect binary string values. */
+    var reIsBinary = /^0b[01]+$/i;
+
+    /** Used to detect octal string values. */
+    var reIsOctal = /^0o[0-7]+$/i;
+
+    /** Used to detect unsigned integer values. */
+    var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+    /** Built-in method references without a dependency on `root`. */
+    var freeParseInt = parseInt;
+
+    /** Used for built-in method references. */
+    var objectProto = Object.prototype;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var objectToString = objectProto.toString;
+
+    /* Built-in method references for those with the same name as other `lodash` methods. */
+    var nativeCeil = Math.ceil,
+        nativeMax = Math.max;
+
+    /**
+     * The base implementation of `_.range` and `_.rangeRight` which doesn't
+     * coerce arguments.
+     *
+     * @private
+     * @param {number} start The start of the range.
+     * @param {number} end The end of the range.
+     * @param {number} step The value to increment or decrement by.
+     * @param {boolean} [fromRight] Specify iterating from right to left.
+     * @returns {Array} Returns the range of numbers.
+     */
+    function baseRange(start, end, step, fromRight) {
+      var index = -1,
+          length = nativeMax(nativeCeil((end - start) / (step || 1)), 0),
+          result = Array(length);
+
+      while (length--) {
+        result[fromRight ? length : ++index] = start;
+        start += step;
+      }
+      return result;
+    }
+
+    /**
+     * Creates a `_.range` or `_.rangeRight` function.
+     *
+     * @private
+     * @param {boolean} [fromRight] Specify iterating from right to left.
+     * @returns {Function} Returns the new range function.
+     */
+    function createRange(fromRight) {
+      return function(start, end, step) {
+        if (step && typeof step != 'number' && isIterateeCall(start, end, step)) {
+          end = step = undefined;
+        }
+        // Ensure the sign of `-0` is preserved.
+        start = toFinite(start);
+        if (end === undefined) {
+          end = start;
+          start = 0;
+        } else {
+          end = toFinite(end);
+        }
+        step = step === undefined ? (start < end ? 1 : -1) : toFinite(step);
+        return baseRange(start, end, step, fromRight);
+      };
+    }
+
+    /**
+     * Checks if `value` is a valid array-like index.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+     * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+     */
+    function isIndex(value, length) {
+      length = length == null ? MAX_SAFE_INTEGER : length;
+      return !!length &&
+        (typeof value == 'number' || reIsUint.test(value)) &&
+        (value > -1 && value % 1 == 0 && value < length);
+    }
+
+    /**
+     * Checks if the given arguments are from an iteratee call.
+     *
+     * @private
+     * @param {*} value The potential iteratee value argument.
+     * @param {*} index The potential iteratee index or key argument.
+     * @param {*} object The potential iteratee object argument.
+     * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+     *  else `false`.
+     */
+    function isIterateeCall(value, index, object) {
+      if (!isObject(object)) {
+        return false;
+      }
+      var type = typeof index;
+      if (type == 'number'
+            ? (isArrayLike(object) && isIndex(index, object.length))
+            : (type == 'string' && index in object)
+          ) {
+        return eq(object[index], value);
+      }
+      return false;
+    }
+
+    /**
+     * Performs a
+     * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+     * comparison between two values to determine if they are equivalent.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to compare.
+     * @param {*} other The other value to compare.
+     * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+     * @example
+     *
+     * var object = { 'a': 1 };
+     * var other = { 'a': 1 };
+     *
+     * _.eq(object, object);
+     * // => true
+     *
+     * _.eq(object, other);
+     * // => false
+     *
+     * _.eq('a', 'a');
+     * // => true
+     *
+     * _.eq('a', Object('a'));
+     * // => false
+     *
+     * _.eq(NaN, NaN);
+     * // => true
+     */
+    function eq(value, other) {
+      return value === other || (value !== value && other !== other);
+    }
+
+    /**
+     * Checks if `value` is array-like. A value is considered array-like if it's
+     * not a function and has a `value.length` that's an integer greater than or
+     * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+     * @example
+     *
+     * _.isArrayLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLike(document.body.children);
+     * // => true
+     *
+     * _.isArrayLike('abc');
+     * // => true
+     *
+     * _.isArrayLike(_.noop);
+     * // => false
+     */
+    function isArrayLike(value) {
+      return value != null && isLength(value.length) && !isFunction(value);
+    }
+
+    /**
+     * Checks if `value` is classified as a `Function` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+     * @example
+     *
+     * _.isFunction(_);
+     * // => true
+     *
+     * _.isFunction(/abc/);
+     * // => false
+     */
+    function isFunction(value) {
+      // The use of `Object#toString` avoids issues with the `typeof` operator
+      // in Safari 8-9 which returns 'object' for typed array and other constructors.
+      var tag = isObject(value) ? objectToString.call(value) : '';
+      return tag == funcTag || tag == genTag;
+    }
+
+    /**
+     * Checks if `value` is a valid array-like length.
+     *
+     * **Note:** This method is loosely based on
+     * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+     * @example
+     *
+     * _.isLength(3);
+     * // => true
+     *
+     * _.isLength(Number.MIN_VALUE);
+     * // => false
+     *
+     * _.isLength(Infinity);
+     * // => false
+     *
+     * _.isLength('3');
+     * // => false
+     */
+    function isLength(value) {
+      return typeof value == 'number' &&
+        value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+    }
+
+    /**
+     * Checks if `value` is the
+     * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+     * @example
+     *
+     * _.isObject({});
+     * // => true
+     *
+     * _.isObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isObject(_.noop);
+     * // => true
+     *
+     * _.isObject(null);
+     * // => false
+     */
+    function isObject(value) {
+      var type = typeof value;
+      return !!value && (type == 'object' || type == 'function');
+    }
+
+    /**
+     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * and has a `typeof` result of "object".
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+     * @example
+     *
+     * _.isObjectLike({});
+     * // => true
+     *
+     * _.isObjectLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isObjectLike(_.noop);
+     * // => false
+     *
+     * _.isObjectLike(null);
+     * // => false
+     */
+    function isObjectLike(value) {
+      return !!value && typeof value == 'object';
+    }
+
+    /**
+     * Checks if `value` is classified as a `Symbol` primitive or object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+     * @example
+     *
+     * _.isSymbol(Symbol.iterator);
+     * // => true
+     *
+     * _.isSymbol('abc');
+     * // => false
+     */
+    function isSymbol(value) {
+      return typeof value == 'symbol' ||
+        (isObjectLike(value) && objectToString.call(value) == symbolTag);
+    }
+
+    /**
+     * Converts `value` to a finite number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.12.0
+     * @category Lang
+     * @param {*} value The value to convert.
+     * @returns {number} Returns the converted number.
+     * @example
+     *
+     * _.toFinite(3.2);
+     * // => 3.2
+     *
+     * _.toFinite(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toFinite(Infinity);
+     * // => 1.7976931348623157e+308
+     *
+     * _.toFinite('3.2');
+     * // => 3.2
+     */
+    function toFinite(value) {
+      if (!value) {
+        return value === 0 ? value : 0;
+      }
+      value = toNumber(value);
+      if (value === INFINITY || value === -INFINITY) {
+        var sign = (value < 0 ? -1 : 1);
+        return sign * MAX_INTEGER;
+      }
+      return value === value ? value : 0;
+    }
+
+    /**
+     * Converts `value` to a number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to process.
+     * @returns {number} Returns the number.
+     * @example
+     *
+     * _.toNumber(3.2);
+     * // => 3.2
+     *
+     * _.toNumber(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toNumber(Infinity);
+     * // => Infinity
+     *
+     * _.toNumber('3.2');
+     * // => 3.2
+     */
+    function toNumber(value) {
+      if (typeof value == 'number') {
+        return value;
+      }
+      if (isSymbol(value)) {
+        return NAN;
+      }
+      if (isObject(value)) {
+        var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+        value = isObject(other) ? (other + '') : other;
+      }
+      if (typeof value != 'string') {
+        return value === 0 ? value : +value;
+      }
+      value = value.replace(reTrim, '');
+      var isBinary = reIsBinary.test(value);
+      return (isBinary || reIsOctal.test(value))
+        ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+        : (reIsBadHex.test(value) ? NAN : +value);
+    }
+
+    /**
+     * Creates an array of numbers (positive and/or negative) progressing from
+     * `start` up to, but not including, `end`. A step of `-1` is used if a negative
+     * `start` is specified without an `end` or `step`. If `end` is not specified,
+     * it's set to `start` with `start` then set to `0`.
+     *
+     * **Note:** JavaScript follows the IEEE-754 standard for resolving
+     * floating-point values which can produce unexpected results.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Util
+     * @param {number} [start=0] The start of the range.
+     * @param {number} end The end of the range.
+     * @param {number} [step=1] The value to increment or decrement by.
+     * @returns {Array} Returns the range of numbers.
+     * @see _.inRange, _.rangeRight
+     * @example
+     *
+     * _.range(4);
+     * // => [0, 1, 2, 3]
+     *
+     * _.range(-4);
+     * // => [0, -1, -2, -3]
+     *
+     * _.range(1, 5);
+     * // => [1, 2, 3, 4]
+     *
+     * _.range(0, 20, 5);
+     * // => [0, 5, 10, 15]
+     *
+     * _.range(0, -4, -1);
+     * // => [0, -1, -2, -3]
+     *
+     * _.range(1, 4, 0);
+     * // => [1, 1, 1]
+     *
+     * _.range(0);
+     * // => []
+     */
+    var range = createRange();
+
+    var lodash_range = range;
+
+    /* src\Clock.svelte generated by Svelte v3.12.1 */
+    const { console: console_1 } = globals;
+
+    const file = "src\\Clock.svelte";
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.offset = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.minute = list[i];
+    	return child_ctx;
+    }
+
+    // (29:2) {#each range(1,5) as offset}
+    function create_each_block_1(ctx) {
+    	var line, line_class_value;
+
+    	const block = {
+    		c: function create() {
+    			line = svg_element("line");
+    			attr_dev(line, "class", line_class_value = "" + ctx.halfday + " minor" + " svelte-xx5ykr");
+    			attr_dev(line, "y1", "42");
+    			attr_dev(line, "y2", "45");
+    			attr_dev(line, "transform", "rotate(" + 6 * (ctx.minute + ctx.offset) + ")");
+    			add_location(line, file, 29, 3, 848);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, line, anchor);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.halfday) && line_class_value !== (line_class_value = "" + ctx.halfday + " minor" + " svelte-xx5ykr")) {
+    				attr_dev(line, "class", line_class_value);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(line);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block_1.name, type: "each", source: "(29:2) {#each range(1,5) as offset}", ctx });
+    	return block;
+    }
+
+    // (27:1) {#each range(0,60,5) as minute}
+    function create_each_block(ctx) {
+    	var line, line_class_value, each_1_anchor;
+
+    	let each_value_1 = lodash_range(1,5);
+
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			line = svg_element("line");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    			attr_dev(line, "class", line_class_value = "" + ctx.halfday + " major" + " svelte-xx5ykr");
+    			attr_dev(line, "y1", "35");
+    			attr_dev(line, "y2", "45");
+    			attr_dev(line, "transform", "rotate(" + 30 * ctx.minute + ")");
+    			add_location(line, file, 27, 2, 735);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, line, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.halfday) && line_class_value !== (line_class_value = "" + ctx.halfday + " major" + " svelte-xx5ykr")) {
+    				attr_dev(line, "class", line_class_value);
+    			}
+
+    			if (changed.halfday || changed.range) {
+    				each_value_1 = lodash_range(1,5);
+
+    				let i;
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(changed, child_ctx);
+    					} else {
+    						each_blocks[i] = create_each_block_1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+    				each_blocks.length = each_value_1.length;
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(line);
+    			}
+
+    			destroy_each(each_blocks, detaching);
+
+    			if (detaching) {
+    				detach_dev(each_1_anchor);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(27:1) {#each range(0,60,5) as minute}", ctx });
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	var svg, circle0, circle0_class_value, text_1, t_value = ctx.city.name + "", t, line0, line0_class_value, line0_transform_value, line1, line1_class_value, line1_transform_value, line2, line2_transform_value, g, circle1, g_transform_value;
+
+    	let each_value = lodash_range(0,60,5);
+
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			svg = svg_element("svg");
+    			circle0 = svg_element("circle");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			text_1 = svg_element("text");
+    			t = text(t_value);
+    			line0 = svg_element("line");
+    			line1 = svg_element("line");
+    			line2 = svg_element("line");
+    			g = svg_element("g");
+    			circle1 = svg_element("circle");
+    			attr_dev(circle0, "class", circle0_class_value = "" + null_to_empty(ctx.halfday) + " svelte-xx5ykr");
+    			attr_dev(circle0, "r", "48");
+    			add_location(circle0, file, 24, 1, 664);
+    			set_style(text_1, "fill", ctx.textfill);
+    			attr_dev(text_1, "class", "city svelte-xx5ykr");
+    			attr_dev(text_1, "y", "25");
+    			add_location(text_1, file, 33, 1, 960);
+    			attr_dev(line0, "class", line0_class_value = "" + ctx.halfday + " hour" + " svelte-xx5ykr");
+    			attr_dev(line0, "y1", "6");
+    			attr_dev(line0, "y2", "-32");
+    			attr_dev(line0, "transform", line0_transform_value = "rotate(" + 30 * (ctx.h + ctx.m / 60) + ")");
+    			add_location(line0, file, 34, 1, 1027);
+    			attr_dev(line1, "class", line1_class_value = "" + ctx.halfday + " minute" + " svelte-xx5ykr");
+    			attr_dev(line1, "y1", "6");
+    			attr_dev(line1, "y2", "-45");
+    			attr_dev(line1, "transform", line1_transform_value = "rotate(" + 6 * ctx.m + ")");
+    			add_location(line1, file, 35, 1, 1115);
+    			attr_dev(line2, "class", "second svelte-xx5ykr");
+    			attr_dev(line2, "y1", "10");
+    			attr_dev(line2, "y2", "-34");
+    			attr_dev(line2, "transform", line2_transform_value = "rotate(" + 6 * ctx.s + ")");
+    			add_location(line2, file, 36, 1, 1191);
+    			attr_dev(circle1, "class", "second svelte-xx5ykr");
+    			attr_dev(circle1, "x", "0");
+    			attr_dev(circle1, "y", "0");
+    			attr_dev(circle1, "r", "3");
+    			attr_dev(circle1, "transform", "translate(0,-34)");
+    			add_location(circle1, file, 38, 2, 1291);
+    			attr_dev(g, "transform", g_transform_value = "rotate(" + 6 * ctx.s + ")");
+    			add_location(g, file, 37, 1, 1256);
+    			attr_dev(svg, "viewBox", "-50 -50 100 100");
+    			set_style(svg, "width", "" + 100/ctx.N + "%");
+    			set_style(svg, "height", "" + 100/ctx.N + "%");
+    			attr_dev(svg, "class", "svelte-xx5ykr");
+    			add_location(svg, file, 23, 0, 588);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, svg, anchor);
+    			append_dev(svg, circle0);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(svg, null);
+    			}
+
+    			append_dev(svg, text_1);
+    			append_dev(text_1, t);
+    			append_dev(svg, line0);
+    			append_dev(svg, line1);
+    			append_dev(svg, line2);
+    			append_dev(svg, g);
+    			append_dev(g, circle1);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.halfday) && circle0_class_value !== (circle0_class_value = "" + null_to_empty(ctx.halfday) + " svelte-xx5ykr")) {
+    				attr_dev(circle0, "class", circle0_class_value);
+    			}
+
+    			if (changed.range || changed.halfday) {
+    				each_value = lodash_range(0,60,5);
+
+    				let i;
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(changed, child_ctx);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(svg, text_1);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if ((changed.city) && t_value !== (t_value = ctx.city.name + "")) {
+    				set_data_dev(t, t_value);
+    			}
+
+    			if (changed.textfill) {
+    				set_style(text_1, "fill", ctx.textfill);
+    			}
+
+    			if ((changed.halfday) && line0_class_value !== (line0_class_value = "" + ctx.halfday + " hour" + " svelte-xx5ykr")) {
+    				attr_dev(line0, "class", line0_class_value);
+    			}
+
+    			if ((changed.h || changed.m) && line0_transform_value !== (line0_transform_value = "rotate(" + 30 * (ctx.h + ctx.m / 60) + ")")) {
+    				attr_dev(line0, "transform", line0_transform_value);
+    			}
+
+    			if ((changed.halfday) && line1_class_value !== (line1_class_value = "" + ctx.halfday + " minute" + " svelte-xx5ykr")) {
+    				attr_dev(line1, "class", line1_class_value);
+    			}
+
+    			if ((changed.m) && line1_transform_value !== (line1_transform_value = "rotate(" + 6 * ctx.m + ")")) {
+    				attr_dev(line1, "transform", line1_transform_value);
+    			}
+
+    			if ((changed.s) && line2_transform_value !== (line2_transform_value = "rotate(" + 6 * ctx.s + ")")) {
+    				attr_dev(line2, "transform", line2_transform_value);
+    			}
+
+    			if ((changed.s) && g_transform_value !== (g_transform_value = "rotate(" + 6 * ctx.s + ")")) {
+    				attr_dev(g, "transform", g_transform_value);
+    			}
+
+    			if (changed.N) {
+    				set_style(svg, "width", "" + 100/ctx.N + "%");
+    				set_style(svg, "height", "" + 100/ctx.N + "%");
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(svg);
+    			}
+
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { N, city, h, m, s } = $$props;
+    	console.log(city,h,m,s);
+
+    	const writable_props = ['N', 'city', 'h', 'm', 's'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console_1.warn(`<Clock> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$set = $$props => {
+    		if ('N' in $$props) $$invalidate('N', N = $$props.N);
+    		if ('city' in $$props) $$invalidate('city', city = $$props.city);
+    		if ('h' in $$props) $$invalidate('h', h = $$props.h);
+    		if ('m' in $$props) $$invalidate('m', m = $$props.m);
+    		if ('s' in $$props) $$invalidate('s', s = $$props.s);
+    	};
+
+    	$$self.$capture_state = () => {
+    		return { N, city, h, m, s, halfday, textfill };
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('N' in $$props) $$invalidate('N', N = $$props.N);
+    		if ('city' in $$props) $$invalidate('city', city = $$props.city);
+    		if ('h' in $$props) $$invalidate('h', h = $$props.h);
+    		if ('m' in $$props) $$invalidate('m', m = $$props.m);
+    		if ('s' in $$props) $$invalidate('s', s = $$props.s);
+    		if ('halfday' in $$props) $$invalidate('halfday', halfday = $$props.halfday);
+    		if ('textfill' in $$props) $$invalidate('textfill', textfill = $$props.textfill);
+    	};
+
+    	let halfday, textfill;
+
+    	$$self.$$.update = ($$dirty = { h: 1 }) => {
+    		if ($$dirty.h) { $$invalidate('halfday', halfday  = (6 <= h && h <= 17) ? 'day' : 'night'); }
+    		if ($$dirty.h) { $$invalidate('textfill', textfill = (6 <= h && h <= 17) ? 'black' : 'white'); }
+    	};
+
+    	return { N, city, h, m, s, halfday, textfill };
+    }
+
+    class Clock extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, ["N", "city", "h", "m", "s"]);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Clock", options, id: create_fragment.name });
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+    		if (ctx.N === undefined && !('N' in props)) {
+    			console_1.warn("<Clock> was created without expected prop 'N'");
+    		}
+    		if (ctx.city === undefined && !('city' in props)) {
+    			console_1.warn("<Clock> was created without expected prop 'city'");
+    		}
+    		if (ctx.h === undefined && !('h' in props)) {
+    			console_1.warn("<Clock> was created without expected prop 'h'");
+    		}
+    		if (ctx.m === undefined && !('m' in props)) {
+    			console_1.warn("<Clock> was created without expected prop 'm'");
+    		}
+    		if (ctx.s === undefined && !('s' in props)) {
+    			console_1.warn("<Clock> was created without expected prop 's'");
+    		}
+    	}
+
+    	get N() {
+    		throw new Error("<Clock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set N(value) {
+    		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get city() {
+    		throw new Error("<Clock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set city(value) {
+    		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get h() {
+    		throw new Error("<Clock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set h(value) {
+    		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get m() {
+    		throw new Error("<Clock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set m(value) {
+    		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get s() {
+    		throw new Error("<Clock>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set s(value) {
+    		throw new Error("<Clock>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\App.svelte generated by Svelte v3.12.1 */
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.city = list[i];
+    	return child_ctx;
+    }
+
+    // (16:0) {#each cities as city}
+    function create_each_block$1(ctx) {
+    	var current;
+
+    	var clock = new Clock({
+    		props: {
+    		N: ctx.cities.length,
+    		city: ctx.city,
+    		h: ctx.h+ctx.city.offset,
+    		m: ctx.m,
+    		s: ctx.s
+    	},
+    		$$inline: true
+    	});
+
+    	const block = {
+    		c: function create() {
+    			clock.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(clock, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var clock_changes = {};
+    			if (changed.h) clock_changes.h = ctx.h+ctx.city.offset;
+    			if (changed.m) clock_changes.m = ctx.m;
+    			if (changed.s) clock_changes.s = ctx.s;
+    			clock.$set(clock_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(clock.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(clock.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(clock, detaching);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block$1.name, type: "each", source: "(16:0) {#each cities as city}", ctx });
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	var each_1_anchor, current;
+
+    	let each_value = ctx.cities;
+
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (changed.cities || changed.h || changed.m || changed.s) {
+    				each_value = ctx.cities;
+
+    				let i;
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(changed, child_ctx);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				group_outros();
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+    				check_outros();
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_each(each_blocks, detaching);
+
+    			if (detaching) {
+    				detach_dev(each_1_anchor);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$1.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	
+    	let h=0,m=0,s=0;
+    	let cities = [{name:'New York',offset:-6}, {name:'Bagarmossen',offset:0}, {name:'Tokyo',offset:8}];
+    	
+    	setInterval(() => {
+    		const time = new Date();
+    		$$invalidate('h', h = time.getHours());
+    		$$invalidate('m', m = time.getMinutes());
+    		$$invalidate('s', s = time.getSeconds() + time.getMilliseconds()/1000);
+    		}, 50);
+
+    	$$self.$capture_state = () => {
+    		return {};
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('h' in $$props) $$invalidate('h', h = $$props.h);
+    		if ('m' in $$props) $$invalidate('m', m = $$props.m);
+    		if ('s' in $$props) $$invalidate('s', s = $$props.s);
+    		if ('cities' in $$props) $$invalidate('cities', cities = $$props.cities);
+    	};
+
+    	return { h, m, s, cities };
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, []);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "App", options, id: create_fragment$1.name });
+    	}
+    }
+
+    const app = new App({
+    	target: document.body,
+    	props: {}
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map
