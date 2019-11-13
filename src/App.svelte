@@ -1,5 +1,4 @@
 <script>	
-	import { col1,col2,col3 } from '../styles.js'
 	import Button from './Button.svelte'
 	import TimeMachine from './TimeMachine.svelte'
 
@@ -80,13 +79,13 @@
 	}
 </style>
 
-<h1 class={col2} style='font-size: 60px; color:red;'>{a}</h1>
-<h1 class={col2} style='font-size: 60px; color:green;'>{b}</h1>
-<Button klass={col3} title='+2'   click = {() => op(ADD)}  disabled = {a==b} />
-<Button klass={col3} title='*2'   click = {() => op(MUL)}  disabled = {a==b} />
-<Button klass={col3} title='/2'   click = {() => op(DIV)}  disabled = {a==b} />
-<Button klass={col2} title='New'  click = {() => op(NEW)}  disabled = {a!=b} />
-<Button klass={col2} title='Undo' click = {() => op(UNDO)} disabled = {hist.length==0} /> 
+<h1 class=col2 style='font-size: 60px; color:red;'>{a}</h1>
+<h1 class=col2 style='font-size: 60px; color:green;'>{b}</h1>
+<Button klass=col3 title='+2'   click = {() => op(ADD)}  disabled = {a==b} />
+<Button klass=col3 title='*2'   click = {() => op(MUL)}  disabled = {a==b} />
+<Button klass=col3 title='/2'   click = {() => op(DIV)}  disabled = {a==b} />
+<Button klass=col2 title='New'  click = {() => op(NEW)}  disabled = {a!=b} />
+<Button klass=col2 title='Undo' click = {() => op(UNDO)} disabled = {hist.length==0} /> 
 
 {#if USE_TIME_MACHINE}
 	<TimeMachine on:fixstate = {fixState} states={states} />

@@ -1,5 +1,4 @@
 <script>
-	import { col1,col2,col3 } from '../styles.js'
 	export let click
 	export let disabled
 	export let title
