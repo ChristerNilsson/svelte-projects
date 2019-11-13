@@ -1,1 +1,0 @@
-[Try it!](https://christernilsson.github.io/svelte-projects/arkiv/012)
