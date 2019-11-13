@@ -1,5 +1,4 @@
 <script>
-	// import { col1,col2,col3 } from '../styles.js'
 	import {createEventDispatcher} from 'svelte'
 	const dispatch = createEventDispatcher()
 	export let state
