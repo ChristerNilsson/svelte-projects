@@ -1,5 +1,13 @@
 ## Svelte
 
+* git branch <branch>
+* git checkout <branch>
+* npm run dev
+* npm run build
+* commit <branch>
+* .\deploy <branch>
+* commit master
+
 ## Branches
 
 * master
