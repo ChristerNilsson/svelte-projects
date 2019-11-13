@@ -5,7 +5,7 @@
 	const fixState = () => dispatch('fixstate',state)
 </script>
 
-<style>
+<style> 
 </style>
 
 <button class='col1' on:click={fixState}>

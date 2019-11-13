@@ -2,7 +2,7 @@
 	import Button from './Button.svelte'
 	import TimeMachine from './TimeMachine.svelte'
 
-	const USE_TIME_MACHINE = true
+	const USE_TIME_MACHINE = true 
 
 	let a = null
 	let b = null

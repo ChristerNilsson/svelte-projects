@@ -2,7 +2,7 @@
 	export let click
 	export let disabled
 	export let title
-	export let klass
+	export let klass 
 
 	if (window.innerWidth < 600) klass='col1'
 		
