@@ -157,7 +157,7 @@ hr {
 .sidebar {
   text-align: center;
   text-align: center;
-  background-image: url(../images/fleche-corner.svg);
+  /* background-image: url(../images/fleche-corner.svg); */
   background-size: contain;
   background-repeat: no-repeat;
   margin: 0 2rem 2rem;
@@ -263,7 +263,7 @@ hr {
     padding-bottom: 1.5rem;
     text-align: center;
     text-align: center;
-    background-image: url(../images/fleche.svg);
+    /* background-image: url(../images/fleche.svg); */
     background-size: 40px 40px;
     background-position: right -3px top 40px;
     background-repeat: no-repeat;
