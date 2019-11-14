@@ -3,11 +3,7 @@
 </script>
 
 <header class="site-header">
-	<h1>
-		M.C.
-		<br />
-		Desplat
-	</h1>
+	<h1>M.C. Desplat</h1>
 	<nav>
 		<ul>
 			<li>
