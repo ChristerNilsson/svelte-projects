@@ -1,6 +1,6 @@
 <style>
 	.clac.full-size {
-		background-image: url(../images/showcase_clac.jpg);
+		background-image: url(images/showcase_clac.jpg);
 	}
 </style>
 

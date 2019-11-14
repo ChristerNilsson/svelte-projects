@@ -1,6 +1,6 @@
 <style>
 	.ad.full-size {
-		background-image: url(../images/showcase_ad.jpg);
+		background-image: url(images/showcase_ad.jpg);
 	}
 </style>
 

@@ -1,6 +1,6 @@
 <style>
 	.digitpaul.full-size {
-		background-image: url(../images/showcase_digitpaul.jpg);
+		background-image: url(images/showcase_digitpaul.jpg);
 	}
 </style>
 

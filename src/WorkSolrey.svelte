@@ -1,6 +1,6 @@
 <style>
 	.solrey.full-size {
-		background-image: url(../images/showcase_solrey.jpg);
+		background-image: url(images/showcase_solrey.jpg);
 	}
 </style>
 
