@@ -26,7 +26,7 @@
 				<button on:mousemove={(evt) => data.mm('mul')} class=br on:click={() => data.op(curr.a*data.MUL)} disabled={done}>mul {data.MUL}</button>
 			{/if}
 			{#if (data.DIV!=1)}
-				<button on:mousemove={(evt) => data.mm('div')} class=br on:click={() => data.op(curr.a/data.DIV)} disabled={done || curr.a % data.DIV != 0}>div {data.DIV}</button>
+				<button on:mousemove={(evt) => data.mm('div')} class=br on:click={() => data.op(curr.a/data.DIV)} disabled={done || curr.a % data.DIV != 0} >div {data.DIV}</button>
 			{/if}
 		</div>
 		<div class="left col s3 fs marg right-align">

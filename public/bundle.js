@@ -1,2 +1,4981 @@
-var app=function(){"use strict";function t(){}const e=t=>t;function n(t,e){for(const n in e)t[n]=e[n];return t}function r(t){return t()}function a(){return Object.create(null)}function o(t){t.forEach(r)}function u(t){return"function"==typeof t}function i(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function c(t,e,n){t.$$.on_destroy.push(function(t,e){const n=t.subscribe(e);return n.unsubscribe?()=>n.unsubscribe():n}(e,n))}function d(t,e,n=e){return t.set(n),e}const s="undefined"!=typeof window;let l=s?()=>window.performance.now():()=>Date.now(),f=s?t=>requestAnimationFrame(t):t;const m=new Set;let p,g=!1;function v(){m.forEach(t=>{t[0](l())||(m.delete(t),t[1]())}),(g=m.size>0)&&f(v)}function h(t,e){t.appendChild(e)}function b(t,e,n){t.insertBefore(e,n||null)}function y(t){t.parentNode.removeChild(t)}function $(t){return document.createElement(t)}function _(t){return document.createElementNS("http://www.w3.org/2000/svg",t)}function x(t){return document.createTextNode(t)}function w(){return x(" ")}function j(t,e,n,r){return t.addEventListener(e,n,r),()=>t.removeEventListener(e,n,r)}function k(t,e,n){null==n?t.removeAttribute(e):t.setAttribute(e,n)}function A(t,e){e=""+e,t.data!==e&&(t.data=e)}function D(t,e,n,r){t.style.setProperty(e,n,r?"important":"")}function M(t){p=t}const S=[],O=[],E=[],N=[],U=Promise.resolve();let I=!1;function L(t){E.push(t)}function F(t){N.push(t)}function B(){const t=new Set;do{for(;S.length;){const t=S.shift();M(t),V(t.$$)}for(;O.length;)O.pop()();for(let e=0;e<E.length;e+=1){const n=E[e];t.has(n)||(n(),t.add(n))}E.length=0}while(S.length);for(;N.length;)N.pop()();I=!1}function V(t){t.fragment&&(t.update(t.dirty),o(t.before_update),t.fragment.p(t.dirty,t.ctx),t.dirty=null,t.after_update.forEach(L))}const q=new Set;let z;function P(t,e){t&&t.i&&(q.delete(t),t.i(e))}function K(t,e,n,r){if(t&&t.o){if(q.has(t))return;q.add(t),z.c.push(()=>{q.delete(t),r&&(n&&t.d(1),r())}),t.o(e)}}const T="undefined"!=typeof window?window:global;function C(t,e,n){-1!==t.$$.props.indexOf(e)&&(t.$$.bound[e]=n,n(t.$$.ctx[e]))}function R(t,e,n){const{fragment:a,on_mount:i,on_destroy:c,after_update:d}=t.$$;a.m(e,n),L(()=>{const e=i.map(r).filter(u);c?c.push(...e):o(e),t.$$.on_mount=[]}),d.forEach(L)}function H(t,e){t.$$.fragment&&(o(t.$$.on_destroy),t.$$.fragment.d(e),t.$$.on_destroy=t.$$.fragment=null,t.$$.ctx={})}function G(t,e){t.$$.dirty||(S.push(t),I||(I=!0,U.then(B)),t.$$.dirty=a()),t.$$.dirty[e]=!0}function X(e,n,r,u,i,c){const d=p;M(e);const s=n.props||{},l=e.$$={fragment:null,ctx:null,props:c,update:t,not_equal:i,bound:a(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(d?d.$$.context:[]),callbacks:a(),dirty:null};let f=!1;var m;l.ctx=r?r(e,s,(t,n,r=n)=>(l.ctx&&i(l.ctx[t],l.ctx[t]=r)&&(l.bound[t]&&l.bound[t](r),f&&G(e,t)),n)):s,l.update(),f=!0,o(l.before_update),l.fragment=u(l.ctx),n.target&&(n.hydrate?l.fragment.l((m=n.target,Array.from(m.childNodes))):l.fragment.c(),n.intro&&P(e.$$.fragment),R(e,n.target,n.anchor),B()),M(d)}class W{$destroy(){H(this,1),this.$destroy=t}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(){}}const J=[];function Q(t){return"[object Date]"===Object.prototype.toString.call(t)}function Y(t,e){if(t===e||t!=t)return()=>t;const n=typeof t;if(n!==typeof e||Array.isArray(t)!==Array.isArray(e))throw new Error("Cannot interpolate values of different type");if(Array.isArray(t)){const n=e.map((e,n)=>Y(t[n],e));return t=>n.map(e=>e(t))}if("object"===n){if(!t||!e)throw new Error("Object cannot be null");if(Q(t)&&Q(e)){t=t.getTime();const n=(e=e.getTime())-t;return e=>new Date(t+e*n)}const n=Object.keys(e),r={};return n.forEach(n=>{r[n]=Y(t[n],e[n])}),t=>{const e={};return n.forEach(n=>{e[n]=r[n](t)}),e}}if("number"===n){const n=e-t;return e=>t+e*n}throw new Error(`Cannot interpolate ${n} values`)}function Z(r,a={}){const o=function(e,n=t){let r;const a=[];function o(t){if(i(e,t)&&(e=t,r)){const t=!J.length;for(let t=0;t<a.length;t+=1){const n=a[t];n[1](),J.push(n,e)}if(t){for(let t=0;t<J.length;t+=2)J[t][0](J[t+1]);J.length=0}}}return{set:o,update:function(t){o(t(e))},subscribe:function(u,i=t){const c=[u,i];return a.push(c),1===a.length&&(r=n(o)||t),u(e),()=>{const t=a.indexOf(c);-1!==t&&a.splice(t,1),0===a.length&&(r(),r=null)}}}}(r);let u,c=r;function d(t,i){c=t;let d=u,s=!1,{delay:p=0,duration:h=400,easing:b=e,interpolate:y=Y}=n(n({},a),i);const $=l()+p;let _;return(u=function(t){let e;return g||(g=!0,f(v)),{promise:new Promise(n=>{m.add(e=[t,n])}),abort(){m.delete(e)}}}(e=>{if(e<$)return!0;s||(_=y(r,t),"function"==typeof h&&(h=h(r,t)),s=!0),d&&(d.abort(),d=null);const n=e-$;return n>h?(o.set(r=t),!1):(o.set(r=_(b(n/h))),!0)})).promise}return{set:d,update:(t,e)=>d(t(c,r),e),subscribe:o.subscribe}}const tt=Z(0),et=Z(0);function nt(t){var e,n,r,a,u,i,c=Math.round(t.$tweenedA)+"",d=Math.round(t.$tweenedB)+"";return{c(){e=$("span"),n=x(c),r=x("\r\n\t\tto \r\n\t\t"),a=$("span"),u=x(d),i=[j(e,"mousemove",t.mousemove_handler_1),j(a,"mousemove",t.mousemove_handler_2)]},m(t,o){b(t,e,o),h(e,n),b(t,r,o),b(t,a,o),h(a,u)},p(t,e){t.$tweenedA&&c!==(c=Math.round(e.$tweenedA)+"")&&A(n,c),t.$tweenedB&&d!==(d=Math.round(e.$tweenedB)+"")&&A(u,d)},d(t){t&&(y(e),y(r),y(a)),o(i)}}}function rt(t){var e,n,r,a=t.curr.a+"",o=t.curr.b+"";return{c(){e=x(a),n=x(" to "),r=x(o)},m(t,a){b(t,e,a),b(t,n,a),b(t,r,a)},p(t,n){t.curr&&a!==(a=n.curr.a+"")&&A(e,a),t.curr&&o!==(o=n.curr.b+"")&&A(r,o)},d(t){t&&(y(e),y(n),y(r))}}}function at(e){var n,r,a,u,i,c,d,s,l,f,m,p,g;function v(t,e){return(null==d||t.$tweenedA||t.curr)&&(d=!(Math.round(e.$tweenedA)!=e.curr.b)),d?rt:nt}var _=v(null,e),A=_(e);return{c(){n=$("div"),r=$("button"),a=x("prev"),i=w(),c=$("div"),A.c(),s=w(),l=$("div"),f=$("button"),m=x("next"),k(r,"class","br svelte-1q5rvlm"),r.disabled=u=0==e.index,k(n,"class","col s3 fs left-align svelte-1q5rvlm"),k(c,"class","col s6 fs center-align svelte-1q5rvlm"),k(f,"class","br svelte-1q5rvlm"),f.disabled=p=e.index==e.data.N-1,k(l,"class","col s3 fs right-align svelte-1q5rvlm"),g=[j(r,"mousemove",e.mousemove_handler),j(r,"click",e.click_handler),j(f,"mousemove",e.mousemove_handler_3),j(f,"click",e.click_handler_1)]},m(t,e){b(t,n,e),h(n,r),h(r,a),b(t,i,e),b(t,c,e),A.m(c,null),b(t,s,e),b(t,l,e),h(l,f),h(f,m)},p(t,e){t.index&&u!==(u=0==e.index)&&(r.disabled=u),_===(_=v(t,e))&&A?A.p(t,e):(A.d(1),(A=_(e))&&(A.c(),A.m(c,null))),(t.index||t.data)&&p!==(p=e.index==e.data.N-1)&&(f.disabled=p)},i:t,o:t,d(t){t&&(y(n),y(i),y(c)),A.d(),t&&(y(s),y(l)),o(g)}}}function ot(t,e,n){let r,a;c(t,tt,t=>{n("$tweenedA",r=t)}),c(t,et,t=>{n("$tweenedB",a=t)});let{data:o,curr:u,index:i}=e;return t.$set=(t=>{"data"in t&&n("data",o=t.data),"curr"in t&&n("curr",u=t.curr),"index"in t&&n("index",i=t.index)}),t.$$.update=((t={curr:1})=>{t.curr&&d(tt,r=u.a),t.curr&&d(et,a=u.b)}),{data:o,curr:u,index:i,$tweenedA:r,$tweenedB:a,mousemove_handler:()=>o.mm("prev"),click_handler:()=>o.incr(-1),mousemove_handler_1:()=>o.mm("left"),mousemove_handler_2:()=>o.mm("right"),mousemove_handler_3:()=>o.mm("next"),click_handler_1:()=>o.incr(1)}}class ut extends W{constructor(t){super(),X(this,t,ot,at,i,["data","curr","index"])}}function it(t){var e,n,r,a,u,i,c,d,s,l,f,m,p=0!=t.data.ADD&&dt(t),g=0!=t.data.SUB&&st(t),v=1!=t.data.MUL&&lt(t),_=1!=t.data.DIV&&ft(t);return{c(){e=$("div"),n=w(),r=$("div"),p&&p.c(),a=w(),g&&g.c(),u=w(),v&&v.c(),i=w(),_&&_.c(),c=w(),d=$("div"),s=$("button"),l=x("Undo"),k(e,"class","left col s3 fs marg center-align svelte-cghug5"),k(r,"class","left col s6 fs marg center-align svelte-cghug5"),k(s,"class","br svelte-cghug5"),s.disabled=f=0==t.curr.hist.length,k(d,"class","left col s3 fs marg right-align svelte-cghug5"),m=[j(s,"mousemove",t.mousemove_handler_4),j(s,"click",t.data.undo)]},m(t,o){b(t,e,o),b(t,n,o),b(t,r,o),p&&p.m(r,null),h(r,a),g&&g.m(r,null),h(r,u),v&&v.m(r,null),h(r,i),_&&_.m(r,null),b(t,c,o),b(t,d,o),h(d,s),h(s,l)},p(t,e){0!=e.data.ADD?p?p.p(t,e):((p=dt(e)).c(),p.m(r,a)):p&&(p.d(1),p=null),0!=e.data.SUB?g?g.p(t,e):((g=st(e)).c(),g.m(r,u)):g&&(g.d(1),g=null),1!=e.data.MUL?v?v.p(t,e):((v=lt(e)).c(),v.m(r,i)):v&&(v.d(1),v=null),1!=e.data.DIV?_?_.p(t,e):((_=ft(e)).c(),_.m(r,null)):_&&(_.d(1),_=null),t.curr&&f!==(f=0==e.curr.hist.length)&&(s.disabled=f)},d(t){t&&(y(e),y(n),y(r)),p&&p.d(),g&&g.d(),v&&v.d(),_&&_.d(),t&&(y(c),y(d)),o(m)}}}function ct(t){var e,n,r,a=t.curr.hist.length+"";return{c(){e=$("div"),n=x(a),r=x(" steps"),k(e,"class","left col s12 fs marg center-align svelte-cghug5")},m(t,a){b(t,e,a),h(e,n),h(e,r)},p(t,e){t.curr&&a!==(a=e.curr.hist.length+"")&&A(n,a)},d(t){t&&y(e)}}}function dt(t){var e,n,r,a,u=t.data.ADD+"";return{c(){e=$("button"),n=x("add "),r=x(u),k(e,"class","br svelte-cghug5"),e.disabled=t.done,a=[j(e,"mousemove",t.mousemove_handler),j(e,"click",t.click_handler)]},m(t,a){b(t,e,a),h(e,n),h(e,r)},p(t,n){t.data&&u!==(u=n.data.ADD+"")&&A(r,u),t.done&&(e.disabled=n.done)},d(t){t&&y(e),o(a)}}}function st(t){var e,n,r,a,u=t.data.SUB+"";return{c(){e=$("button"),n=x("sub "),r=x(u),k(e,"class","br svelte-cghug5"),e.disabled=t.done,a=[j(e,"mousemove",t.mousemove_handler_1),j(e,"click",t.click_handler_1)]},m(t,a){b(t,e,a),h(e,n),h(e,r)},p(t,n){t.data&&u!==(u=n.data.SUB+"")&&A(r,u),t.done&&(e.disabled=n.done)},d(t){t&&y(e),o(a)}}}function lt(t){var e,n,r,a,u=t.data.MUL+"";return{c(){e=$("button"),n=x("mul "),r=x(u),k(e,"class","br svelte-cghug5"),e.disabled=t.done,a=[j(e,"mousemove",t.mousemove_handler_2),j(e,"click",t.click_handler_2)]},m(t,a){b(t,e,a),h(e,n),h(e,r)},p(t,n){t.data&&u!==(u=n.data.MUL+"")&&A(r,u),t.done&&(e.disabled=n.done)},d(t){t&&y(e),o(a)}}}function ft(t){var e,n,r,a,u,i=t.data.DIV+"";return{c(){e=$("button"),n=x("div "),r=x(i),k(e,"class","br svelte-cghug5"),e.disabled=a=t.done||t.curr.a%t.data.DIV!=0,u=[j(e,"mousemove",t.mousemove_handler_3),j(e,"click",t.click_handler_3)]},m(t,a){b(t,e,a),h(e,n),h(e,r)},p(t,n){t.data&&i!==(i=n.data.DIV+"")&&A(r,i),(t.done||t.curr||t.data)&&a!==(a=n.done||n.curr.a%n.data.DIV!=0)&&(e.disabled=a)},d(t){t&&y(e),o(u)}}}function mt(e){var n;function r(t,e){return e.done?ct:it}var a=r(0,e),o=a(e);return{c(){n=$("div"),o.c(),k(n,"class","row")},m(t,e){b(t,n,e),o.m(n,null)},p(t,e){a===(a=r(0,e))&&o?o.p(t,e):(o.d(1),(o=a(e))&&(o.c(),o.m(n,null)))},i:t,o:t,d(t){t&&y(n),o.d()}}}function pt(t,e,n){let{data:r,curr:a}=e;let o;return t.$set=(t=>{"data"in t&&n("data",r=t.data),"curr"in t&&n("curr",a=t.curr)}),t.$$.update=((t={curr:1})=>{t.curr&&n("done",o=a.a==a.b)}),{data:r,curr:a,done:o,mousemove_handler:t=>r.mm("add"),click_handler:()=>r.op(a.a+r.ADD),mousemove_handler_1:t=>r.mm("sub"),click_handler_1:()=>r.op(a.a-r.SUB),mousemove_handler_2:t=>r.mm("mul"),click_handler_2:()=>r.op(a.a*r.MUL),mousemove_handler_3:t=>r.mm("div"),click_handler_3:()=>r.op(a.a/r.DIV),mousemove_handler_4:t=>r.mm("undo")}}class gt extends W{constructor(t){super(),X(this,t,pt,mt,i,["data","curr"])}}function vt(e){var n,r,a,u,i,c,d,s,l,f,m,p,g,v,_=e.data.score+"",D=e.data.undos+"",M=e.data.optimum+"",S=(e.data.stopp-e.data.start)/1e3+"";return{c(){n=$("div"),r=$("div"),a=x(_),u=w(),i=$("div"),c=x(D),d=x(" undos"),s=w(),l=$("div"),f=x(M),m=w(),p=$("div"),g=x(S),k(r,"class","left col s6 fs marg green yellow-text left-align svelte-1uqam3d"),k(i,"class","left col s6 fs marg green right-align svelte-1uqam3d"),k(l,"class","left col s6 fs marg green left-align svelte-1uqam3d"),k(p,"class","left col s6 fs marg green right-align svelte-1uqam3d"),k(n,"class","row s12"),v=[j(r,"mousemove",e.mousemove_handler),j(i,"mousemove",e.mousemove_handler_1),j(l,"mousemove",e.mousemove_handler_2),j(p,"mousemove",e.mousemove_handler_3)]},m(t,e){b(t,n,e),h(n,r),h(r,a),h(n,u),h(n,i),h(i,c),h(i,d),h(n,s),h(n,l),h(l,f),h(n,m),h(n,p),h(p,g)},p(t,e){t.data&&_!==(_=e.data.score+"")&&A(a,_),t.data&&D!==(D=e.data.undos+"")&&A(c,D),t.data&&M!==(M=e.data.optimum+"")&&A(f,M),t.data&&S!==(S=(e.data.stopp-e.data.start)/1e3+"")&&A(g,S)},i:t,o:t,d(t){t&&y(n),o(v)}}}function ht(t,e,n){let{data:r}=e;return t.$set=(t=>{"data"in t&&n("data",r=t.data)}),{data:r,mousemove_handler:()=>r.mm("score"),mousemove_handler_1:()=>r.mm("undos"),mousemove_handler_2:()=>r.mm("optimum"),mousemove_handler_3:()=>r.mm("time")}}class bt extends W{constructor(t){super(),X(this,t,ht,vt,i,["data"])}}var yt=1/0,$t=9007199254740991,_t=1.7976931348623157e308,xt=NaN,wt="[object Function]",jt="[object GeneratorFunction]",kt="[object Symbol]",At=/^\s+|\s+$/g,Dt=/^[-+]0x[0-9a-f]+$/i,Mt=/^0b[01]+$/i,St=/^0o[0-7]+$/i,Ot=/^(?:0|[1-9]\d*)$/,Et=parseInt,Nt=Object.prototype.toString,Ut=Math.ceil,It=Math.max;function Lt(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}function Ft(t){return t?(t=function(t){if("number"==typeof t)return t;if(function(t){return"symbol"==typeof t||function(t){return!!t&&"object"==typeof t}(t)&&Nt.call(t)==kt}(t))return xt;if(Lt(t)){var e="function"==typeof t.valueOf?t.valueOf():t;t=Lt(e)?e+"":e}if("string"!=typeof t)return 0===t?t:+t;t=t.replace(At,"");var n=Mt.test(t);return n||St.test(t)?Et(t.slice(2),n?2:8):Dt.test(t)?xt:+t}(t))===yt||t===-yt?(t<0?-1:1)*_t:t==t?t:0:0===t?t:0}var Bt,Vt=function(t,e,n){return n&&"number"!=typeof n&&function(t,e,n){if(!Lt(n))return!1;var r=typeof e;return!!("number"==r?function(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=$t}(t.length)&&!function(t){var e=Lt(t)?Nt.call(t):"";return e==wt||e==jt}(t)}(n)&&function(t,e){return!!(e=null==e?$t:e)&&("number"==typeof t||Ot.test(t))&&t>-1&&t%1==0&&t<e}(e,n.length):"string"==r&&e in n)&&function(t,e){return t===e||t!=t&&e!=e}(n[e],t)}(t,e,n)&&(e=n=void 0),t=Ft(t),void 0===e?(e=t,t=0):e=Ft(e),function(t,e,n,r){for(var a=-1,o=It(Ut((e-t)/(n||1)),0),u=Array(o);o--;)u[r?o:++a]=t,t+=n;return u}(t,e,n=void 0===n?t<e?1:-1:Ft(n),Bt)};function qt(t,e,n){const r=Object.create(t);return r.i=e[n],r}function zt(t){var e,n,r,a;function u(...e){return t.mousemove_handler(t,...e)}function i(){return t.click_handler(t)}return{c(){k(e=_("circle"),"cx",n=100/t.data.N*(t.i-t.data.N/2+.5)),k(e,"cy","0"),k(e,"r","1.5"),k(e,"fill",r=t.i==t.index?"white":t.data.cand[t.i].a==t.data.cand[t.i].b?"green":"black"),a=[j(e,"mousemove",u),j(e,"click",i)]},m(t,n){b(t,e,n)},p(a,o){t=o,a.data&&n!==(n=100/t.data.N*(t.i-t.data.N/2+.5))&&k(e,"cx",n),(a.data||a.index)&&r!==(r=t.i==t.index?"white":t.data.cand[t.i].a==t.data.cand[t.i].b?"green":"black")&&k(e,"fill",r)},d(t){t&&y(e),o(a)}}}function Pt(e){var n;let r=Vt(e.data.N),a=[];for(let t=0;t<r.length;t+=1)a[t]=zt(qt(e,r,t));return{c(){n=_("svg");for(let t=0;t<a.length;t+=1)a[t].c();k(n,"viewBox","-50 -2 100 4"),D(n,"width","100%"),D(n,"height","100%")},m(t,e){b(t,n,e);for(let t=0;t<a.length;t+=1)a[t].m(n,null)},p(t,e){if(t.data||t.range||t.index){let o;for(r=Vt(e.data.N),o=0;o<r.length;o+=1){const u=qt(e,r,o);a[o]?a[o].p(t,u):(a[o]=zt(u),a[o].c(),a[o].m(n,null))}for(;o<a.length;o+=1)a[o].d(1);a.length=r.length}},i:t,o:t,d(t){t&&y(n),function(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}(a,t)}}}function Kt(t,e,n){let{data:r,index:a}=e;return t.$set=(t=>{"data"in t&&n("data",r=t.data),"index"in t&&n("index",a=t.index)}),{data:r,index:a,mousemove_handler:({i:t},e)=>r.mm("circle",t),click_handler:({i:t})=>r.click(t)}}class Tt extends W{constructor(t){super(),X(this,t,Kt,Pt,i,["data","index"])}}function Ct(t){var e,n,r,a,o,u,i,c,d,s,l,f,m,p;function g(e){t.navigation_data_binding.call(null,e),n=!0,F(()=>n=!1)}function v(e){t.navigation_curr_binding.call(null,e),r=!0,F(()=>r=!1)}function _(e){t.navigation_index_binding.call(null,e),a=!0,F(()=>a=!1)}let x={};void 0!==t.data&&(x.data=t.data),void 0!==t.curr&&(x.curr=t.curr),void 0!==t.index&&(x.index=t.index);var j=new ut({props:x});function A(e){t.commands_data_binding.call(null,e),u=!0,F(()=>u=!1)}function D(e){t.commands_curr_binding.call(null,e),i=!0,F(()=>i=!1)}O.push(()=>C(j,"data",g)),O.push(()=>C(j,"curr",v)),O.push(()=>C(j,"index",_));let M={};void 0!==t.data&&(M.data=t.data),void 0!==t.curr&&(M.curr=t.curr);var S=new gt({props:M});function E(e){t.statistics_data_binding.call(null,e),d=!0,F(()=>d=!1)}O.push(()=>C(S,"data",A)),O.push(()=>C(S,"curr",D));let N={};void 0!==t.data&&(N.data=t.data);var U=new bt({props:N});function I(e){t.indicator_data_binding.call(null,e),l=!0,F(()=>l=!1)}function L(e){t.indicator_index_binding.call(null,e),f=!0,F(()=>f=!1)}O.push(()=>C(U,"data",E));let B={};void 0!==t.data&&(B.data=t.data),void 0!==t.index&&(B.index=t.index);var V=new Tt({props:B});return O.push(()=>C(V,"data",I)),O.push(()=>C(V,"index",L)),{c(){e=$("div"),j.$$.fragment.c(),o=w(),S.$$.fragment.c(),c=w(),U.$$.fragment.c(),s=w(),V.$$.fragment.c(),k(e,"class",m="w row s12 br fs marg "+t.bgcolor+" lighten-1 black-text center-align svelte-1xgzk34")},m(t,n){b(t,e,n),R(j,e,null),h(e,o),R(S,e,null),h(e,c),R(U,e,null),h(e,s),R(V,e,null),p=!0},p(t,o){var c={};!n&&t.data&&(c.data=o.data),!r&&t.curr&&(c.curr=o.curr),!a&&t.index&&(c.index=o.index),j.$set(c);var s={};!u&&t.data&&(s.data=o.data),!i&&t.curr&&(s.curr=o.curr),S.$set(s);var g={};!d&&t.data&&(g.data=o.data),U.$set(g);var v={};!l&&t.data&&(v.data=o.data),!f&&t.index&&(v.index=o.index),V.$set(v),p&&!t.bgcolor||m===(m="w row s12 br fs marg "+o.bgcolor+" lighten-1 black-text center-align svelte-1xgzk34")||k(e,"class",m)},i(t){p||(P(j.$$.fragment,t),P(S.$$.fragment,t),P(U.$$.fragment,t),P(V.$$.fragment,t),p=!0)},o(t){K(j.$$.fragment,t),K(S.$$.fragment,t),K(U.$$.fragment,t),K(V.$$.fragment,t),p=!1},d(t){t&&y(e),H(j),H(S),H(U),H(V)}}}function Rt(t,e,n){let r,{data:a,curr:o,index:u}=e;return t.$set=(t=>{"data"in t&&n("data",a=t.data),"curr"in t&&n("curr",o=t.curr),"index"in t&&n("index",u=t.index)}),t.$$.update=((t={curr:1})=>{t.curr&&n("bgcolor",r=o.a==o.b?"green":"grey")}),{data:a,curr:o,index:u,bgcolor:r,navigation_data_binding:function(t){n("data",a=t)},navigation_curr_binding:function(t){n("curr",o=t)},navigation_index_binding:function(t){n("index",u=t)},commands_data_binding:function(t){n("data",a=t)},commands_curr_binding:function(t){n("curr",o=t)},statistics_data_binding:function(t){n("data",a=t)},indicator_data_binding:function(t){n("data",a=t)},indicator_index_binding:function(t){n("index",u=t)}}}class Ht extends W{constructor(t){super(),X(this,t,Rt,Ct,i,["data","curr","index"])}}var Gt=1/0,Xt=9007199254740991,Wt=1.7976931348623157e308,Jt=NaN,Qt="[object Function]",Yt="[object GeneratorFunction]",Zt="[object Symbol]",te=/^\s+|\s+$/g,ee=/^[-+]0x[0-9a-f]+$/i,ne=/^0b[01]+$/i,re=/^0o[0-7]+$/i,ae=/^(?:0|[1-9]\d*)$/,oe=parseFloat,ue=parseInt,ie=Object.prototype.toString,ce=Math.floor,de=Math.min,se=Math.random;function le(t,e,n){if(!fe(n))return!1;var r=typeof e;return!!("number"==r?function(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=Xt}(t.length)&&!function(t){var e=fe(t)?ie.call(t):"";return e==Qt||e==Yt}(t)}(n)&&function(t,e){return!!(e=null==e?Xt:e)&&("number"==typeof t||ae.test(t))&&t>-1&&t%1==0&&t<e}(e,n.length):"string"==r&&e in n)&&function(t,e){return t===e||t!=t&&e!=e}(n[e],t)}function fe(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}function me(t){return t?(t=function(t){if("number"==typeof t)return t;if(function(t){return"symbol"==typeof t||function(t){return!!t&&"object"==typeof t}(t)&&ie.call(t)==Zt}(t))return Jt;if(fe(t)){var e="function"==typeof t.valueOf?t.valueOf():t;t=fe(e)?e+"":e}if("string"!=typeof t)return 0===t?t:+t;t=t.replace(te,"");var n=ne.test(t);return n||re.test(t)?ue(t.slice(2),n?2:8):ee.test(t)?Jt:+t}(t))===Gt||t===-Gt?(t<0?-1:1)*Wt:t==t?t:0:0===t?t:0}var pe=function(t,e,n){if(n&&"boolean"!=typeof n&&le(t,e,n)&&(e=n=void 0),void 0===n&&("boolean"==typeof e?(n=e,e=void 0):"boolean"==typeof t&&(n=t,t=void 0)),void 0===t&&void 0===e?(t=0,e=1):(t=me(t),void 0===e?(e=t,t=0):e=me(e)),t>e){var r=t;t=e,e=r}if(n||t%1||e%1){var a=se();return de(t+a*(e-t+oe("1e-"+((a+"").length-1))),e)}return function(t,e){return t+ce(se()*(e-t+1))}(t,e)},ge=9007199254740991,ve="[object Arguments]",he="[object Function]",be="[object GeneratorFunction]",ye=/^(?:0|[1-9]\d*)$/;function $e(t,e){return function(t,e){for(var n=-1,r=t?t.length:0,a=Array(r);++n<r;)a[n]=e(t[n],n,t);return a}(e,function(e){return t[e]})}var _e,xe,we=Object.prototype,je=we.hasOwnProperty,ke=we.toString,Ae=we.propertyIsEnumerable,De=Math.floor,Me=(_e=Object.keys,xe=Object,function(t){return _e(xe(t))}),Se=Math.random;function Oe(t,e){var n=Ue(t)||function(t){return function(t){return function(t){return!!t&&"object"==typeof t}(t)&&Ie(t)}(t)&&je.call(t,"callee")&&(!Ae.call(t,"callee")||ke.call(t)==ve)}(t)?function(t,e){for(var n=-1,r=Array(t);++n<t;)r[n]=e(n);return r}(t.length,String):[],r=n.length,a=!!r;for(var o in t)!e&&!je.call(t,o)||a&&("length"==o||Ne(o,r))||n.push(o);return n}function Ee(t){if(n=(e=t)&&e.constructor,r="function"==typeof n&&n.prototype||we,e!==r)return Me(t);var e,n,r,a=[];for(var o in Object(t))je.call(t,o)&&"constructor"!=o&&a.push(o);return a}function Ne(t,e){return!!(e=null==e?ge:e)&&("number"==typeof t||ye.test(t))&&t>-1&&t%1==0&&t<e}var Ue=Array.isArray;function Ie(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=ge}(t.length)&&!function(t){var e=function(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}(t)?ke.call(t):"";return e==he||e==be}(t)}var Le=function(t){var e,n,r,a=Ie(t)?t:(e=t)?$e(e,function(t){return Ie(t)?Oe(t):Ee(t)}(e)):[],o=a.length;return o>0?a[(n=0,r=o-1,n+De(Se()*(r-n+1)))]:void 0},Fe="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:{},Be=1/0,Ve=9007199254740991,qe=1.7976931348623157e308,ze=NaN,Pe=4294967295,Ke="[object Arguments]",Te="[object Function]",Ce="[object GeneratorFunction]",Re="[object Map]",He="[object Set]",Ge="[object String]",Xe="[object Symbol]",We=/^\s+|\s+$/g,Je=/^[-+]0x[0-9a-f]+$/i,Qe=/^0b[01]+$/i,Ye=/^\[object .+?Constructor\]$/,Ze=/^0o[0-7]+$/i,tn=/^(?:0|[1-9]\d*)$/,en="[\\ud800-\\udfff]",nn="[\\u0300-\\u036f\\ufe20-\\ufe23\\u20d0-\\u20f0]",rn="\\ud83c[\\udffb-\\udfff]",an="[^\\ud800-\\udfff]",on="(?:\\ud83c[\\udde6-\\uddff]){2}",un="[\\ud800-\\udbff][\\udc00-\\udfff]",cn="(?:"+nn+"|"+rn+")"+"?",dn="[\\ufe0e\\ufe0f]?"+cn+("(?:\\u200d(?:"+[an,on,un].join("|")+")[\\ufe0e\\ufe0f]?"+cn+")*"),sn="(?:"+[an+nn+"?",nn,on,un,en].join("|")+")",ln=RegExp(rn+"(?="+rn+")|"+sn+dn,"g"),fn=RegExp("[\\u200d\\ud800-\\udfff\\u0300-\\u036f\\ufe20-\\ufe23\\u20d0-\\u20f0\\ufe0e\\ufe0f]"),mn=parseInt,pn="object"==typeof Fe&&Fe&&Fe.Object===Object&&Fe,gn="object"==typeof self&&self&&self.Object===Object&&self,vn=pn||gn||Function("return this")();function hn(t,e){return function(t,e){for(var n=-1,r=t?t.length:0,a=Array(r);++n<r;)a[n]=e(t[n],n,t);return a}(e,function(e){return t[e]})}function bn(t){var e=-1,n=Array(t.size);return t.forEach(function(t,r){n[++e]=[r,t]}),n}function yn(t){var e=-1,n=Array(t.size);return t.forEach(function(t){n[++e]=t}),n}function $n(t){return function(t){return fn.test(t)}(t)?function(t){return t.match(ln)||[]}(t):function(t){return t.split("")}(t)}var _n,xn=Function.prototype,wn=Object.prototype,jn=vn["__core-js_shared__"],kn=(_n=/[^.]+$/.exec(jn&&jn.keys&&jn.keys.IE_PROTO||""))?"Symbol(src)_1."+_n:"",An=xn.toString,Dn=wn.hasOwnProperty,Mn=wn.toString,Sn=RegExp("^"+An.call(Dn).replace(/[\\^$.*+?()[\]{}|]/g,"\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,"$1.*?")+"$"),On=vn.Symbol,En=On?On.iterator:void 0,Nn=wn.propertyIsEnumerable,Un=Math.floor,In=function(t,e){return function(n){return t(e(n))}}(Object.keys,Object),Ln=Math.random,Fn=Jn(vn,"DataView"),Bn=Jn(vn,"Map"),Vn=Jn(vn,"Promise"),qn=Jn(vn,"Set"),zn=Jn(vn,"WeakMap"),Pn=Zn(Fn),Kn=Zn(Bn),Tn=Zn(Vn),Cn=Zn(qn),Rn=Zn(zn);function Hn(t,e){var n=er(t)||function(t){return function(t){return or(t)&&nr(t)}(t)&&Dn.call(t,"callee")&&(!Nn.call(t,"callee")||Mn.call(t)==Ke)}(t)?function(t,e){for(var n=-1,r=Array(t);++n<t;)r[n]=e(n);return r}(t.length,String):[],r=n.length,a=!!r;for(var o in t)!e&&!Dn.call(t,o)||a&&("length"==o||Yn(o,r))||n.push(o);return n}function Gn(t){return!(!ar(t)||(e=t,kn&&kn in e))&&(rr(t)||function(t){var e=!1;if(null!=t&&"function"!=typeof t.toString)try{e=!!(t+"")}catch(t){}return e}(t)?Sn:Ye).test(Zn(t));var e}function Xn(t){if(n=(e=t)&&e.constructor,r="function"==typeof n&&n.prototype||wn,e!==r)return In(t);var e,n,r,a=[];for(var o in Object(t))Dn.call(t,o)&&"constructor"!=o&&a.push(o);return a}function Wn(t,e){return t+Un(Ln()*(e-t+1))}function Jn(t,e){var n=function(t,e){return null==t?void 0:t[e]}(t,e);return Gn(n)?n:void 0}var Qn=function(t){return Mn.call(t)};function Yn(t,e){return!!(e=null==e?Ve:e)&&("number"==typeof t||tn.test(t))&&t>-1&&t%1==0&&t<e}function Zn(t){if(null!=t){try{return An.call(t)}catch(t){}try{return t+""}catch(t){}}return""}function tr(t,e,n){var r,a,o,u=-1,i=function(t){if(!t)return[];if(nr(t))return function(t){return"string"==typeof t||!er(t)&&or(t)&&Mn.call(t)==Ge}(t)?$n(t):function(t,e){var n=-1,r=t.length;for(e||(e=Array(r));++n<r;)e[n]=t[n];return e}(t);if(En&&t[En])return function(t){for(var e,n=[];!(e=t.next()).done;)n.push(e.value);return n}(t[En]());var e=Qn(t);return(e==Re?bn:e==He?yn:ur)(t)}(t),c=i.length,d=c-1;for((n?function(t,e,n){if(!ar(n))return!1;var r=typeof e;return!!("number"==r?nr(n)&&Yn(e,n.length):"string"==r&&e in n)&&function(t,e){return t===e||t!=t&&e!=e}(n[e],t)}(t,e,n):void 0===e)?e=1:(r=function(t){var e=function(t){if(!t)return 0===t?t:0;if((t=function(t){if("number"==typeof t)return t;if(function(t){return"symbol"==typeof t||or(t)&&Mn.call(t)==Xe}(t))return ze;if(ar(t)){var e="function"==typeof t.valueOf?t.valueOf():t;t=ar(e)?e+"":e}if("string"!=typeof t)return 0===t?t:+t;t=t.replace(We,"");var n=Qe.test(t);return n||Ze.test(t)?mn(t.slice(2),n?2:8):Je.test(t)?ze:+t}(t))===Be||t===-Be){var e=t<0?-1:1;return e*qe}return t==t?t:0}(t),n=e%1;return e==e?n?e-n:e:0}(e),a=0,o=c,r==r&&(void 0!==o&&(r=r<=o?r:o),void 0!==a&&(r=r>=a?r:a)),e=r);++u<e;){var s=Wn(u,d),l=i[s];i[s]=i[u],i[u]=l}return i.length=e,i}(Fn&&"[object DataView]"!=Qn(new Fn(new ArrayBuffer(1)))||Bn&&Qn(new Bn)!=Re||Vn&&"[object Promise]"!=Qn(Vn.resolve())||qn&&Qn(new qn)!=He||zn&&"[object WeakMap]"!=Qn(new zn))&&(Qn=function(t){var e=Mn.call(t),n="[object Object]"==e?t.constructor:void 0,r=n?Zn(n):void 0;if(r)switch(r){case Pn:return"[object DataView]";case Kn:return Re;case Tn:return"[object Promise]";case Cn:return He;case Rn:return"[object WeakMap]"}return e});var er=Array.isArray;function nr(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=Ve}(t.length)&&!rr(t)}function rr(t){var e=ar(t)?Mn.call(t):"";return e==Te||e==Ce}function ar(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}function or(t){return!!t&&"object"==typeof t}function ur(t){return t?hn(t,function(t){return nr(t)?Hn(t):Xn(t)}(t)):[]}var ir=function(t){return tr(t,Pe)};const{window:cr}=T;function dr(t){var e,n,r,a,u,i,c,d,s=new Ht({props:{data:t.data,index:t.index,curr:t.curr}});return{c(){(e=$("a")).innerHTML="<h1>Shortcut</h1>",n=w(),r=$("div"),s.$$.fragment.c(),a=w(),u=$("div"),i=x(t.message),k(e,"href","https://github.com/ChristerNilsson/Lab/wiki/Shortcut"),k(e,"class","center-align svelte-8kbajt"),k(e,"target","_blank"),D(r,"width","90%"),D(r,"margin","auto"),k(u,"class","w fs center-align svelte-8kbajt"),d=[j(cr,"keydown",t.handleKeyDown),j(e,"mousemove",t.mousemove_handler)]},m(t,o){b(t,e,o),b(t,n,o),b(t,r,o),R(s,r,null),b(t,a,o),b(t,u,o),h(u,i),c=!0},p(t,e){var n={};t.data&&(n.data=e.data),t.index&&(n.index=e.index),t.curr&&(n.curr=e.curr),s.$set(n),c&&!t.message||A(i,e.message)},i(t){c||(P(s.$$.fragment,t),c=!0)},o(t){K(s.$$.fragment,t),c=!1},d(t){t&&(y(e),y(n),y(r)),H(s),t&&(y(a),y(u)),o(d)}}}function sr(t,e,n){const r=new URL(window.location.href),a=(t,e)=>parseInt(r.searchParams.get(t)||e);let o={},u=0,i=null;n("data",o.M=a("M",3),o),n("data",o.N=a("N",24),o),n("data",o.MAX=a("MAX",20),o),n("data",o.SHUFFLE=a("SHUFFLE",0),o),n("data",o.ADD=a("ADD",2),o),n("data",o.MUL=a("MUL",2),o),n("data",o.DIV=a("DIV",2),o),n("data",o.SUB=a("SUB",0),o),n("data",o.score=0,o),n("data",o.undos=0,o),n("data",o.start=new Date,o),n("data",o.stopp=new Date,o),n("data",o.optimum=0,o);const c=t=>{let e=pe(1,o.MAX),r=[e];const a={},u={};a[e.toString()]=0,u[e.toString()]=e;for(const e of Vt(t)){const t=[],n=n=>{if(n<=o.MUL*o.MAX){const r=n.toString();r in u||(t.push(n),a[r]=e+1,u[r]=n)}};for(const t of r)n(t+o.ADD),n(t-o.SUB),n(t*o.MUL),t%o.DIV==0&&n(t/o.DIV);r=t}if(r.length>0){const t=Le(r),u=t.toString();return n("data",o.optimum+=a[u],o),{a:e,b:t,hist:[],orig:e}}{const t=Le(Object.keys(a));return n("data",o.optimum+=a[t],o),{a:e,b:u[t],hist:[],orig:e}}};let d=[];for(const t of Vt(o.M))for(const e of Vt(o.N/o.M))d.push(c(t+1));n("data",o.cand=1==o.SHUFFLE?ir(d):d,o),n("data",o.op=(t=>{i.a!=t&&(i.hist.push(i.a),n("curr",i.a=t,i),n("data",o.score++,o),n("data",o.stopp=new Date,o))}),o),n("data",o.undo=(()=>{n("data",o.score--,o),n("data",o.undos++,o),n("curr",i.a=i.hist.pop(),i)}),o),n("data",o.reset=(()=>{n("data",o.start=new Date,o),n("data",o.stopp=new Date,o),n("data",o.score=0,o),n("data",o.undos=0,o),n("index",u=0);for(const t of o.cand)t.a=t.orig,t.hist=[]}),o),n("data",o.click=(t=>n("index",u=t)),o),n("data",o.incr=(t=>n("index",u+=t)),o);let s="";n("data",o.mm=((t,e="")=>{"info"==t&&n("message",s="click for info about how to use and customize Shortcut"),"score"==t&&n("message",s="number of operations you have used. Minimize!"),"optimum"==t&&n("message",s="the minimum number of operations necessary"),"undos"==t&&n("message",s="number of undoes. Minimize"),"time"==t&&n("message",s="number of seconds you have used. Minimize"),"left"==t&&n("message",s="make this number equal to the target number"),"right"==t&&n("message",s="this is the target number"),"prev"==t&&n("message",s="previous exercise. Key=leftArrow"),"next"==t&&n("message",s="next exercise. Key=rightArrow or space"),"add"==t&&n("message",s="addition operation on left number. Key=a"),"mul"==t&&n("message",s="multiplication operation on left number. Key=w or m"),"sub"==t&&n("message",s="subtraction operation on left number. Key=s"),"div"==t&&n("message",s="division operation on left number. Key=d"),"undo"==t&&n("message",s="last operation is undone. Key=z"),"circle"==t&&n("message",s="jump to exercise #"+e)}),o);return t.$$.update=((t={data:1,index:1})=>{(t.data||t.index)&&n("curr",i=o.cand[u])}),{data:o,index:u,curr:i,handleKeyDown:t=>{t.preventDefault(),"ArrowLeft"==t.key&&u>0&&n("index",u--,u),"ArrowRight"==t.key&&u<o.N-1&&n("index",u++,u)," "==t.key&&n("index",u=(u+1)%o.N),"Home"==t.key&&n("index",u=0),"End"==t.key&&n("index",u=o.N-1),"a"==t.key&&i.a!=i.b&&o.op(i.a+o.ADD),"s"==t.key&&i.a!=i.b&&o.op(i.a-o.SUB),"m"!=t.key&&"w"!=t.key||i.a==i.b||o.op(i.a*o.MUL),"d"==t.key&&i.a!=i.b&&i.a%o.DIV==0&&o.op(i.a/o.DIV),"z"==t.key&&i.hist.length>0&&o.undo(),"r"==t.key&&o.reset()},message:s,mousemove_handler:()=>o.mm("info")}}return new class extends W{constructor(t){super(),X(this,t,sr,dr,i,[])}}({target:document.body})}();
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.head.appendChild(r) })(window.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    const identity = x => x;
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function validate_store(store, name) {
+        if (!store || typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
+    function subscribe(store, callback) {
+        const unsub = store.subscribe(callback);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
+    function set_store_value(store, ret, value = ret) {
+        store.set(value);
+        return ret;
+    }
+
+    const is_client = typeof window !== 'undefined';
+    let now = is_client
+        ? () => window.performance.now()
+        : () => Date.now();
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+    const tasks = new Set();
+    let running = false;
+    function run_tasks() {
+        tasks.forEach(task => {
+            if (!task[0](now())) {
+                tasks.delete(task);
+                task[1]();
+            }
+        });
+        running = tasks.size > 0;
+        if (running)
+            raf(run_tasks);
+    }
+    function loop(fn) {
+        let task;
+        if (!running) {
+            running = true;
+            raf(run_tasks);
+        }
+        return {
+            promise: new Promise(fulfil => {
+                tasks.add(task = [fn, fulfil]);
+            }),
+            abort() {
+                tasks.delete(task);
+            }
+        };
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function svg_element(name) {
+        return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    function add_flush_callback(fn) {
+        flush_callbacks.push(fn);
+    }
+    function flush() {
+        const seen_callbacks = new Set();
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            while (dirty_components.length) {
+                const component = dirty_components.shift();
+                set_current_component(component);
+                update(component.$$);
+            }
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    callback();
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+    }
+    function update($$) {
+        if ($$.fragment) {
+            $$.update($$.dirty);
+            run_all($$.before_update);
+            $$.fragment.p($$.dirty, $$.ctx);
+            $$.dirty = null;
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    let outros;
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+
+    const globals = (typeof window !== 'undefined' ? window : global);
+
+    function bind(component, name, callback) {
+        if (component.$$.props.indexOf(name) === -1)
+            return;
+        component.$$.bound[name] = callback;
+        callback(component.$$.ctx[name]);
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        if (component.$$.fragment) {
+            run_all(component.$$.on_destroy);
+            component.$$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            component.$$.on_destroy = component.$$.fragment = null;
+            component.$$.ctx = {};
+        }
+    }
+    function make_dirty(component, key) {
+        if (!component.$$.dirty) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty = blank_object();
+        }
+        component.$$.dirty[key] = true;
+    }
+    function init(component, options, instance, create_fragment, not_equal, prop_names) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const props = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props: prop_names,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty: null
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, props, (key, ret, value = ret) => {
+                if ($$.ctx && not_equal($$.ctx[key], $$.ctx[key] = value)) {
+                    if ($$.bound[key])
+                        $$.bound[key](value);
+                    if (ready)
+                        make_dirty(component, key);
+                }
+                return ret;
+            })
+            : props;
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        $$.fragment = create_fragment($$.ctx);
+        if (options.target) {
+            if (options.hydrate) {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.l(children(options.target));
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set() {
+            // overridden by instance, if it has props
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, detail));
+    }
+    function append_dev(target, node) {
+        dispatch_dev("SvelteDOMInsert", { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev("SvelteDOMInsert", { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev("SvelteDOMRemove", { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ["capture"] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev("SvelteDOMAddEventListener", { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev("SvelteDOMRemoveEventListener", { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev("SvelteDOMRemoveAttribute", { node, attribute });
+        else
+            dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
+    }
+    function prop_dev(node, property, value) {
+        node[property] = value;
+        dispatch_dev("SvelteDOMSetProperty", { node, property, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.data === data)
+            return;
+        dispatch_dev("SvelteDOMSetData", { node: text, data });
+        text.data = data;
+    }
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error(`'target' is a required option`);
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn(`Component was already destroyed`); // eslint-disable-line no-console
+            };
+        }
+    }
+
+    const subscriber_queue = [];
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = [];
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (let i = 0; i < subscribers.length; i += 1) {
+                        const s = subscribers[i];
+                        s[1]();
+                        subscriber_queue.push(s, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.push(subscriber);
+            if (subscribers.length === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                const index = subscribers.indexOf(subscriber);
+                if (index !== -1) {
+                    subscribers.splice(index, 1);
+                }
+                if (subscribers.length === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+
+    function is_date(obj) {
+        return Object.prototype.toString.call(obj) === '[object Date]';
+    }
+
+    function get_interpolator(a, b) {
+        if (a === b || a !== a)
+            return () => a;
+        const type = typeof a;
+        if (type !== typeof b || Array.isArray(a) !== Array.isArray(b)) {
+            throw new Error('Cannot interpolate values of different type');
+        }
+        if (Array.isArray(a)) {
+            const arr = b.map((bi, i) => {
+                return get_interpolator(a[i], bi);
+            });
+            return t => arr.map(fn => fn(t));
+        }
+        if (type === 'object') {
+            if (!a || !b)
+                throw new Error('Object cannot be null');
+            if (is_date(a) && is_date(b)) {
+                a = a.getTime();
+                b = b.getTime();
+                const delta = b - a;
+                return t => new Date(a + t * delta);
+            }
+            const keys = Object.keys(b);
+            const interpolators = {};
+            keys.forEach(key => {
+                interpolators[key] = get_interpolator(a[key], b[key]);
+            });
+            return t => {
+                const result = {};
+                keys.forEach(key => {
+                    result[key] = interpolators[key](t);
+                });
+                return result;
+            };
+        }
+        if (type === 'number') {
+            const delta = b - a;
+            return t => a + t * delta;
+        }
+        throw new Error(`Cannot interpolate ${type} values`);
+    }
+    function tweened(value, defaults = {}) {
+        const store = writable(value);
+        let task;
+        let target_value = value;
+        function set(new_value, opts) {
+            target_value = new_value;
+            let previous_task = task;
+            let started = false;
+            let { delay = 0, duration = 400, easing = identity, interpolate = get_interpolator } = assign(assign({}, defaults), opts);
+            const start = now() + delay;
+            let fn;
+            task = loop(now => {
+                if (now < start)
+                    return true;
+                if (!started) {
+                    fn = interpolate(value, new_value);
+                    if (typeof duration === 'function')
+                        duration = duration(value, new_value);
+                    started = true;
+                }
+                if (previous_task) {
+                    previous_task.abort();
+                    previous_task = null;
+                }
+                const elapsed = now - start;
+                if (elapsed > duration) {
+                    store.set(value = new_value);
+                    return false;
+                }
+                // @ts-ignore
+                store.set(value = fn(easing(elapsed / duration)));
+                return true;
+            });
+            return task.promise;
+        }
+        return {
+            set,
+            update: (fn, opts) => set(fn(target_value, value), opts),
+            subscribe: store.subscribe
+        };
+    }
+
+    const tweenedA = tweened(0);
+    const tweenedB = tweened(0);
+
+    /* src\Navigation.svelte generated by Svelte v3.12.1 */
+
+    const file = "src\\Navigation.svelte";
+
+    // (20:1) {:else}
+    function create_else_block(ctx) {
+    	var span0, t0_value = Math.round(ctx.$tweenedA) + "", t0, t1, span1, t2_value = Math.round(ctx.$tweenedB) + "", t2, dispose;
+
+    	const block = {
+    		c: function create() {
+    			span0 = element("span");
+    			t0 = text(t0_value);
+    			t1 = text("\r\n\t\tto \r\n\t\t");
+    			span1 = element("span");
+    			t2 = text(t2_value);
+    			add_location(span0, file, 20, 2, 501);
+    			add_location(span1, file, 22, 2, 585);
+
+    			dispose = [
+    				listen_dev(span0, "mousemove", ctx.mousemove_handler_1),
+    				listen_dev(span1, "mousemove", ctx.mousemove_handler_2)
+    			];
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span0, anchor);
+    			append_dev(span0, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, span1, anchor);
+    			append_dev(span1, t2);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.$tweenedA) && t0_value !== (t0_value = Math.round(ctx.$tweenedA) + "")) {
+    				set_data_dev(t0, t0_value);
+    			}
+
+    			if ((changed.$tweenedB) && t2_value !== (t2_value = Math.round(ctx.$tweenedB) + "")) {
+    				set_data_dev(t2, t2_value);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(span0);
+    				detach_dev(t1);
+    				detach_dev(span1);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_else_block.name, type: "else", source: "(20:1) {:else}", ctx });
+    	return block;
+    }
+
+    // (18:1) {#if Math.round($tweenedA) == curr.b}
+    function create_if_block(ctx) {
+    	var t0_value = ctx.curr.a + "", t0, t1, t2_value = ctx.curr.b + "", t2;
+
+    	const block = {
+    		c: function create() {
+    			t0 = text(t0_value);
+    			t1 = text(" to ");
+    			t2 = text(t2_value);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, t2, anchor);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.curr) && t0_value !== (t0_value = ctx.curr.a + "")) {
+    				set_data_dev(t0, t0_value);
+    			}
+
+    			if ((changed.curr) && t2_value !== (t2_value = ctx.curr.b + "")) {
+    				set_data_dev(t2, t2_value);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(t0);
+    				detach_dev(t1);
+    				detach_dev(t2);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block.name, type: "if", source: "(18:1) {#if Math.round($tweenedA) == curr.b}", ctx });
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	var div0, button0, t0, button0_disabled_value, t1, div1, show_if, t2, div2, button1, t3, button1_disabled_value, dispose;
+
+    	function select_block_type(changed, ctx) {
+    		if ((show_if == null) || changed.$tweenedA || changed.curr) show_if = !!(Math.round(ctx.$tweenedA) == ctx.curr.b);
+    		if (show_if) return create_if_block;
+    		return create_else_block;
+    	}
+
+    	var current_block_type = select_block_type(null, ctx);
+    	var if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div0 = element("div");
+    			button0 = element("button");
+    			t0 = text("prev");
+    			t1 = space();
+    			div1 = element("div");
+    			if_block.c();
+    			t2 = space();
+    			div2 = element("div");
+    			button1 = element("button");
+    			t3 = text("next");
+    			attr_dev(button0, "class", "br svelte-1q5rvlm");
+    			button0.disabled = button0_disabled_value = ctx.index==0;
+    			add_location(button0, file, 13, 1, 256);
+    			attr_dev(div0, "class", "col s3 fs left-align svelte-1q5rvlm");
+    			add_location(div0, file, 12, 0, 218);
+    			attr_dev(div1, "class", "col s6 fs center-align svelte-1q5rvlm");
+    			add_location(div1, file, 16, 0, 386);
+    			attr_dev(button1, "class", "br svelte-1q5rvlm");
+    			button1.disabled = button1_disabled_value = ctx.index==ctx.data.N-1;
+    			add_location(button1, file, 27, 1, 718);
+    			attr_dev(div2, "class", "col s3 fs right-align svelte-1q5rvlm");
+    			add_location(div2, file, 26, 0, 679);
+
+    			dispose = [
+    				listen_dev(button0, "mousemove", ctx.mousemove_handler),
+    				listen_dev(button0, "click", ctx.click_handler),
+    				listen_dev(button1, "mousemove", ctx.mousemove_handler_3),
+    				listen_dev(button1, "click", ctx.click_handler_1)
+    			];
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, button0);
+    			append_dev(button0, t0);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div1, anchor);
+    			if_block.m(div1, null);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, button1);
+    			append_dev(button1, t3);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.index) && button0_disabled_value !== (button0_disabled_value = ctx.index==0)) {
+    				prop_dev(button0, "disabled", button0_disabled_value);
+    			}
+
+    			if (current_block_type === (current_block_type = select_block_type(changed, ctx)) && if_block) {
+    				if_block.p(changed, ctx);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div1, null);
+    				}
+    			}
+
+    			if ((changed.index || changed.data) && button1_disabled_value !== (button1_disabled_value = ctx.index==ctx.data.N-1)) {
+    				prop_dev(button1, "disabled", button1_disabled_value);
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div0);
+    				detach_dev(t1);
+    				detach_dev(div1);
+    			}
+
+    			if_block.d();
+
+    			if (detaching) {
+    				detach_dev(t2);
+    				detach_dev(div2);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let $tweenedA, $tweenedB;
+
+    	validate_store(tweenedA, 'tweenedA');
+    	component_subscribe($$self, tweenedA, $$value => { $tweenedA = $$value; $$invalidate('$tweenedA', $tweenedA); });
+    	validate_store(tweenedB, 'tweenedB');
+    	component_subscribe($$self, tweenedB, $$value => { $tweenedB = $$value; $$invalidate('$tweenedB', $tweenedB); });
+
+    	let { data, curr, index } = $$props;
+
+    	const writable_props = ['data', 'curr', 'index'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Navigation> was created with unknown prop '${key}'`);
+    	});
+
+    	const mousemove_handler = () => data.mm('prev');
+
+    	const click_handler = () => data.incr(-1);
+
+    	const mousemove_handler_1 = () => data.mm('left');
+
+    	const mousemove_handler_2 = () => data.mm('right');
+
+    	const mousemove_handler_3 = () => data.mm('next');
+
+    	const click_handler_1 = () => data.incr(+1);
+
+    	$$self.$set = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('curr' in $$props) $$invalidate('curr', curr = $$props.curr);
+    		if ('index' in $$props) $$invalidate('index', index = $$props.index);
+    	};
+
+    	$$self.$capture_state = () => {
+    		return { data, curr, index, $tweenedA, $tweenedB };
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('curr' in $$props) $$invalidate('curr', curr = $$props.curr);
+    		if ('index' in $$props) $$invalidate('index', index = $$props.index);
+    		if ('$tweenedA' in $$props) tweenedA.set($tweenedA);
+    		if ('$tweenedB' in $$props) tweenedB.set($tweenedB);
+    	};
+
+    	$$self.$$.update = ($$dirty = { curr: 1 }) => {
+    		if ($$dirty.curr) { set_store_value(tweenedA, $tweenedA = curr.a); }
+    		if ($$dirty.curr) { set_store_value(tweenedB, $tweenedB = curr.b); }
+    	};
+
+    	return {
+    		data,
+    		curr,
+    		index,
+    		$tweenedA,
+    		$tweenedB,
+    		mousemove_handler,
+    		click_handler,
+    		mousemove_handler_1,
+    		mousemove_handler_2,
+    		mousemove_handler_3,
+    		click_handler_1
+    	};
+    }
+
+    class Navigation extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, ["data", "curr", "index"]);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Navigation", options, id: create_fragment.name });
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+    		if (ctx.data === undefined && !('data' in props)) {
+    			console.warn("<Navigation> was created without expected prop 'data'");
+    		}
+    		if (ctx.curr === undefined && !('curr' in props)) {
+    			console.warn("<Navigation> was created without expected prop 'curr'");
+    		}
+    		if (ctx.index === undefined && !('index' in props)) {
+    			console.warn("<Navigation> was created without expected prop 'index'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<Navigation>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<Navigation>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get curr() {
+    		throw new Error("<Navigation>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set curr(value) {
+    		throw new Error("<Navigation>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get index() {
+    		throw new Error("<Navigation>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set index(value) {
+    		throw new Error("<Navigation>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\Commands.svelte generated by Svelte v3.12.1 */
+
+    const file$1 = "src\\Commands.svelte";
+
+    // (16:1) {:else}
+    function create_else_block$1(ctx) {
+    	var div0, t0, div1, t1, t2, t3, t4, div2, button, t5, button_disabled_value, dispose;
+
+    	var if_block0 = ((ctx.data.ADD!=0)) && create_if_block_4(ctx);
+
+    	var if_block1 = ((ctx.data.SUB!=0)) && create_if_block_3(ctx);
+
+    	var if_block2 = ((ctx.data.MUL!=1)) && create_if_block_2(ctx);
+
+    	var if_block3 = ((ctx.data.DIV!=1)) && create_if_block_1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div0 = element("div");
+    			t0 = space();
+    			div1 = element("div");
+    			if (if_block0) if_block0.c();
+    			t1 = space();
+    			if (if_block1) if_block1.c();
+    			t2 = space();
+    			if (if_block2) if_block2.c();
+    			t3 = space();
+    			if (if_block3) if_block3.c();
+    			t4 = space();
+    			div2 = element("div");
+    			button = element("button");
+    			t5 = text("Undo");
+    			attr_dev(div0, "class", "left col s3 fs marg center-align svelte-cghug5");
+    			add_location(div0, file$1, 16, 2, 295);
+    			attr_dev(div1, "class", "left col s6 fs marg center-align svelte-cghug5");
+    			add_location(div1, file$1, 17, 2, 351);
+    			attr_dev(button, "class", "br svelte-cghug5");
+    			button.disabled = button_disabled_value = ctx.curr.hist.length==0;
+    			add_location(button, file$1, 32, 3, 1196);
+    			attr_dev(div2, "class", "left col s3 fs marg right-align svelte-cghug5");
+    			add_location(div2, file$1, 31, 2, 1146);
+
+    			dispose = [
+    				listen_dev(button, "mousemove", ctx.mousemove_handler_4),
+    				listen_dev(button, "click", ctx.data.undo)
+    			];
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div0, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div1, anchor);
+    			if (if_block0) if_block0.m(div1, null);
+    			append_dev(div1, t1);
+    			if (if_block1) if_block1.m(div1, null);
+    			append_dev(div1, t2);
+    			if (if_block2) if_block2.m(div1, null);
+    			append_dev(div1, t3);
+    			if (if_block3) if_block3.m(div1, null);
+    			insert_dev(target, t4, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, button);
+    			append_dev(button, t5);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((ctx.data.ADD!=0)) {
+    				if (if_block0) {
+    					if_block0.p(changed, ctx);
+    				} else {
+    					if_block0 = create_if_block_4(ctx);
+    					if_block0.c();
+    					if_block0.m(div1, t1);
+    				}
+    			} else if (if_block0) {
+    				if_block0.d(1);
+    				if_block0 = null;
+    			}
+
+    			if ((ctx.data.SUB!=0)) {
+    				if (if_block1) {
+    					if_block1.p(changed, ctx);
+    				} else {
+    					if_block1 = create_if_block_3(ctx);
+    					if_block1.c();
+    					if_block1.m(div1, t2);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+
+    			if ((ctx.data.MUL!=1)) {
+    				if (if_block2) {
+    					if_block2.p(changed, ctx);
+    				} else {
+    					if_block2 = create_if_block_2(ctx);
+    					if_block2.c();
+    					if_block2.m(div1, t3);
+    				}
+    			} else if (if_block2) {
+    				if_block2.d(1);
+    				if_block2 = null;
+    			}
+
+    			if ((ctx.data.DIV!=1)) {
+    				if (if_block3) {
+    					if_block3.p(changed, ctx);
+    				} else {
+    					if_block3 = create_if_block_1(ctx);
+    					if_block3.c();
+    					if_block3.m(div1, null);
+    				}
+    			} else if (if_block3) {
+    				if_block3.d(1);
+    				if_block3 = null;
+    			}
+
+    			if ((changed.curr) && button_disabled_value !== (button_disabled_value = ctx.curr.hist.length==0)) {
+    				prop_dev(button, "disabled", button_disabled_value);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div0);
+    				detach_dev(t0);
+    				detach_dev(div1);
+    			}
+
+    			if (if_block0) if_block0.d();
+    			if (if_block1) if_block1.d();
+    			if (if_block2) if_block2.d();
+    			if (if_block3) if_block3.d();
+
+    			if (detaching) {
+    				detach_dev(t4);
+    				detach_dev(div2);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_else_block$1.name, type: "else", source: "(16:1) {:else}", ctx });
+    	return block;
+    }
+
+    // (14:1) {#if done}
+    function create_if_block$1(ctx) {
+    	var div, t0_value = ctx.curr.hist.length + "", t0, t1;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			t0 = text(t0_value);
+    			t1 = text(" steps");
+    			attr_dev(div, "class", "left col s12 fs marg center-align svelte-cghug5");
+    			add_location(div, file$1, 14, 2, 204);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, t0);
+    			append_dev(div, t1);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.curr) && t0_value !== (t0_value = ctx.curr.hist.length + "")) {
+    				set_data_dev(t0, t0_value);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block$1.name, type: "if", source: "(14:1) {#if done}", ctx });
+    	return block;
+    }
+
+    // (19:3) {#if (data.ADD!=0)}
+    function create_if_block_4(ctx) {
+    	var button, t0, t1_value = ctx.data.ADD + "", t1, dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t0 = text("add ");
+    			t1 = text(t1_value);
+    			attr_dev(button, "class", "br svelte-cghug5");
+    			button.disabled = ctx.done;
+    			add_location(button, file$1, 19, 4, 427);
+
+    			dispose = [
+    				listen_dev(button, "mousemove", ctx.mousemove_handler),
+    				listen_dev(button, "click", ctx.click_handler)
+    			];
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t0);
+    			append_dev(button, t1);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.data) && t1_value !== (t1_value = ctx.data.ADD + "")) {
+    				set_data_dev(t1, t1_value);
+    			}
+
+    			if (changed.done) {
+    				prop_dev(button, "disabled", ctx.done);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(button);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block_4.name, type: "if", source: "(19:3) {#if (data.ADD!=0)}", ctx });
+    	return block;
+    }
+
+    // (22:3) {#if (data.SUB!=0)}
+    function create_if_block_3(ctx) {
+    	var button, t0, t1_value = ctx.data.SUB + "", t1, dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t0 = text("sub ");
+    			t1 = text(t1_value);
+    			attr_dev(button, "class", "br svelte-cghug5");
+    			button.disabled = ctx.done;
+    			add_location(button, file$1, 22, 4, 604);
+
+    			dispose = [
+    				listen_dev(button, "mousemove", ctx.mousemove_handler_1),
+    				listen_dev(button, "click", ctx.click_handler_1)
+    			];
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t0);
+    			append_dev(button, t1);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.data) && t1_value !== (t1_value = ctx.data.SUB + "")) {
+    				set_data_dev(t1, t1_value);
+    			}
+
+    			if (changed.done) {
+    				prop_dev(button, "disabled", ctx.done);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(button);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block_3.name, type: "if", source: "(22:3) {#if (data.SUB!=0)}", ctx });
+    	return block;
+    }
+
+    // (25:3) {#if (data.MUL!=1)}
+    function create_if_block_2(ctx) {
+    	var button, t0, t1_value = ctx.data.MUL + "", t1, dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t0 = text("mul ");
+    			t1 = text(t1_value);
+    			attr_dev(button, "class", "br svelte-cghug5");
+    			button.disabled = ctx.done;
+    			add_location(button, file$1, 25, 4, 781);
+
+    			dispose = [
+    				listen_dev(button, "mousemove", ctx.mousemove_handler_2),
+    				listen_dev(button, "click", ctx.click_handler_2)
+    			];
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t0);
+    			append_dev(button, t1);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.data) && t1_value !== (t1_value = ctx.data.MUL + "")) {
+    				set_data_dev(t1, t1_value);
+    			}
+
+    			if (changed.done) {
+    				prop_dev(button, "disabled", ctx.done);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(button);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block_2.name, type: "if", source: "(25:3) {#if (data.MUL!=1)}", ctx });
+    	return block;
+    }
+
+    // (28:3) {#if (data.DIV!=1)}
+    function create_if_block_1(ctx) {
+    	var button, t0, t1_value = ctx.data.DIV + "", t1, button_disabled_value, dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			t0 = text("div ");
+    			t1 = text(t1_value);
+    			attr_dev(button, "class", "br svelte-cghug5");
+    			button.disabled = button_disabled_value = ctx.done || ctx.curr.a % ctx.data.DIV != 0;
+    			add_location(button, file$1, 28, 4, 958);
+
+    			dispose = [
+    				listen_dev(button, "mousemove", ctx.mousemove_handler_3),
+    				listen_dev(button, "click", ctx.click_handler_3)
+    			];
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, t0);
+    			append_dev(button, t1);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.data) && t1_value !== (t1_value = ctx.data.DIV + "")) {
+    				set_data_dev(t1, t1_value);
+    			}
+
+    			if ((changed.done || changed.curr || changed.data) && button_disabled_value !== (button_disabled_value = ctx.done || ctx.curr.a % ctx.data.DIV != 0)) {
+    				prop_dev(button, "disabled", button_disabled_value);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(button);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block_1.name, type: "if", source: "(28:3) {#if (data.DIV!=1)}", ctx });
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	var div;
+
+    	function select_block_type(changed, ctx) {
+    		if (ctx.done) return create_if_block$1;
+    		return create_else_block$1;
+    	}
+
+    	var current_block_type = select_block_type(null, ctx);
+    	var if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if_block.c();
+    			attr_dev(div, "class", "row");
+    			add_location(div, file$1, 11, 0, 168);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			if_block.m(div, null);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (current_block_type === (current_block_type = select_block_type(changed, ctx)) && if_block) {
+    				if_block.p(changed, ctx);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div);
+    			}
+
+    			if_block.d();
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$1.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { data, curr } = $$props;
+
+    	const writable_props = ['data', 'curr'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Commands> was created with unknown prop '${key}'`);
+    	});
+
+    	const mousemove_handler = (evt) => data.mm('add');
+
+    	const click_handler = () => data.op(curr.a+data.ADD);
+
+    	const mousemove_handler_1 = (evt) => data.mm('sub');
+
+    	const click_handler_1 = () => data.op(curr.a-data.SUB);
+
+    	const mousemove_handler_2 = (evt) => data.mm('mul');
+
+    	const click_handler_2 = () => data.op(curr.a*data.MUL);
+
+    	const mousemove_handler_3 = (evt) => data.mm('div');
+
+    	const click_handler_3 = () => data.op(curr.a/data.DIV);
+
+    	const mousemove_handler_4 = (evt) => data.mm('undo');
+
+    	$$self.$set = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('curr' in $$props) $$invalidate('curr', curr = $$props.curr);
+    	};
+
+    	$$self.$capture_state = () => {
+    		return { data, curr, done };
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('curr' in $$props) $$invalidate('curr', curr = $$props.curr);
+    		if ('done' in $$props) $$invalidate('done', done = $$props.done);
+    	};
+
+    	let done;
+
+    	$$self.$$.update = ($$dirty = { curr: 1 }) => {
+    		if ($$dirty.curr) { $$invalidate('done', done = curr.a == curr.b); }
+    	};
+
+    	return {
+    		data,
+    		curr,
+    		done,
+    		mousemove_handler,
+    		click_handler,
+    		mousemove_handler_1,
+    		click_handler_1,
+    		mousemove_handler_2,
+    		click_handler_2,
+    		mousemove_handler_3,
+    		click_handler_3,
+    		mousemove_handler_4
+    	};
+    }
+
+    class Commands extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, ["data", "curr"]);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Commands", options, id: create_fragment$1.name });
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+    		if (ctx.data === undefined && !('data' in props)) {
+    			console.warn("<Commands> was created without expected prop 'data'");
+    		}
+    		if (ctx.curr === undefined && !('curr' in props)) {
+    			console.warn("<Commands> was created without expected prop 'curr'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<Commands>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<Commands>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get curr() {
+    		throw new Error("<Commands>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set curr(value) {
+    		throw new Error("<Commands>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\Statistics.svelte generated by Svelte v3.12.1 */
+
+    const file$2 = "src\\Statistics.svelte";
+
+    function create_fragment$2(ctx) {
+    	var div4, div0, t0_value = ctx.data.score + "", t0, t1, div1, t2_value = ctx.data.undos + "", t2, t3, t4, div2, t5_value = ctx.data.optimum + "", t5, t6, div3, t7_value = (ctx.data.stopp - ctx.data.start)/1000 + "", t7, dispose;
+
+    	const block = {
+    		c: function create() {
+    			div4 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			div1 = element("div");
+    			t2 = text(t2_value);
+    			t3 = text(" undos");
+    			t4 = space();
+    			div2 = element("div");
+    			t5 = text(t5_value);
+    			t6 = space();
+    			div3 = element("div");
+    			t7 = text(t7_value);
+    			attr_dev(div0, "class", "left col s6 fs marg green yellow-text left-align svelte-1uqam3d");
+    			add_location(div0, file$2, 10, 1, 133);
+    			attr_dev(div1, "class", "left col s6 fs marg green right-align svelte-1uqam3d");
+    			add_location(div1, file$2, 11, 1, 254);
+    			attr_dev(div2, "class", "left col s6 fs marg green left-align svelte-1uqam3d");
+    			add_location(div2, file$2, 13, 1, 372);
+    			attr_dev(div3, "class", "left col s6 fs marg green right-align svelte-1uqam3d");
+    			add_location(div3, file$2, 14, 1, 485);
+    			attr_dev(div4, "class", "row s12");
+    			add_location(div4, file$2, 9, 0, 108);
+
+    			dispose = [
+    				listen_dev(div0, "mousemove", ctx.mousemove_handler),
+    				listen_dev(div1, "mousemove", ctx.mousemove_handler_1),
+    				listen_dev(div2, "mousemove", ctx.mousemove_handler_2),
+    				listen_dev(div3, "mousemove", ctx.mousemove_handler_3)
+    			];
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, div0);
+    			append_dev(div0, t0);
+    			append_dev(div4, t1);
+    			append_dev(div4, div1);
+    			append_dev(div1, t2);
+    			append_dev(div1, t3);
+    			append_dev(div4, t4);
+    			append_dev(div4, div2);
+    			append_dev(div2, t5);
+    			append_dev(div4, t6);
+    			append_dev(div4, div3);
+    			append_dev(div3, t7);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if ((changed.data) && t0_value !== (t0_value = ctx.data.score + "")) {
+    				set_data_dev(t0, t0_value);
+    			}
+
+    			if ((changed.data) && t2_value !== (t2_value = ctx.data.undos + "")) {
+    				set_data_dev(t2, t2_value);
+    			}
+
+    			if ((changed.data) && t5_value !== (t5_value = ctx.data.optimum + "")) {
+    				set_data_dev(t5, t5_value);
+    			}
+
+    			if ((changed.data) && t7_value !== (t7_value = (ctx.data.stopp - ctx.data.start)/1000 + "")) {
+    				set_data_dev(t7, t7_value);
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div4);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$2.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let { data } = $$props;
+
+    	const writable_props = ['data'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Statistics> was created with unknown prop '${key}'`);
+    	});
+
+    	const mousemove_handler = () => data.mm('score');
+
+    	const mousemove_handler_1 = () => data.mm('undos');
+
+    	const mousemove_handler_2 = () => data.mm('optimum');
+
+    	const mousemove_handler_3 = () => data.mm('time');
+
+    	$$self.$set = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    	};
+
+    	$$self.$capture_state = () => {
+    		return { data };
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    	};
+
+    	return {
+    		data,
+    		mousemove_handler,
+    		mousemove_handler_1,
+    		mousemove_handler_2,
+    		mousemove_handler_3
+    	};
+    }
+
+    class Statistics extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, ["data"]);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Statistics", options, id: create_fragment$2.name });
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+    		if (ctx.data === undefined && !('data' in props)) {
+    			console.warn("<Statistics> was created without expected prop 'data'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<Statistics>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<Statistics>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /**
+     * lodash (Custom Build) <https://lodash.com/>
+     * Build: `lodash modularize exports="npm" -o ./`
+     * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+     * Released under MIT license <https://lodash.com/license>
+     * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+     * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+     */
+
+    /** Used as references for various `Number` constants. */
+    var INFINITY = 1 / 0,
+        MAX_SAFE_INTEGER = 9007199254740991,
+        MAX_INTEGER = 1.7976931348623157e+308,
+        NAN = 0 / 0;
+
+    /** `Object#toString` result references. */
+    var funcTag = '[object Function]',
+        genTag = '[object GeneratorFunction]',
+        symbolTag = '[object Symbol]';
+
+    /** Used to match leading and trailing whitespace. */
+    var reTrim = /^\s+|\s+$/g;
+
+    /** Used to detect bad signed hexadecimal string values. */
+    var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+    /** Used to detect binary string values. */
+    var reIsBinary = /^0b[01]+$/i;
+
+    /** Used to detect octal string values. */
+    var reIsOctal = /^0o[0-7]+$/i;
+
+    /** Used to detect unsigned integer values. */
+    var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+    /** Built-in method references without a dependency on `root`. */
+    var freeParseInt = parseInt;
+
+    /** Used for built-in method references. */
+    var objectProto = Object.prototype;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var objectToString = objectProto.toString;
+
+    /* Built-in method references for those with the same name as other `lodash` methods. */
+    var nativeCeil = Math.ceil,
+        nativeMax = Math.max;
+
+    /**
+     * The base implementation of `_.range` and `_.rangeRight` which doesn't
+     * coerce arguments.
+     *
+     * @private
+     * @param {number} start The start of the range.
+     * @param {number} end The end of the range.
+     * @param {number} step The value to increment or decrement by.
+     * @param {boolean} [fromRight] Specify iterating from right to left.
+     * @returns {Array} Returns the range of numbers.
+     */
+    function baseRange(start, end, step, fromRight) {
+      var index = -1,
+          length = nativeMax(nativeCeil((end - start) / (step || 1)), 0),
+          result = Array(length);
+
+      while (length--) {
+        result[fromRight ? length : ++index] = start;
+        start += step;
+      }
+      return result;
+    }
+
+    /**
+     * Creates a `_.range` or `_.rangeRight` function.
+     *
+     * @private
+     * @param {boolean} [fromRight] Specify iterating from right to left.
+     * @returns {Function} Returns the new range function.
+     */
+    function createRange(fromRight) {
+      return function(start, end, step) {
+        if (step && typeof step != 'number' && isIterateeCall(start, end, step)) {
+          end = step = undefined;
+        }
+        // Ensure the sign of `-0` is preserved.
+        start = toFinite(start);
+        if (end === undefined) {
+          end = start;
+          start = 0;
+        } else {
+          end = toFinite(end);
+        }
+        step = step === undefined ? (start < end ? 1 : -1) : toFinite(step);
+        return baseRange(start, end, step, fromRight);
+      };
+    }
+
+    /**
+     * Checks if `value` is a valid array-like index.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+     * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+     */
+    function isIndex(value, length) {
+      length = length == null ? MAX_SAFE_INTEGER : length;
+      return !!length &&
+        (typeof value == 'number' || reIsUint.test(value)) &&
+        (value > -1 && value % 1 == 0 && value < length);
+    }
+
+    /**
+     * Checks if the given arguments are from an iteratee call.
+     *
+     * @private
+     * @param {*} value The potential iteratee value argument.
+     * @param {*} index The potential iteratee index or key argument.
+     * @param {*} object The potential iteratee object argument.
+     * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+     *  else `false`.
+     */
+    function isIterateeCall(value, index, object) {
+      if (!isObject(object)) {
+        return false;
+      }
+      var type = typeof index;
+      if (type == 'number'
+            ? (isArrayLike(object) && isIndex(index, object.length))
+            : (type == 'string' && index in object)
+          ) {
+        return eq(object[index], value);
+      }
+      return false;
+    }
+
+    /**
+     * Performs a
+     * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+     * comparison between two values to determine if they are equivalent.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to compare.
+     * @param {*} other The other value to compare.
+     * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+     * @example
+     *
+     * var object = { 'a': 1 };
+     * var other = { 'a': 1 };
+     *
+     * _.eq(object, object);
+     * // => true
+     *
+     * _.eq(object, other);
+     * // => false
+     *
+     * _.eq('a', 'a');
+     * // => true
+     *
+     * _.eq('a', Object('a'));
+     * // => false
+     *
+     * _.eq(NaN, NaN);
+     * // => true
+     */
+    function eq(value, other) {
+      return value === other || (value !== value && other !== other);
+    }
+
+    /**
+     * Checks if `value` is array-like. A value is considered array-like if it's
+     * not a function and has a `value.length` that's an integer greater than or
+     * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+     * @example
+     *
+     * _.isArrayLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLike(document.body.children);
+     * // => true
+     *
+     * _.isArrayLike('abc');
+     * // => true
+     *
+     * _.isArrayLike(_.noop);
+     * // => false
+     */
+    function isArrayLike(value) {
+      return value != null && isLength(value.length) && !isFunction(value);
+    }
+
+    /**
+     * Checks if `value` is classified as a `Function` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+     * @example
+     *
+     * _.isFunction(_);
+     * // => true
+     *
+     * _.isFunction(/abc/);
+     * // => false
+     */
+    function isFunction(value) {
+      // The use of `Object#toString` avoids issues with the `typeof` operator
+      // in Safari 8-9 which returns 'object' for typed array and other constructors.
+      var tag = isObject(value) ? objectToString.call(value) : '';
+      return tag == funcTag || tag == genTag;
+    }
+
+    /**
+     * Checks if `value` is a valid array-like length.
+     *
+     * **Note:** This method is loosely based on
+     * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+     * @example
+     *
+     * _.isLength(3);
+     * // => true
+     *
+     * _.isLength(Number.MIN_VALUE);
+     * // => false
+     *
+     * _.isLength(Infinity);
+     * // => false
+     *
+     * _.isLength('3');
+     * // => false
+     */
+    function isLength(value) {
+      return typeof value == 'number' &&
+        value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+    }
+
+    /**
+     * Checks if `value` is the
+     * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+     * @example
+     *
+     * _.isObject({});
+     * // => true
+     *
+     * _.isObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isObject(_.noop);
+     * // => true
+     *
+     * _.isObject(null);
+     * // => false
+     */
+    function isObject(value) {
+      var type = typeof value;
+      return !!value && (type == 'object' || type == 'function');
+    }
+
+    /**
+     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * and has a `typeof` result of "object".
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+     * @example
+     *
+     * _.isObjectLike({});
+     * // => true
+     *
+     * _.isObjectLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isObjectLike(_.noop);
+     * // => false
+     *
+     * _.isObjectLike(null);
+     * // => false
+     */
+    function isObjectLike(value) {
+      return !!value && typeof value == 'object';
+    }
+
+    /**
+     * Checks if `value` is classified as a `Symbol` primitive or object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+     * @example
+     *
+     * _.isSymbol(Symbol.iterator);
+     * // => true
+     *
+     * _.isSymbol('abc');
+     * // => false
+     */
+    function isSymbol(value) {
+      return typeof value == 'symbol' ||
+        (isObjectLike(value) && objectToString.call(value) == symbolTag);
+    }
+
+    /**
+     * Converts `value` to a finite number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.12.0
+     * @category Lang
+     * @param {*} value The value to convert.
+     * @returns {number} Returns the converted number.
+     * @example
+     *
+     * _.toFinite(3.2);
+     * // => 3.2
+     *
+     * _.toFinite(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toFinite(Infinity);
+     * // => 1.7976931348623157e+308
+     *
+     * _.toFinite('3.2');
+     * // => 3.2
+     */
+    function toFinite(value) {
+      if (!value) {
+        return value === 0 ? value : 0;
+      }
+      value = toNumber(value);
+      if (value === INFINITY || value === -INFINITY) {
+        var sign = (value < 0 ? -1 : 1);
+        return sign * MAX_INTEGER;
+      }
+      return value === value ? value : 0;
+    }
+
+    /**
+     * Converts `value` to a number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to process.
+     * @returns {number} Returns the number.
+     * @example
+     *
+     * _.toNumber(3.2);
+     * // => 3.2
+     *
+     * _.toNumber(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toNumber(Infinity);
+     * // => Infinity
+     *
+     * _.toNumber('3.2');
+     * // => 3.2
+     */
+    function toNumber(value) {
+      if (typeof value == 'number') {
+        return value;
+      }
+      if (isSymbol(value)) {
+        return NAN;
+      }
+      if (isObject(value)) {
+        var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+        value = isObject(other) ? (other + '') : other;
+      }
+      if (typeof value != 'string') {
+        return value === 0 ? value : +value;
+      }
+      value = value.replace(reTrim, '');
+      var isBinary = reIsBinary.test(value);
+      return (isBinary || reIsOctal.test(value))
+        ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+        : (reIsBadHex.test(value) ? NAN : +value);
+    }
+
+    /**
+     * Creates an array of numbers (positive and/or negative) progressing from
+     * `start` up to, but not including, `end`. A step of `-1` is used if a negative
+     * `start` is specified without an `end` or `step`. If `end` is not specified,
+     * it's set to `start` with `start` then set to `0`.
+     *
+     * **Note:** JavaScript follows the IEEE-754 standard for resolving
+     * floating-point values which can produce unexpected results.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Util
+     * @param {number} [start=0] The start of the range.
+     * @param {number} end The end of the range.
+     * @param {number} [step=1] The value to increment or decrement by.
+     * @returns {Array} Returns the range of numbers.
+     * @see _.inRange, _.rangeRight
+     * @example
+     *
+     * _.range(4);
+     * // => [0, 1, 2, 3]
+     *
+     * _.range(-4);
+     * // => [0, -1, -2, -3]
+     *
+     * _.range(1, 5);
+     * // => [1, 2, 3, 4]
+     *
+     * _.range(0, 20, 5);
+     * // => [0, 5, 10, 15]
+     *
+     * _.range(0, -4, -1);
+     * // => [0, -1, -2, -3]
+     *
+     * _.range(1, 4, 0);
+     * // => [1, 1, 1]
+     *
+     * _.range(0);
+     * // => []
+     */
+    var range = createRange();
+
+    var lodash_range = range;
+
+    /* src\Indicator.svelte generated by Svelte v3.12.1 */
+
+    const file$3 = "src\\Indicator.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.i = list[i];
+    	return child_ctx;
+    }
+
+    // (7:1) {#each range(data.N) as i}
+    function create_each_block(ctx) {
+    	var circle, circle_cx_value, circle_fill_value, dispose;
+
+    	function mousemove_handler(...args) {
+    		return ctx.mousemove_handler(ctx, ...args);
+    	}
+
+    	function click_handler() {
+    		return ctx.click_handler(ctx);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			circle = svg_element("circle");
+    			attr_dev(circle, "cx", circle_cx_value = 100/ctx.data.N*(ctx.i-ctx.data.N/2+0.5));
+    			attr_dev(circle, "cy", "0");
+    			attr_dev(circle, "r", "1.5");
+    			attr_dev(circle, "fill", circle_fill_value = ctx.i==ctx.index ? 'white' : (ctx.data.cand[ctx.i].a==ctx.data.cand[ctx.i].b ? 'green' : 'black'));
+    			add_location(circle, file$3, 7, 2, 181);
+
+    			dispose = [
+    				listen_dev(circle, "mousemove", mousemove_handler),
+    				listen_dev(circle, "click", click_handler)
+    			];
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, circle, anchor);
+    		},
+
+    		p: function update(changed, new_ctx) {
+    			ctx = new_ctx;
+    			if ((changed.data) && circle_cx_value !== (circle_cx_value = 100/ctx.data.N*(ctx.i-ctx.data.N/2+0.5))) {
+    				attr_dev(circle, "cx", circle_cx_value);
+    			}
+
+    			if ((changed.data || changed.index) && circle_fill_value !== (circle_fill_value = ctx.i==ctx.index ? 'white' : (ctx.data.cand[ctx.i].a==ctx.data.cand[ctx.i].b ? 'green' : 'black'))) {
+    				attr_dev(circle, "fill", circle_fill_value);
+    			}
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(circle);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(7:1) {#each range(data.N) as i}", ctx });
+    	return block;
+    }
+
+    function create_fragment$3(ctx) {
+    	var svg;
+
+    	let each_value = lodash_range(ctx.data.N);
+
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			svg = svg_element("svg");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+    			attr_dev(svg, "viewBox", "-50 -2 100 4");
+    			set_style(svg, "width", "" + 100 + "%");
+    			set_style(svg, "height", "" + 100 + "%");
+    			add_location(svg, file$3, 5, 0, 82);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, svg, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(svg, null);
+    			}
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (changed.data || changed.range || changed.index) {
+    				each_value = lodash_range(ctx.data.N);
+
+    				let i;
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(changed, child_ctx);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(svg, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(svg);
+    			}
+
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$3.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let { data, index } = $$props;
+
+    	const writable_props = ['data', 'index'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Indicator> was created with unknown prop '${key}'`);
+    	});
+
+    	const mousemove_handler = ({ i }, evt) => data.mm('circle',i);
+
+    	const click_handler = ({ i }) => data.click(i);
+
+    	$$self.$set = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('index' in $$props) $$invalidate('index', index = $$props.index);
+    	};
+
+    	$$self.$capture_state = () => {
+    		return { data, index };
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('index' in $$props) $$invalidate('index', index = $$props.index);
+    	};
+
+    	return {
+    		data,
+    		index,
+    		mousemove_handler,
+    		click_handler
+    	};
+    }
+
+    class Indicator extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, ["data", "index"]);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Indicator", options, id: create_fragment$3.name });
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+    		if (ctx.data === undefined && !('data' in props)) {
+    			console.warn("<Indicator> was created without expected prop 'data'");
+    		}
+    		if (ctx.index === undefined && !('index' in props)) {
+    			console.warn("<Indicator> was created without expected prop 'index'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<Indicator>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<Indicator>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get index() {
+    		throw new Error("<Indicator>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set index(value) {
+    		throw new Error("<Indicator>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\Shortcut.svelte generated by Svelte v3.12.1 */
+
+    const file$4 = "src\\Shortcut.svelte";
+
+    function create_fragment$4(ctx) {
+    	var div, updating_data, updating_curr, updating_index, t0, updating_data_1, updating_curr_1, t1, updating_data_2, t2, updating_data_3, updating_index_1, div_class_value, current;
+
+    	function navigation_data_binding(value) {
+    		ctx.navigation_data_binding.call(null, value);
+    		updating_data = true;
+    		add_flush_callback(() => updating_data = false);
+    	}
+
+    	function navigation_curr_binding(value_1) {
+    		ctx.navigation_curr_binding.call(null, value_1);
+    		updating_curr = true;
+    		add_flush_callback(() => updating_curr = false);
+    	}
+
+    	function navigation_index_binding(value_2) {
+    		ctx.navigation_index_binding.call(null, value_2);
+    		updating_index = true;
+    		add_flush_callback(() => updating_index = false);
+    	}
+
+    	let navigation_props = {};
+    	if (ctx.data !== void 0) {
+    		navigation_props.data = ctx.data;
+    	}
+    	if (ctx.curr !== void 0) {
+    		navigation_props.curr = ctx.curr;
+    	}
+    	if (ctx.index !== void 0) {
+    		navigation_props.index = ctx.index;
+    	}
+    	var navigation = new Navigation({ props: navigation_props, $$inline: true });
+
+    	binding_callbacks.push(() => bind(navigation, 'data', navigation_data_binding));
+    	binding_callbacks.push(() => bind(navigation, 'curr', navigation_curr_binding));
+    	binding_callbacks.push(() => bind(navigation, 'index', navigation_index_binding));
+
+    	function commands_data_binding(value_3) {
+    		ctx.commands_data_binding.call(null, value_3);
+    		updating_data_1 = true;
+    		add_flush_callback(() => updating_data_1 = false);
+    	}
+
+    	function commands_curr_binding(value_4) {
+    		ctx.commands_curr_binding.call(null, value_4);
+    		updating_curr_1 = true;
+    		add_flush_callback(() => updating_curr_1 = false);
+    	}
+
+    	let commands_props = {};
+    	if (ctx.data !== void 0) {
+    		commands_props.data = ctx.data;
+    	}
+    	if (ctx.curr !== void 0) {
+    		commands_props.curr = ctx.curr;
+    	}
+    	var commands = new Commands({ props: commands_props, $$inline: true });
+
+    	binding_callbacks.push(() => bind(commands, 'data', commands_data_binding));
+    	binding_callbacks.push(() => bind(commands, 'curr', commands_curr_binding));
+
+    	function statistics_data_binding(value_5) {
+    		ctx.statistics_data_binding.call(null, value_5);
+    		updating_data_2 = true;
+    		add_flush_callback(() => updating_data_2 = false);
+    	}
+
+    	let statistics_props = {};
+    	if (ctx.data !== void 0) {
+    		statistics_props.data = ctx.data;
+    	}
+    	var statistics = new Statistics({ props: statistics_props, $$inline: true });
+
+    	binding_callbacks.push(() => bind(statistics, 'data', statistics_data_binding));
+
+    	function indicator_data_binding(value_6) {
+    		ctx.indicator_data_binding.call(null, value_6);
+    		updating_data_3 = true;
+    		add_flush_callback(() => updating_data_3 = false);
+    	}
+
+    	function indicator_index_binding(value_7) {
+    		ctx.indicator_index_binding.call(null, value_7);
+    		updating_index_1 = true;
+    		add_flush_callback(() => updating_index_1 = false);
+    	}
+
+    	let indicator_props = {};
+    	if (ctx.data !== void 0) {
+    		indicator_props.data = ctx.data;
+    	}
+    	if (ctx.index !== void 0) {
+    		indicator_props.index = ctx.index;
+    	}
+    	var indicator = new Indicator({ props: indicator_props, $$inline: true });
+
+    	binding_callbacks.push(() => bind(indicator, 'data', indicator_data_binding));
+    	binding_callbacks.push(() => bind(indicator, 'index', indicator_index_binding));
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			navigation.$$.fragment.c();
+    			t0 = space();
+    			commands.$$.fragment.c();
+    			t1 = space();
+    			statistics.$$.fragment.c();
+    			t2 = space();
+    			indicator.$$.fragment.c();
+    			attr_dev(div, "class", div_class_value = "w row s12 br fs marg " + ctx.bgcolor + " lighten-1 black-text center-align" + " svelte-1xgzk34");
+    			add_location(div, file$4, 20, 0, 427);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(navigation, div, null);
+    			append_dev(div, t0);
+    			mount_component(commands, div, null);
+    			append_dev(div, t1);
+    			mount_component(statistics, div, null);
+    			append_dev(div, t2);
+    			mount_component(indicator, div, null);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var navigation_changes = {};
+    			if (!updating_data && changed.data) {
+    				navigation_changes.data = ctx.data;
+    			}
+    			if (!updating_curr && changed.curr) {
+    				navigation_changes.curr = ctx.curr;
+    			}
+    			if (!updating_index && changed.index) {
+    				navigation_changes.index = ctx.index;
+    			}
+    			navigation.$set(navigation_changes);
+
+    			var commands_changes = {};
+    			if (!updating_data_1 && changed.data) {
+    				commands_changes.data = ctx.data;
+    			}
+    			if (!updating_curr_1 && changed.curr) {
+    				commands_changes.curr = ctx.curr;
+    			}
+    			commands.$set(commands_changes);
+
+    			var statistics_changes = {};
+    			if (!updating_data_2 && changed.data) {
+    				statistics_changes.data = ctx.data;
+    			}
+    			statistics.$set(statistics_changes);
+
+    			var indicator_changes = {};
+    			if (!updating_data_3 && changed.data) {
+    				indicator_changes.data = ctx.data;
+    			}
+    			if (!updating_index_1 && changed.index) {
+    				indicator_changes.index = ctx.index;
+    			}
+    			indicator.$set(indicator_changes);
+
+    			if ((!current || changed.bgcolor) && div_class_value !== (div_class_value = "w row s12 br fs marg " + ctx.bgcolor + " lighten-1 black-text center-align" + " svelte-1xgzk34")) {
+    				attr_dev(div, "class", div_class_value);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(navigation.$$.fragment, local);
+
+    			transition_in(commands.$$.fragment, local);
+
+    			transition_in(statistics.$$.fragment, local);
+
+    			transition_in(indicator.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(navigation.$$.fragment, local);
+    			transition_out(commands.$$.fragment, local);
+    			transition_out(statistics.$$.fragment, local);
+    			transition_out(indicator.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div);
+    			}
+
+    			destroy_component(navigation);
+
+    			destroy_component(commands);
+
+    			destroy_component(statistics);
+
+    			destroy_component(indicator);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$4.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	
+
+    	let { data, curr, index } = $$props;
+
+    	const writable_props = ['data', 'curr', 'index'];
+    	Object.keys($$props).forEach(key => {
+    		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Shortcut> was created with unknown prop '${key}'`);
+    	});
+
+    	function navigation_data_binding(value) {
+    		data = value;
+    		$$invalidate('data', data);
+    	}
+
+    	function navigation_curr_binding(value_1) {
+    		curr = value_1;
+    		$$invalidate('curr', curr);
+    	}
+
+    	function navigation_index_binding(value_2) {
+    		index = value_2;
+    		$$invalidate('index', index);
+    	}
+
+    	function commands_data_binding(value_3) {
+    		data = value_3;
+    		$$invalidate('data', data);
+    	}
+
+    	function commands_curr_binding(value_4) {
+    		curr = value_4;
+    		$$invalidate('curr', curr);
+    	}
+
+    	function statistics_data_binding(value_5) {
+    		data = value_5;
+    		$$invalidate('data', data);
+    	}
+
+    	function indicator_data_binding(value_6) {
+    		data = value_6;
+    		$$invalidate('data', data);
+    	}
+
+    	function indicator_index_binding(value_7) {
+    		index = value_7;
+    		$$invalidate('index', index);
+    	}
+
+    	$$self.$set = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('curr' in $$props) $$invalidate('curr', curr = $$props.curr);
+    		if ('index' in $$props) $$invalidate('index', index = $$props.index);
+    	};
+
+    	$$self.$capture_state = () => {
+    		return { data, curr, index, bgcolor };
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('curr' in $$props) $$invalidate('curr', curr = $$props.curr);
+    		if ('index' in $$props) $$invalidate('index', index = $$props.index);
+    		if ('bgcolor' in $$props) $$invalidate('bgcolor', bgcolor = $$props.bgcolor);
+    	};
+
+    	let bgcolor;
+
+    	$$self.$$.update = ($$dirty = { curr: 1 }) => {
+    		if ($$dirty.curr) { $$invalidate('bgcolor', bgcolor = curr.a==curr.b ? 'green' : 'grey'); }
+    	};
+
+    	return {
+    		data,
+    		curr,
+    		index,
+    		bgcolor,
+    		navigation_data_binding,
+    		navigation_curr_binding,
+    		navigation_index_binding,
+    		commands_data_binding,
+    		commands_curr_binding,
+    		statistics_data_binding,
+    		indicator_data_binding,
+    		indicator_index_binding
+    	};
+    }
+
+    class Shortcut extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, ["data", "curr", "index"]);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Shortcut", options, id: create_fragment$4.name });
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+    		if (ctx.data === undefined && !('data' in props)) {
+    			console.warn("<Shortcut> was created without expected prop 'data'");
+    		}
+    		if (ctx.curr === undefined && !('curr' in props)) {
+    			console.warn("<Shortcut> was created without expected prop 'curr'");
+    		}
+    		if (ctx.index === undefined && !('index' in props)) {
+    			console.warn("<Shortcut> was created without expected prop 'index'");
+    		}
+    	}
+
+    	get data() {
+    		throw new Error("<Shortcut>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set data(value) {
+    		throw new Error("<Shortcut>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get curr() {
+    		throw new Error("<Shortcut>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set curr(value) {
+    		throw new Error("<Shortcut>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get index() {
+    		throw new Error("<Shortcut>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set index(value) {
+    		throw new Error("<Shortcut>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /**
+     * lodash (Custom Build) <https://lodash.com/>
+     * Build: `lodash modularize exports="npm" -o ./`
+     * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+     * Released under MIT license <https://lodash.com/license>
+     * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+     * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+     */
+
+    /** Used as references for various `Number` constants. */
+    var INFINITY$1 = 1 / 0,
+        MAX_SAFE_INTEGER$1 = 9007199254740991,
+        MAX_INTEGER$1 = 1.7976931348623157e+308,
+        NAN$1 = 0 / 0;
+
+    /** `Object#toString` result references. */
+    var funcTag$1 = '[object Function]',
+        genTag$1 = '[object GeneratorFunction]',
+        symbolTag$1 = '[object Symbol]';
+
+    /** Used to match leading and trailing whitespace. */
+    var reTrim$1 = /^\s+|\s+$/g;
+
+    /** Used to detect bad signed hexadecimal string values. */
+    var reIsBadHex$1 = /^[-+]0x[0-9a-f]+$/i;
+
+    /** Used to detect binary string values. */
+    var reIsBinary$1 = /^0b[01]+$/i;
+
+    /** Used to detect octal string values. */
+    var reIsOctal$1 = /^0o[0-7]+$/i;
+
+    /** Used to detect unsigned integer values. */
+    var reIsUint$1 = /^(?:0|[1-9]\d*)$/;
+
+    /** Built-in method references without a dependency on `root`. */
+    var freeParseFloat = parseFloat,
+        freeParseInt$1 = parseInt;
+
+    /** Used for built-in method references. */
+    var objectProto$1 = Object.prototype;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var objectToString$1 = objectProto$1.toString;
+
+    /* Built-in method references for those with the same name as other `lodash` methods. */
+    var nativeFloor = Math.floor,
+        nativeMin = Math.min,
+        nativeRandom = Math.random;
+
+    /**
+     * The base implementation of `_.random` without support for returning
+     * floating-point numbers.
+     *
+     * @private
+     * @param {number} lower The lower bound.
+     * @param {number} upper The upper bound.
+     * @returns {number} Returns the random number.
+     */
+    function baseRandom(lower, upper) {
+      return lower + nativeFloor(nativeRandom() * (upper - lower + 1));
+    }
+
+    /**
+     * Checks if `value` is a valid array-like index.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+     * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+     */
+    function isIndex$1(value, length) {
+      length = length == null ? MAX_SAFE_INTEGER$1 : length;
+      return !!length &&
+        (typeof value == 'number' || reIsUint$1.test(value)) &&
+        (value > -1 && value % 1 == 0 && value < length);
+    }
+
+    /**
+     * Checks if the given arguments are from an iteratee call.
+     *
+     * @private
+     * @param {*} value The potential iteratee value argument.
+     * @param {*} index The potential iteratee index or key argument.
+     * @param {*} object The potential iteratee object argument.
+     * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+     *  else `false`.
+     */
+    function isIterateeCall$1(value, index, object) {
+      if (!isObject$1(object)) {
+        return false;
+      }
+      var type = typeof index;
+      if (type == 'number'
+            ? (isArrayLike$1(object) && isIndex$1(index, object.length))
+            : (type == 'string' && index in object)
+          ) {
+        return eq$1(object[index], value);
+      }
+      return false;
+    }
+
+    /**
+     * Performs a
+     * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+     * comparison between two values to determine if they are equivalent.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to compare.
+     * @param {*} other The other value to compare.
+     * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+     * @example
+     *
+     * var object = { 'a': 1 };
+     * var other = { 'a': 1 };
+     *
+     * _.eq(object, object);
+     * // => true
+     *
+     * _.eq(object, other);
+     * // => false
+     *
+     * _.eq('a', 'a');
+     * // => true
+     *
+     * _.eq('a', Object('a'));
+     * // => false
+     *
+     * _.eq(NaN, NaN);
+     * // => true
+     */
+    function eq$1(value, other) {
+      return value === other || (value !== value && other !== other);
+    }
+
+    /**
+     * Checks if `value` is array-like. A value is considered array-like if it's
+     * not a function and has a `value.length` that's an integer greater than or
+     * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+     * @example
+     *
+     * _.isArrayLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLike(document.body.children);
+     * // => true
+     *
+     * _.isArrayLike('abc');
+     * // => true
+     *
+     * _.isArrayLike(_.noop);
+     * // => false
+     */
+    function isArrayLike$1(value) {
+      return value != null && isLength$1(value.length) && !isFunction$1(value);
+    }
+
+    /**
+     * Checks if `value` is classified as a `Function` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+     * @example
+     *
+     * _.isFunction(_);
+     * // => true
+     *
+     * _.isFunction(/abc/);
+     * // => false
+     */
+    function isFunction$1(value) {
+      // The use of `Object#toString` avoids issues with the `typeof` operator
+      // in Safari 8-9 which returns 'object' for typed array and other constructors.
+      var tag = isObject$1(value) ? objectToString$1.call(value) : '';
+      return tag == funcTag$1 || tag == genTag$1;
+    }
+
+    /**
+     * Checks if `value` is a valid array-like length.
+     *
+     * **Note:** This method is loosely based on
+     * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+     * @example
+     *
+     * _.isLength(3);
+     * // => true
+     *
+     * _.isLength(Number.MIN_VALUE);
+     * // => false
+     *
+     * _.isLength(Infinity);
+     * // => false
+     *
+     * _.isLength('3');
+     * // => false
+     */
+    function isLength$1(value) {
+      return typeof value == 'number' &&
+        value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER$1;
+    }
+
+    /**
+     * Checks if `value` is the
+     * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+     * @example
+     *
+     * _.isObject({});
+     * // => true
+     *
+     * _.isObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isObject(_.noop);
+     * // => true
+     *
+     * _.isObject(null);
+     * // => false
+     */
+    function isObject$1(value) {
+      var type = typeof value;
+      return !!value && (type == 'object' || type == 'function');
+    }
+
+    /**
+     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * and has a `typeof` result of "object".
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+     * @example
+     *
+     * _.isObjectLike({});
+     * // => true
+     *
+     * _.isObjectLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isObjectLike(_.noop);
+     * // => false
+     *
+     * _.isObjectLike(null);
+     * // => false
+     */
+    function isObjectLike$1(value) {
+      return !!value && typeof value == 'object';
+    }
+
+    /**
+     * Checks if `value` is classified as a `Symbol` primitive or object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+     * @example
+     *
+     * _.isSymbol(Symbol.iterator);
+     * // => true
+     *
+     * _.isSymbol('abc');
+     * // => false
+     */
+    function isSymbol$1(value) {
+      return typeof value == 'symbol' ||
+        (isObjectLike$1(value) && objectToString$1.call(value) == symbolTag$1);
+    }
+
+    /**
+     * Converts `value` to a finite number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.12.0
+     * @category Lang
+     * @param {*} value The value to convert.
+     * @returns {number} Returns the converted number.
+     * @example
+     *
+     * _.toFinite(3.2);
+     * // => 3.2
+     *
+     * _.toFinite(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toFinite(Infinity);
+     * // => 1.7976931348623157e+308
+     *
+     * _.toFinite('3.2');
+     * // => 3.2
+     */
+    function toFinite$1(value) {
+      if (!value) {
+        return value === 0 ? value : 0;
+      }
+      value = toNumber$1(value);
+      if (value === INFINITY$1 || value === -INFINITY$1) {
+        var sign = (value < 0 ? -1 : 1);
+        return sign * MAX_INTEGER$1;
+      }
+      return value === value ? value : 0;
+    }
+
+    /**
+     * Converts `value` to a number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to process.
+     * @returns {number} Returns the number.
+     * @example
+     *
+     * _.toNumber(3.2);
+     * // => 3.2
+     *
+     * _.toNumber(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toNumber(Infinity);
+     * // => Infinity
+     *
+     * _.toNumber('3.2');
+     * // => 3.2
+     */
+    function toNumber$1(value) {
+      if (typeof value == 'number') {
+        return value;
+      }
+      if (isSymbol$1(value)) {
+        return NAN$1;
+      }
+      if (isObject$1(value)) {
+        var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+        value = isObject$1(other) ? (other + '') : other;
+      }
+      if (typeof value != 'string') {
+        return value === 0 ? value : +value;
+      }
+      value = value.replace(reTrim$1, '');
+      var isBinary = reIsBinary$1.test(value);
+      return (isBinary || reIsOctal$1.test(value))
+        ? freeParseInt$1(value.slice(2), isBinary ? 2 : 8)
+        : (reIsBadHex$1.test(value) ? NAN$1 : +value);
+    }
+
+    /**
+     * Produces a random number between the inclusive `lower` and `upper` bounds.
+     * If only one argument is provided a number between `0` and the given number
+     * is returned. If `floating` is `true`, or either `lower` or `upper` are
+     * floats, a floating-point number is returned instead of an integer.
+     *
+     * **Note:** JavaScript follows the IEEE-754 standard for resolving
+     * floating-point values which can produce unexpected results.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.7.0
+     * @category Number
+     * @param {number} [lower=0] The lower bound.
+     * @param {number} [upper=1] The upper bound.
+     * @param {boolean} [floating] Specify returning a floating-point number.
+     * @returns {number} Returns the random number.
+     * @example
+     *
+     * _.random(0, 5);
+     * // => an integer between 0 and 5
+     *
+     * _.random(5);
+     * // => also an integer between 0 and 5
+     *
+     * _.random(5, true);
+     * // => a floating-point number between 0 and 5
+     *
+     * _.random(1.2, 5.2);
+     * // => a floating-point number between 1.2 and 5.2
+     */
+    function random(lower, upper, floating) {
+      if (floating && typeof floating != 'boolean' && isIterateeCall$1(lower, upper, floating)) {
+        upper = floating = undefined;
+      }
+      if (floating === undefined) {
+        if (typeof upper == 'boolean') {
+          floating = upper;
+          upper = undefined;
+        }
+        else if (typeof lower == 'boolean') {
+          floating = lower;
+          lower = undefined;
+        }
+      }
+      if (lower === undefined && upper === undefined) {
+        lower = 0;
+        upper = 1;
+      }
+      else {
+        lower = toFinite$1(lower);
+        if (upper === undefined) {
+          upper = lower;
+          lower = 0;
+        } else {
+          upper = toFinite$1(upper);
+        }
+      }
+      if (lower > upper) {
+        var temp = lower;
+        lower = upper;
+        upper = temp;
+      }
+      if (floating || lower % 1 || upper % 1) {
+        var rand = nativeRandom();
+        return nativeMin(lower + (rand * (upper - lower + freeParseFloat('1e-' + ((rand + '').length - 1)))), upper);
+      }
+      return baseRandom(lower, upper);
+    }
+
+    var lodash_random = random;
+
+    /**
+     * lodash (Custom Build) <https://lodash.com/>
+     * Build: `lodash modularize exports="npm" -o ./`
+     * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+     * Released under MIT license <https://lodash.com/license>
+     * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+     * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+     */
+
+    /** Used as references for various `Number` constants. */
+    var MAX_SAFE_INTEGER$2 = 9007199254740991;
+
+    /** `Object#toString` result references. */
+    var argsTag = '[object Arguments]',
+        funcTag$2 = '[object Function]',
+        genTag$2 = '[object GeneratorFunction]';
+
+    /** Used to detect unsigned integer values. */
+    var reIsUint$2 = /^(?:0|[1-9]\d*)$/;
+
+    /**
+     * A specialized version of `_.map` for arrays without support for iteratee
+     * shorthands.
+     *
+     * @private
+     * @param {Array} [array] The array to iterate over.
+     * @param {Function} iteratee The function invoked per iteration.
+     * @returns {Array} Returns the new mapped array.
+     */
+    function arrayMap(array, iteratee) {
+      var index = -1,
+          length = array ? array.length : 0,
+          result = Array(length);
+
+      while (++index < length) {
+        result[index] = iteratee(array[index], index, array);
+      }
+      return result;
+    }
+
+    /**
+     * The base implementation of `_.times` without support for iteratee shorthands
+     * or max array length checks.
+     *
+     * @private
+     * @param {number} n The number of times to invoke `iteratee`.
+     * @param {Function} iteratee The function invoked per iteration.
+     * @returns {Array} Returns the array of results.
+     */
+    function baseTimes(n, iteratee) {
+      var index = -1,
+          result = Array(n);
+
+      while (++index < n) {
+        result[index] = iteratee(index);
+      }
+      return result;
+    }
+
+    /**
+     * The base implementation of `_.values` and `_.valuesIn` which creates an
+     * array of `object` property values corresponding to the property names
+     * of `props`.
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @param {Array} props The property names to get values for.
+     * @returns {Object} Returns the array of property values.
+     */
+    function baseValues(object, props) {
+      return arrayMap(props, function(key) {
+        return object[key];
+      });
+    }
+
+    /**
+     * Creates a unary function that invokes `func` with its argument transformed.
+     *
+     * @private
+     * @param {Function} func The function to wrap.
+     * @param {Function} transform The argument transform.
+     * @returns {Function} Returns the new function.
+     */
+    function overArg(func, transform) {
+      return function(arg) {
+        return func(transform(arg));
+      };
+    }
+
+    /** Used for built-in method references. */
+    var objectProto$2 = Object.prototype;
+
+    /** Used to check objects for own properties. */
+    var hasOwnProperty = objectProto$2.hasOwnProperty;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var objectToString$2 = objectProto$2.toString;
+
+    /** Built-in value references. */
+    var propertyIsEnumerable = objectProto$2.propertyIsEnumerable;
+
+    /* Built-in method references for those with the same name as other `lodash` methods. */
+    var nativeFloor$1 = Math.floor,
+        nativeKeys = overArg(Object.keys, Object),
+        nativeRandom$1 = Math.random;
+
+    /**
+     * Creates an array of the enumerable property names of the array-like `value`.
+     *
+     * @private
+     * @param {*} value The value to query.
+     * @param {boolean} inherited Specify returning inherited property names.
+     * @returns {Array} Returns the array of property names.
+     */
+    function arrayLikeKeys(value, inherited) {
+      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+      // Safari 9 makes `arguments.length` enumerable in strict mode.
+      var result = (isArray(value) || isArguments(value))
+        ? baseTimes(value.length, String)
+        : [];
+
+      var length = result.length,
+          skipIndexes = !!length;
+
+      for (var key in value) {
+        if ((inherited || hasOwnProperty.call(value, key)) &&
+            !(skipIndexes && (key == 'length' || isIndex$2(key, length)))) {
+          result.push(key);
+        }
+      }
+      return result;
+    }
+
+    /**
+     * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @returns {Array} Returns the array of property names.
+     */
+    function baseKeys(object) {
+      if (!isPrototype(object)) {
+        return nativeKeys(object);
+      }
+      var result = [];
+      for (var key in Object(object)) {
+        if (hasOwnProperty.call(object, key) && key != 'constructor') {
+          result.push(key);
+        }
+      }
+      return result;
+    }
+
+    /**
+     * The base implementation of `_.random` without support for returning
+     * floating-point numbers.
+     *
+     * @private
+     * @param {number} lower The lower bound.
+     * @param {number} upper The upper bound.
+     * @returns {number} Returns the random number.
+     */
+    function baseRandom$1(lower, upper) {
+      return lower + nativeFloor$1(nativeRandom$1() * (upper - lower + 1));
+    }
+
+    /**
+     * Checks if `value` is a valid array-like index.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+     * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+     */
+    function isIndex$2(value, length) {
+      length = length == null ? MAX_SAFE_INTEGER$2 : length;
+      return !!length &&
+        (typeof value == 'number' || reIsUint$2.test(value)) &&
+        (value > -1 && value % 1 == 0 && value < length);
+    }
+
+    /**
+     * Checks if `value` is likely a prototype object.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+     */
+    function isPrototype(value) {
+      var Ctor = value && value.constructor,
+          proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$2;
+
+      return value === proto;
+    }
+
+    /**
+     * Gets a random element from `collection`.
+     *
+     * @static
+     * @memberOf _
+     * @since 2.0.0
+     * @category Collection
+     * @param {Array|Object} collection The collection to sample.
+     * @returns {*} Returns the random element.
+     * @example
+     *
+     * _.sample([1, 2, 3, 4]);
+     * // => 2
+     */
+    function sample(collection) {
+      var array = isArrayLike$2(collection) ? collection : values(collection),
+          length = array.length;
+
+      return length > 0 ? array[baseRandom$1(0, length - 1)] : undefined;
+    }
+
+    /**
+     * Checks if `value` is likely an `arguments` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+     *  else `false`.
+     * @example
+     *
+     * _.isArguments(function() { return arguments; }());
+     * // => true
+     *
+     * _.isArguments([1, 2, 3]);
+     * // => false
+     */
+    function isArguments(value) {
+      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+      return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
+        (!propertyIsEnumerable.call(value, 'callee') || objectToString$2.call(value) == argsTag);
+    }
+
+    /**
+     * Checks if `value` is classified as an `Array` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+     * @example
+     *
+     * _.isArray([1, 2, 3]);
+     * // => true
+     *
+     * _.isArray(document.body.children);
+     * // => false
+     *
+     * _.isArray('abc');
+     * // => false
+     *
+     * _.isArray(_.noop);
+     * // => false
+     */
+    var isArray = Array.isArray;
+
+    /**
+     * Checks if `value` is array-like. A value is considered array-like if it's
+     * not a function and has a `value.length` that's an integer greater than or
+     * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+     * @example
+     *
+     * _.isArrayLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLike(document.body.children);
+     * // => true
+     *
+     * _.isArrayLike('abc');
+     * // => true
+     *
+     * _.isArrayLike(_.noop);
+     * // => false
+     */
+    function isArrayLike$2(value) {
+      return value != null && isLength$2(value.length) && !isFunction$2(value);
+    }
+
+    /**
+     * This method is like `_.isArrayLike` except that it also checks if `value`
+     * is an object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an array-like object,
+     *  else `false`.
+     * @example
+     *
+     * _.isArrayLikeObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLikeObject(document.body.children);
+     * // => true
+     *
+     * _.isArrayLikeObject('abc');
+     * // => false
+     *
+     * _.isArrayLikeObject(_.noop);
+     * // => false
+     */
+    function isArrayLikeObject(value) {
+      return isObjectLike$2(value) && isArrayLike$2(value);
+    }
+
+    /**
+     * Checks if `value` is classified as a `Function` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+     * @example
+     *
+     * _.isFunction(_);
+     * // => true
+     *
+     * _.isFunction(/abc/);
+     * // => false
+     */
+    function isFunction$2(value) {
+      // The use of `Object#toString` avoids issues with the `typeof` operator
+      // in Safari 8-9 which returns 'object' for typed array and other constructors.
+      var tag = isObject$2(value) ? objectToString$2.call(value) : '';
+      return tag == funcTag$2 || tag == genTag$2;
+    }
+
+    /**
+     * Checks if `value` is a valid array-like length.
+     *
+     * **Note:** This method is loosely based on
+     * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+     * @example
+     *
+     * _.isLength(3);
+     * // => true
+     *
+     * _.isLength(Number.MIN_VALUE);
+     * // => false
+     *
+     * _.isLength(Infinity);
+     * // => false
+     *
+     * _.isLength('3');
+     * // => false
+     */
+    function isLength$2(value) {
+      return typeof value == 'number' &&
+        value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER$2;
+    }
+
+    /**
+     * Checks if `value` is the
+     * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+     * @example
+     *
+     * _.isObject({});
+     * // => true
+     *
+     * _.isObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isObject(_.noop);
+     * // => true
+     *
+     * _.isObject(null);
+     * // => false
+     */
+    function isObject$2(value) {
+      var type = typeof value;
+      return !!value && (type == 'object' || type == 'function');
+    }
+
+    /**
+     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * and has a `typeof` result of "object".
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+     * @example
+     *
+     * _.isObjectLike({});
+     * // => true
+     *
+     * _.isObjectLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isObjectLike(_.noop);
+     * // => false
+     *
+     * _.isObjectLike(null);
+     * // => false
+     */
+    function isObjectLike$2(value) {
+      return !!value && typeof value == 'object';
+    }
+
+    /**
+     * Creates an array of the own enumerable property names of `object`.
+     *
+     * **Note:** Non-object values are coerced to objects. See the
+     * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+     * for more details.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Object
+     * @param {Object} object The object to query.
+     * @returns {Array} Returns the array of property names.
+     * @example
+     *
+     * function Foo() {
+     *   this.a = 1;
+     *   this.b = 2;
+     * }
+     *
+     * Foo.prototype.c = 3;
+     *
+     * _.keys(new Foo);
+     * // => ['a', 'b'] (iteration order is not guaranteed)
+     *
+     * _.keys('hi');
+     * // => ['0', '1']
+     */
+    function keys(object) {
+      return isArrayLike$2(object) ? arrayLikeKeys(object) : baseKeys(object);
+    }
+
+    /**
+     * Creates an array of the own enumerable string keyed property values of `object`.
+     *
+     * **Note:** Non-object values are coerced to objects.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Object
+     * @param {Object} object The object to query.
+     * @returns {Array} Returns the array of property values.
+     * @example
+     *
+     * function Foo() {
+     *   this.a = 1;
+     *   this.b = 2;
+     * }
+     *
+     * Foo.prototype.c = 3;
+     *
+     * _.values(new Foo);
+     * // => [1, 2] (iteration order is not guaranteed)
+     *
+     * _.values('hi');
+     * // => ['h', 'i']
+     */
+    function values(object) {
+      return object ? baseValues(object, keys(object)) : [];
+    }
+
+    var lodash_sample = sample;
+
+    var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+    /**
+     * lodash (Custom Build) <https://lodash.com/>
+     * Build: `lodash modularize exports="npm" -o ./`
+     * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+     * Released under MIT license <https://lodash.com/license>
+     * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+     * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+     */
+
+    /** Used as references for various `Number` constants. */
+    var INFINITY$2 = 1 / 0,
+        MAX_SAFE_INTEGER$3 = 9007199254740991,
+        MAX_INTEGER$2 = 1.7976931348623157e+308,
+        NAN$2 = 0 / 0;
+
+    /** Used as references for the maximum length and index of an array. */
+    var MAX_ARRAY_LENGTH = 4294967295;
+
+    /** `Object#toString` result references. */
+    var argsTag$1 = '[object Arguments]',
+        funcTag$3 = '[object Function]',
+        genTag$3 = '[object GeneratorFunction]',
+        mapTag = '[object Map]',
+        objectTag = '[object Object]',
+        promiseTag = '[object Promise]',
+        setTag = '[object Set]',
+        stringTag = '[object String]',
+        symbolTag$2 = '[object Symbol]',
+        weakMapTag = '[object WeakMap]';
+
+    var dataViewTag = '[object DataView]';
+
+    /**
+     * Used to match `RegExp`
+     * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
+     */
+    var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+
+    /** Used to match leading and trailing whitespace. */
+    var reTrim$2 = /^\s+|\s+$/g;
+
+    /** Used to detect bad signed hexadecimal string values. */
+    var reIsBadHex$2 = /^[-+]0x[0-9a-f]+$/i;
+
+    /** Used to detect binary string values. */
+    var reIsBinary$2 = /^0b[01]+$/i;
+
+    /** Used to detect host constructors (Safari). */
+    var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+    /** Used to detect octal string values. */
+    var reIsOctal$2 = /^0o[0-7]+$/i;
+
+    /** Used to detect unsigned integer values. */
+    var reIsUint$3 = /^(?:0|[1-9]\d*)$/;
+
+    /** Used to compose unicode character classes. */
+    var rsAstralRange = '\\ud800-\\udfff',
+        rsComboMarksRange = '\\u0300-\\u036f\\ufe20-\\ufe23',
+        rsComboSymbolsRange = '\\u20d0-\\u20f0',
+        rsVarRange = '\\ufe0e\\ufe0f';
+
+    /** Used to compose unicode capture groups. */
+    var rsAstral = '[' + rsAstralRange + ']',
+        rsCombo = '[' + rsComboMarksRange + rsComboSymbolsRange + ']',
+        rsFitz = '\\ud83c[\\udffb-\\udfff]',
+        rsModifier = '(?:' + rsCombo + '|' + rsFitz + ')',
+        rsNonAstral = '[^' + rsAstralRange + ']',
+        rsRegional = '(?:\\ud83c[\\udde6-\\uddff]){2}',
+        rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]',
+        rsZWJ = '\\u200d';
+
+    /** Used to compose unicode regexes. */
+    var reOptMod = rsModifier + '?',
+        rsOptVar = '[' + rsVarRange + ']?',
+        rsOptJoin = '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
+        rsSeq = rsOptVar + reOptMod + rsOptJoin,
+        rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
+
+    /** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
+    var reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
+
+    /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
+    var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboMarksRange + rsComboSymbolsRange + rsVarRange + ']');
+
+    /** Built-in method references without a dependency on `root`. */
+    var freeParseInt$2 = parseInt;
+
+    /** Detect free variable `global` from Node.js. */
+    var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+
+    /** Detect free variable `self`. */
+    var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+    /** Used as a reference to the global object. */
+    var root = freeGlobal || freeSelf || Function('return this')();
+
+    /**
+     * A specialized version of `_.map` for arrays without support for iteratee
+     * shorthands.
+     *
+     * @private
+     * @param {Array} [array] The array to iterate over.
+     * @param {Function} iteratee The function invoked per iteration.
+     * @returns {Array} Returns the new mapped array.
+     */
+    function arrayMap$1(array, iteratee) {
+      var index = -1,
+          length = array ? array.length : 0,
+          result = Array(length);
+
+      while (++index < length) {
+        result[index] = iteratee(array[index], index, array);
+      }
+      return result;
+    }
+
+    /**
+     * Converts an ASCII `string` to an array.
+     *
+     * @private
+     * @param {string} string The string to convert.
+     * @returns {Array} Returns the converted array.
+     */
+    function asciiToArray(string) {
+      return string.split('');
+    }
+
+    /**
+     * The base implementation of `_.times` without support for iteratee shorthands
+     * or max array length checks.
+     *
+     * @private
+     * @param {number} n The number of times to invoke `iteratee`.
+     * @param {Function} iteratee The function invoked per iteration.
+     * @returns {Array} Returns the array of results.
+     */
+    function baseTimes$1(n, iteratee) {
+      var index = -1,
+          result = Array(n);
+
+      while (++index < n) {
+        result[index] = iteratee(index);
+      }
+      return result;
+    }
+
+    /**
+     * The base implementation of `_.values` and `_.valuesIn` which creates an
+     * array of `object` property values corresponding to the property names
+     * of `props`.
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @param {Array} props The property names to get values for.
+     * @returns {Object} Returns the array of property values.
+     */
+    function baseValues$1(object, props) {
+      return arrayMap$1(props, function(key) {
+        return object[key];
+      });
+    }
+
+    /**
+     * Gets the value at `key` of `object`.
+     *
+     * @private
+     * @param {Object} [object] The object to query.
+     * @param {string} key The key of the property to get.
+     * @returns {*} Returns the property value.
+     */
+    function getValue(object, key) {
+      return object == null ? undefined : object[key];
+    }
+
+    /**
+     * Checks if `string` contains Unicode symbols.
+     *
+     * @private
+     * @param {string} string The string to inspect.
+     * @returns {boolean} Returns `true` if a symbol is found, else `false`.
+     */
+    function hasUnicode(string) {
+      return reHasUnicode.test(string);
+    }
+
+    /**
+     * Checks if `value` is a host object in IE < 9.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
+     */
+    function isHostObject(value) {
+      // Many host objects are `Object` objects that can coerce to strings
+      // despite having improperly defined `toString` methods.
+      var result = false;
+      if (value != null && typeof value.toString != 'function') {
+        try {
+          result = !!(value + '');
+        } catch (e) {}
+      }
+      return result;
+    }
+
+    /**
+     * Converts `iterator` to an array.
+     *
+     * @private
+     * @param {Object} iterator The iterator to convert.
+     * @returns {Array} Returns the converted array.
+     */
+    function iteratorToArray(iterator) {
+      var data,
+          result = [];
+
+      while (!(data = iterator.next()).done) {
+        result.push(data.value);
+      }
+      return result;
+    }
+
+    /**
+     * Converts `map` to its key-value pairs.
+     *
+     * @private
+     * @param {Object} map The map to convert.
+     * @returns {Array} Returns the key-value pairs.
+     */
+    function mapToArray(map) {
+      var index = -1,
+          result = Array(map.size);
+
+      map.forEach(function(value, key) {
+        result[++index] = [key, value];
+      });
+      return result;
+    }
+
+    /**
+     * Creates a unary function that invokes `func` with its argument transformed.
+     *
+     * @private
+     * @param {Function} func The function to wrap.
+     * @param {Function} transform The argument transform.
+     * @returns {Function} Returns the new function.
+     */
+    function overArg$1(func, transform) {
+      return function(arg) {
+        return func(transform(arg));
+      };
+    }
+
+    /**
+     * Converts `set` to an array of its values.
+     *
+     * @private
+     * @param {Object} set The set to convert.
+     * @returns {Array} Returns the values.
+     */
+    function setToArray(set) {
+      var index = -1,
+          result = Array(set.size);
+
+      set.forEach(function(value) {
+        result[++index] = value;
+      });
+      return result;
+    }
+
+    /**
+     * Converts `string` to an array.
+     *
+     * @private
+     * @param {string} string The string to convert.
+     * @returns {Array} Returns the converted array.
+     */
+    function stringToArray(string) {
+      return hasUnicode(string)
+        ? unicodeToArray(string)
+        : asciiToArray(string);
+    }
+
+    /**
+     * Converts a Unicode `string` to an array.
+     *
+     * @private
+     * @param {string} string The string to convert.
+     * @returns {Array} Returns the converted array.
+     */
+    function unicodeToArray(string) {
+      return string.match(reUnicode) || [];
+    }
+
+    /** Used for built-in method references. */
+    var funcProto = Function.prototype,
+        objectProto$3 = Object.prototype;
+
+    /** Used to detect overreaching core-js shims. */
+    var coreJsData = root['__core-js_shared__'];
+
+    /** Used to detect methods masquerading as native. */
+    var maskSrcKey = (function() {
+      var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
+      return uid ? ('Symbol(src)_1.' + uid) : '';
+    }());
+
+    /** Used to resolve the decompiled source of functions. */
+    var funcToString = funcProto.toString;
+
+    /** Used to check objects for own properties. */
+    var hasOwnProperty$1 = objectProto$3.hasOwnProperty;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var objectToString$3 = objectProto$3.toString;
+
+    /** Used to detect if a method is native. */
+    var reIsNative = RegExp('^' +
+      funcToString.call(hasOwnProperty$1).replace(reRegExpChar, '\\$&')
+      .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
+    );
+
+    /** Built-in value references. */
+    var Symbol = root.Symbol,
+        iteratorSymbol = Symbol ? Symbol.iterator : undefined,
+        propertyIsEnumerable$1 = objectProto$3.propertyIsEnumerable;
+
+    /* Built-in method references for those with the same name as other `lodash` methods. */
+    var nativeFloor$2 = Math.floor,
+        nativeKeys$1 = overArg$1(Object.keys, Object),
+        nativeRandom$2 = Math.random;
+
+    /* Built-in method references that are verified to be native. */
+    var DataView = getNative(root, 'DataView'),
+        Map$1 = getNative(root, 'Map'),
+        Promise$1 = getNative(root, 'Promise'),
+        Set$1 = getNative(root, 'Set'),
+        WeakMap = getNative(root, 'WeakMap');
+
+    /** Used to detect maps, sets, and weakmaps. */
+    var dataViewCtorString = toSource(DataView),
+        mapCtorString = toSource(Map$1),
+        promiseCtorString = toSource(Promise$1),
+        setCtorString = toSource(Set$1),
+        weakMapCtorString = toSource(WeakMap);
+
+    /**
+     * Creates an array of the enumerable property names of the array-like `value`.
+     *
+     * @private
+     * @param {*} value The value to query.
+     * @param {boolean} inherited Specify returning inherited property names.
+     * @returns {Array} Returns the array of property names.
+     */
+    function arrayLikeKeys$1(value, inherited) {
+      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+      // Safari 9 makes `arguments.length` enumerable in strict mode.
+      var result = (isArray$1(value) || isArguments$1(value))
+        ? baseTimes$1(value.length, String)
+        : [];
+
+      var length = result.length,
+          skipIndexes = !!length;
+
+      for (var key in value) {
+        if ((inherited || hasOwnProperty$1.call(value, key)) &&
+            !(skipIndexes && (key == 'length' || isIndex$3(key, length)))) {
+          result.push(key);
+        }
+      }
+      return result;
+    }
+
+    /**
+     * The base implementation of `_.clamp` which doesn't coerce arguments.
+     *
+     * @private
+     * @param {number} number The number to clamp.
+     * @param {number} [lower] The lower bound.
+     * @param {number} upper The upper bound.
+     * @returns {number} Returns the clamped number.
+     */
+    function baseClamp(number, lower, upper) {
+      if (number === number) {
+        if (upper !== undefined) {
+          number = number <= upper ? number : upper;
+        }
+        if (lower !== undefined) {
+          number = number >= lower ? number : lower;
+        }
+      }
+      return number;
+    }
+
+    /**
+     * The base implementation of `getTag`.
+     *
+     * @private
+     * @param {*} value The value to query.
+     * @returns {string} Returns the `toStringTag`.
+     */
+    function baseGetTag(value) {
+      return objectToString$3.call(value);
+    }
+
+    /**
+     * The base implementation of `_.isNative` without bad shim checks.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a native function,
+     *  else `false`.
+     */
+    function baseIsNative(value) {
+      if (!isObject$3(value) || isMasked(value)) {
+        return false;
+      }
+      var pattern = (isFunction$3(value) || isHostObject(value)) ? reIsNative : reIsHostCtor;
+      return pattern.test(toSource(value));
+    }
+
+    /**
+     * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @returns {Array} Returns the array of property names.
+     */
+    function baseKeys$1(object) {
+      if (!isPrototype$1(object)) {
+        return nativeKeys$1(object);
+      }
+      var result = [];
+      for (var key in Object(object)) {
+        if (hasOwnProperty$1.call(object, key) && key != 'constructor') {
+          result.push(key);
+        }
+      }
+      return result;
+    }
+
+    /**
+     * The base implementation of `_.random` without support for returning
+     * floating-point numbers.
+     *
+     * @private
+     * @param {number} lower The lower bound.
+     * @param {number} upper The upper bound.
+     * @returns {number} Returns the random number.
+     */
+    function baseRandom$2(lower, upper) {
+      return lower + nativeFloor$2(nativeRandom$2() * (upper - lower + 1));
+    }
+
+    /**
+     * Copies the values of `source` to `array`.
+     *
+     * @private
+     * @param {Array} source The array to copy values from.
+     * @param {Array} [array=[]] The array to copy values to.
+     * @returns {Array} Returns `array`.
+     */
+    function copyArray(source, array) {
+      var index = -1,
+          length = source.length;
+
+      array || (array = Array(length));
+      while (++index < length) {
+        array[index] = source[index];
+      }
+      return array;
+    }
+
+    /**
+     * Gets the native function at `key` of `object`.
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @param {string} key The key of the method to get.
+     * @returns {*} Returns the function if it's native, else `undefined`.
+     */
+    function getNative(object, key) {
+      var value = getValue(object, key);
+      return baseIsNative(value) ? value : undefined;
+    }
+
+    /**
+     * Gets the `toStringTag` of `value`.
+     *
+     * @private
+     * @param {*} value The value to query.
+     * @returns {string} Returns the `toStringTag`.
+     */
+    var getTag = baseGetTag;
+
+    // Fallback for data views, maps, sets, and weak maps in IE 11,
+    // for data views in Edge < 14, and promises in Node.js.
+    if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
+        (Map$1 && getTag(new Map$1) != mapTag) ||
+        (Promise$1 && getTag(Promise$1.resolve()) != promiseTag) ||
+        (Set$1 && getTag(new Set$1) != setTag) ||
+        (WeakMap && getTag(new WeakMap) != weakMapTag)) {
+      getTag = function(value) {
+        var result = objectToString$3.call(value),
+            Ctor = result == objectTag ? value.constructor : undefined,
+            ctorString = Ctor ? toSource(Ctor) : undefined;
+
+        if (ctorString) {
+          switch (ctorString) {
+            case dataViewCtorString: return dataViewTag;
+            case mapCtorString: return mapTag;
+            case promiseCtorString: return promiseTag;
+            case setCtorString: return setTag;
+            case weakMapCtorString: return weakMapTag;
+          }
+        }
+        return result;
+      };
+    }
+
+    /**
+     * Checks if `value` is a valid array-like index.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+     * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+     */
+    function isIndex$3(value, length) {
+      length = length == null ? MAX_SAFE_INTEGER$3 : length;
+      return !!length &&
+        (typeof value == 'number' || reIsUint$3.test(value)) &&
+        (value > -1 && value % 1 == 0 && value < length);
+    }
+
+    /**
+     * Checks if the given arguments are from an iteratee call.
+     *
+     * @private
+     * @param {*} value The potential iteratee value argument.
+     * @param {*} index The potential iteratee index or key argument.
+     * @param {*} object The potential iteratee object argument.
+     * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+     *  else `false`.
+     */
+    function isIterateeCall$2(value, index, object) {
+      if (!isObject$3(object)) {
+        return false;
+      }
+      var type = typeof index;
+      if (type == 'number'
+            ? (isArrayLike$3(object) && isIndex$3(index, object.length))
+            : (type == 'string' && index in object)
+          ) {
+        return eq$2(object[index], value);
+      }
+      return false;
+    }
+
+    /**
+     * Checks if `func` has its source masked.
+     *
+     * @private
+     * @param {Function} func The function to check.
+     * @returns {boolean} Returns `true` if `func` is masked, else `false`.
+     */
+    function isMasked(func) {
+      return !!maskSrcKey && (maskSrcKey in func);
+    }
+
+    /**
+     * Checks if `value` is likely a prototype object.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+     */
+    function isPrototype$1(value) {
+      var Ctor = value && value.constructor,
+          proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$3;
+
+      return value === proto;
+    }
+
+    /**
+     * Converts `func` to its source code.
+     *
+     * @private
+     * @param {Function} func The function to process.
+     * @returns {string} Returns the source code.
+     */
+    function toSource(func) {
+      if (func != null) {
+        try {
+          return funcToString.call(func);
+        } catch (e) {}
+        try {
+          return (func + '');
+        } catch (e) {}
+      }
+      return '';
+    }
+
+    /**
+     * Gets `n` random elements at unique keys from `collection` up to the
+     * size of `collection`.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Collection
+     * @param {Array|Object} collection The collection to sample.
+     * @param {number} [n=1] The number of elements to sample.
+     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @returns {Array} Returns the random elements.
+     * @example
+     *
+     * _.sampleSize([1, 2, 3], 2);
+     * // => [3, 1]
+     *
+     * _.sampleSize([1, 2, 3], 4);
+     * // => [2, 3, 1]
+     */
+    function sampleSize(collection, n, guard) {
+      var index = -1,
+          result = toArray(collection),
+          length = result.length,
+          lastIndex = length - 1;
+
+      if ((guard ? isIterateeCall$2(collection, n, guard) : n === undefined)) {
+        n = 1;
+      } else {
+        n = baseClamp(toInteger(n), 0, length);
+      }
+      while (++index < n) {
+        var rand = baseRandom$2(index, lastIndex),
+            value = result[rand];
+
+        result[rand] = result[index];
+        result[index] = value;
+      }
+      result.length = n;
+      return result;
+    }
+
+    /**
+     * Creates an array of shuffled values, using a version of the
+     * [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher-Yates_shuffle).
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Collection
+     * @param {Array|Object} collection The collection to shuffle.
+     * @returns {Array} Returns the new shuffled array.
+     * @example
+     *
+     * _.shuffle([1, 2, 3, 4]);
+     * // => [4, 1, 3, 2]
+     */
+    function shuffle(collection) {
+      return sampleSize(collection, MAX_ARRAY_LENGTH);
+    }
+
+    /**
+     * Performs a
+     * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+     * comparison between two values to determine if they are equivalent.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to compare.
+     * @param {*} other The other value to compare.
+     * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+     * @example
+     *
+     * var object = { 'a': 1 };
+     * var other = { 'a': 1 };
+     *
+     * _.eq(object, object);
+     * // => true
+     *
+     * _.eq(object, other);
+     * // => false
+     *
+     * _.eq('a', 'a');
+     * // => true
+     *
+     * _.eq('a', Object('a'));
+     * // => false
+     *
+     * _.eq(NaN, NaN);
+     * // => true
+     */
+    function eq$2(value, other) {
+      return value === other || (value !== value && other !== other);
+    }
+
+    /**
+     * Checks if `value` is likely an `arguments` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+     *  else `false`.
+     * @example
+     *
+     * _.isArguments(function() { return arguments; }());
+     * // => true
+     *
+     * _.isArguments([1, 2, 3]);
+     * // => false
+     */
+    function isArguments$1(value) {
+      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+      return isArrayLikeObject$1(value) && hasOwnProperty$1.call(value, 'callee') &&
+        (!propertyIsEnumerable$1.call(value, 'callee') || objectToString$3.call(value) == argsTag$1);
+    }
+
+    /**
+     * Checks if `value` is classified as an `Array` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+     * @example
+     *
+     * _.isArray([1, 2, 3]);
+     * // => true
+     *
+     * _.isArray(document.body.children);
+     * // => false
+     *
+     * _.isArray('abc');
+     * // => false
+     *
+     * _.isArray(_.noop);
+     * // => false
+     */
+    var isArray$1 = Array.isArray;
+
+    /**
+     * Checks if `value` is array-like. A value is considered array-like if it's
+     * not a function and has a `value.length` that's an integer greater than or
+     * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+     * @example
+     *
+     * _.isArrayLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLike(document.body.children);
+     * // => true
+     *
+     * _.isArrayLike('abc');
+     * // => true
+     *
+     * _.isArrayLike(_.noop);
+     * // => false
+     */
+    function isArrayLike$3(value) {
+      return value != null && isLength$3(value.length) && !isFunction$3(value);
+    }
+
+    /**
+     * This method is like `_.isArrayLike` except that it also checks if `value`
+     * is an object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an array-like object,
+     *  else `false`.
+     * @example
+     *
+     * _.isArrayLikeObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLikeObject(document.body.children);
+     * // => true
+     *
+     * _.isArrayLikeObject('abc');
+     * // => false
+     *
+     * _.isArrayLikeObject(_.noop);
+     * // => false
+     */
+    function isArrayLikeObject$1(value) {
+      return isObjectLike$3(value) && isArrayLike$3(value);
+    }
+
+    /**
+     * Checks if `value` is classified as a `Function` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+     * @example
+     *
+     * _.isFunction(_);
+     * // => true
+     *
+     * _.isFunction(/abc/);
+     * // => false
+     */
+    function isFunction$3(value) {
+      // The use of `Object#toString` avoids issues with the `typeof` operator
+      // in Safari 8-9 which returns 'object' for typed array and other constructors.
+      var tag = isObject$3(value) ? objectToString$3.call(value) : '';
+      return tag == funcTag$3 || tag == genTag$3;
+    }
+
+    /**
+     * Checks if `value` is a valid array-like length.
+     *
+     * **Note:** This method is loosely based on
+     * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+     * @example
+     *
+     * _.isLength(3);
+     * // => true
+     *
+     * _.isLength(Number.MIN_VALUE);
+     * // => false
+     *
+     * _.isLength(Infinity);
+     * // => false
+     *
+     * _.isLength('3');
+     * // => false
+     */
+    function isLength$3(value) {
+      return typeof value == 'number' &&
+        value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER$3;
+    }
+
+    /**
+     * Checks if `value` is the
+     * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+     * @example
+     *
+     * _.isObject({});
+     * // => true
+     *
+     * _.isObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isObject(_.noop);
+     * // => true
+     *
+     * _.isObject(null);
+     * // => false
+     */
+    function isObject$3(value) {
+      var type = typeof value;
+      return !!value && (type == 'object' || type == 'function');
+    }
+
+    /**
+     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * and has a `typeof` result of "object".
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+     * @example
+     *
+     * _.isObjectLike({});
+     * // => true
+     *
+     * _.isObjectLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isObjectLike(_.noop);
+     * // => false
+     *
+     * _.isObjectLike(null);
+     * // => false
+     */
+    function isObjectLike$3(value) {
+      return !!value && typeof value == 'object';
+    }
+
+    /**
+     * Checks if `value` is classified as a `String` primitive or object.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a string, else `false`.
+     * @example
+     *
+     * _.isString('abc');
+     * // => true
+     *
+     * _.isString(1);
+     * // => false
+     */
+    function isString(value) {
+      return typeof value == 'string' ||
+        (!isArray$1(value) && isObjectLike$3(value) && objectToString$3.call(value) == stringTag);
+    }
+
+    /**
+     * Checks if `value` is classified as a `Symbol` primitive or object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+     * @example
+     *
+     * _.isSymbol(Symbol.iterator);
+     * // => true
+     *
+     * _.isSymbol('abc');
+     * // => false
+     */
+    function isSymbol$2(value) {
+      return typeof value == 'symbol' ||
+        (isObjectLike$3(value) && objectToString$3.call(value) == symbolTag$2);
+    }
+
+    /**
+     * Converts `value` to an array.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Lang
+     * @param {*} value The value to convert.
+     * @returns {Array} Returns the converted array.
+     * @example
+     *
+     * _.toArray({ 'a': 1, 'b': 2 });
+     * // => [1, 2]
+     *
+     * _.toArray('abc');
+     * // => ['a', 'b', 'c']
+     *
+     * _.toArray(1);
+     * // => []
+     *
+     * _.toArray(null);
+     * // => []
+     */
+    function toArray(value) {
+      if (!value) {
+        return [];
+      }
+      if (isArrayLike$3(value)) {
+        return isString(value) ? stringToArray(value) : copyArray(value);
+      }
+      if (iteratorSymbol && value[iteratorSymbol]) {
+        return iteratorToArray(value[iteratorSymbol]());
+      }
+      var tag = getTag(value),
+          func = tag == mapTag ? mapToArray : (tag == setTag ? setToArray : values$1);
+
+      return func(value);
+    }
+
+    /**
+     * Converts `value` to a finite number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.12.0
+     * @category Lang
+     * @param {*} value The value to convert.
+     * @returns {number} Returns the converted number.
+     * @example
+     *
+     * _.toFinite(3.2);
+     * // => 3.2
+     *
+     * _.toFinite(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toFinite(Infinity);
+     * // => 1.7976931348623157e+308
+     *
+     * _.toFinite('3.2');
+     * // => 3.2
+     */
+    function toFinite$2(value) {
+      if (!value) {
+        return value === 0 ? value : 0;
+      }
+      value = toNumber$2(value);
+      if (value === INFINITY$2 || value === -INFINITY$2) {
+        var sign = (value < 0 ? -1 : 1);
+        return sign * MAX_INTEGER$2;
+      }
+      return value === value ? value : 0;
+    }
+
+    /**
+     * Converts `value` to an integer.
+     *
+     * **Note:** This method is loosely based on
+     * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to convert.
+     * @returns {number} Returns the converted integer.
+     * @example
+     *
+     * _.toInteger(3.2);
+     * // => 3
+     *
+     * _.toInteger(Number.MIN_VALUE);
+     * // => 0
+     *
+     * _.toInteger(Infinity);
+     * // => 1.7976931348623157e+308
+     *
+     * _.toInteger('3.2');
+     * // => 3
+     */
+    function toInteger(value) {
+      var result = toFinite$2(value),
+          remainder = result % 1;
+
+      return result === result ? (remainder ? result - remainder : result) : 0;
+    }
+
+    /**
+     * Converts `value` to a number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to process.
+     * @returns {number} Returns the number.
+     * @example
+     *
+     * _.toNumber(3.2);
+     * // => 3.2
+     *
+     * _.toNumber(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toNumber(Infinity);
+     * // => Infinity
+     *
+     * _.toNumber('3.2');
+     * // => 3.2
+     */
+    function toNumber$2(value) {
+      if (typeof value == 'number') {
+        return value;
+      }
+      if (isSymbol$2(value)) {
+        return NAN$2;
+      }
+      if (isObject$3(value)) {
+        var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+        value = isObject$3(other) ? (other + '') : other;
+      }
+      if (typeof value != 'string') {
+        return value === 0 ? value : +value;
+      }
+      value = value.replace(reTrim$2, '');
+      var isBinary = reIsBinary$2.test(value);
+      return (isBinary || reIsOctal$2.test(value))
+        ? freeParseInt$2(value.slice(2), isBinary ? 2 : 8)
+        : (reIsBadHex$2.test(value) ? NAN$2 : +value);
+    }
+
+    /**
+     * Creates an array of the own enumerable property names of `object`.
+     *
+     * **Note:** Non-object values are coerced to objects. See the
+     * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+     * for more details.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Object
+     * @param {Object} object The object to query.
+     * @returns {Array} Returns the array of property names.
+     * @example
+     *
+     * function Foo() {
+     *   this.a = 1;
+     *   this.b = 2;
+     * }
+     *
+     * Foo.prototype.c = 3;
+     *
+     * _.keys(new Foo);
+     * // => ['a', 'b'] (iteration order is not guaranteed)
+     *
+     * _.keys('hi');
+     * // => ['0', '1']
+     */
+    function keys$1(object) {
+      return isArrayLike$3(object) ? arrayLikeKeys$1(object) : baseKeys$1(object);
+    }
+
+    /**
+     * Creates an array of the own enumerable string keyed property values of `object`.
+     *
+     * **Note:** Non-object values are coerced to objects.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Object
+     * @param {Object} object The object to query.
+     * @returns {Array} Returns the array of property values.
+     * @example
+     *
+     * function Foo() {
+     *   this.a = 1;
+     *   this.b = 2;
+     * }
+     *
+     * Foo.prototype.c = 3;
+     *
+     * _.values(new Foo);
+     * // => [1, 2] (iteration order is not guaranteed)
+     *
+     * _.values('hi');
+     * // => ['h', 'i']
+     */
+    function values$1(object) {
+      return object ? baseValues$1(object, keys$1(object)) : [];
+    }
+
+    var lodash_shuffle = shuffle;
+
+    /* src\App.svelte generated by Svelte v3.12.1 */
+    const { window: window_1 } = globals;
+
+    const file$5 = "src\\App.svelte";
+
+    function create_fragment$5(ctx) {
+    	var a, h1, t1, div0, t2, div1, t3, current, dispose;
+
+    	var shortcut = new Shortcut({
+    		props: {
+    		data: ctx.data,
+    		index: ctx.index,
+    		curr: ctx.curr
+    	},
+    		$$inline: true
+    	});
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			h1 = element("h1");
+    			h1.textContent = "Shortcut";
+    			t1 = space();
+    			div0 = element("div");
+    			shortcut.$$.fragment.c();
+    			t2 = space();
+    			div1 = element("div");
+    			t3 = text(ctx.message);
+    			add_location(h1, file$5, 161, 17, 4746);
+    			attr_dev(a, "href", "https://github.com/ChristerNilsson/Lab/wiki/Shortcut");
+    			attr_dev(a, "class", "center-align svelte-8kbajt");
+    			attr_dev(a, "target", "_blank");
+    			add_location(a, file$5, 158, 0, 4603);
+    			set_style(div0, "width", "90%");
+    			set_style(div0, "margin", "auto");
+    			add_location(div0, file$5, 162, 0, 4769);
+    			attr_dev(div1, "class", "w fs center-align svelte-8kbajt");
+    			add_location(div1, file$5, 165, 0, 4851);
+
+    			dispose = [
+    				listen_dev(window_1, "keydown", ctx.handleKeyDown),
+    				listen_dev(a, "mousemove", ctx.mousemove_handler)
+    			];
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, h1);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, div0, anchor);
+    			mount_component(shortcut, div0, null);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, t3);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var shortcut_changes = {};
+    			if (changed.data) shortcut_changes.data = ctx.data;
+    			if (changed.index) shortcut_changes.index = ctx.index;
+    			if (changed.curr) shortcut_changes.curr = ctx.curr;
+    			shortcut.$set(shortcut_changes);
+
+    			if (!current || changed.message) {
+    				set_data_dev(t3, ctx.message);
+    			}
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(shortcut.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(shortcut.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(a);
+    				detach_dev(t1);
+    				detach_dev(div0);
+    			}
+
+    			destroy_component(shortcut);
+
+    			if (detaching) {
+    				detach_dev(t2);
+    				detach_dev(div1);
+    			}
+
+    			run_all(dispose);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$5.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	
+
+    	const url = new URL(window.location.href);
+    	const getParam = (name,value) => parseInt(url.searchParams.get(name) || value);
+
+    	let data = {};
+    	let index = 0;
+    	let curr = null;
+
+    	$$invalidate('data', data.M = getParam('M',3), data); // MAX level
+    	$$invalidate('data', data.N = getParam('N',24), data); // exercises
+    	$$invalidate('data', data.MAX = getParam('MAX',20), data); // MAX number
+    	$$invalidate('data', data.SHUFFLE = getParam('SHUFFLE',0), data); // 1
+    	$$invalidate('data', data.ADD = getParam('ADD',2), data);
+    	$$invalidate('data', data.MUL = getParam('MUL',2), data);
+    	$$invalidate('data', data.DIV = getParam('DIV',2), data);
+    	$$invalidate('data', data.SUB = getParam('SUB',0), data);
+
+    	$$invalidate('data', data.score = 0, data);
+    	$$invalidate('data', data.undos = 0, data);
+
+    	$$invalidate('data', data.start = new Date(), data);
+    	$$invalidate('data', data.stopp = new Date(), data);
+
+    	$$invalidate('data', data.optimum = 0, data);
+
+    	const createCandidates = (n) => {
+    		let a = lodash_random(1,data.MAX);
+
+    		let cands0 = [a];
+    		const visited = {};
+    		const memory = {};
+    		visited[a.toString()] = 0;
+    		memory[a.toString()] = a;
+
+    		for (const lvl of lodash_range(n)) {
+    			const cands1 = [];
+    			const op = (p) => {
+    				if (p <= data.MUL*data.MAX) {
+    					const key = p.toString();
+    					if (!(key in memory)) {
+    						cands1.push(p);
+    						visited[key] = lvl+1;
+    						memory[key] = p;
+    					}
+    				}
+    			};
+    			for (const cand of cands0) {
+    				op(cand + data.ADD);
+    				op(cand - data.SUB);
+    				op(cand * data.MUL);
+    				if (cand % data.DIV==0) op(cand / data.DIV);
+    			}
+    			cands0 = cands1;
+    		}
+    		if (cands0.length > 0) {
+    			const target = lodash_sample(cands0);
+    			const key = target.toString();
+    			$$invalidate('data', data.optimum += visited[key], data);
+    			return {a:a, b:target, hist:[], orig:a}
+    		} else {
+    			const key = lodash_sample(Object.keys(visited));
+    			$$invalidate('data', data.optimum += visited[key], data);
+    			return {a:a, b:memory[key], hist:[], orig:a}
+    		}
+    	};
+
+    	let candidates = [];
+    	for (const level of lodash_range(data.M)) {
+    		for (const j of lodash_range(data.N/data.M)) {
+    			candidates.push(createCandidates(level+1));
+    		}
+    	}
+
+    	$$invalidate('data', data.cand = data.SHUFFLE==1 ? lodash_shuffle(candidates) : candidates, data);
+
+    	$$invalidate('data', data.op = (value) => {
+    		if (curr.a==value) return
+    		curr.hist.push(curr.a);
+    		$$invalidate('curr', curr.a = value, curr);
+    		$$invalidate('data', data.score++, data);
+    		$$invalidate('data', data.stopp = new Date(), data);
+    	}, data);
+
+    	$$invalidate('data', data.undo = () => {
+    		$$invalidate('data', data.score--, data);
+    		$$invalidate('data', data.undos++, data);
+    		$$invalidate('curr', curr.a = curr.hist.pop(), curr);
+    	}, data);
+
+    	$$invalidate('data', data.reset = () => {
+    		$$invalidate('data', data.start = new Date(), data);
+    		$$invalidate('data', data.stopp = new Date(), data);
+    		$$invalidate('data', data.score = 0, data);
+    		$$invalidate('data', data.undos = 0, data);
+    		$$invalidate('index', index = 0);
+
+    		for (const c of data.cand) {
+    			c.a = c.orig;
+    			c.hist = [];
+    		}
+    	}, data);
+
+    	$$invalidate('data', data.click = (i) => $$invalidate('index', index = i), data);
+    	$$invalidate('data', data.incr = (delta) => $$invalidate('index', index += delta), data);
+
+    	const handleKeyDown = (event) => {
+    		event.preventDefault();
+    		if (event.key=='ArrowLeft' && index > 0) $$invalidate('index', index--, index);
+    		if (event.key=='ArrowRight' && index < data.N-1) $$invalidate('index', index++, index);
+    		if (event.key==' ') $$invalidate('index', index = (index+1) % data.N);
+    		if (event.key=='Home') $$invalidate('index', index = 0);
+    		if (event.key=='End') $$invalidate('index', index=(data.N-1));
+    		if (event.key=='a' && curr.a!=curr.b) data.op(curr.a + data.ADD);
+    		if (event.key=='s' && curr.a!=curr.b) data.op(curr.a - data.SUB);
+    		if ((event.key=='m' || event.key=='w') && curr.a!=curr.b) data.op(curr.a * data.MUL);
+    		if (event.key=='d' && curr.a!=curr.b && curr.a % data.DIV==0) data.op(curr.a / data.DIV);
+    		if (event.key=='z' && curr.hist.length > 0) data.undo();
+    		if (event.key=='r') data.reset();
+    	};
+
+    	let message = '';
+
+    	$$invalidate('data', data.mm = (name,detail='') => {
+    		if (name=='info') $$invalidate('message', message = 'click for info about how to use and customize Shortcut');
+    		if (name=='score') $$invalidate('message', message = 'number of operations you have used. Minimize!');
+    		if (name=='optimum') $$invalidate('message', message = 'the minimum number of operations necessary');
+    		if (name=='undos') $$invalidate('message', message = 'number of undoes. Minimize');
+    		if (name=='time') $$invalidate('message', message = 'number of seconds you have used. Minimize');
+    		if (name=='left') $$invalidate('message', message = 'make this number equal to the target number');
+    		if (name=='right') $$invalidate('message', message = 'this is the target number');
+    		if (name=='prev') $$invalidate('message', message = 'previous exercise. Key=leftArrow');
+    		if (name=='next') $$invalidate('message', message = 'next exercise. Key=rightArrow or space');
+    		if (name=='add') $$invalidate('message', message = 'addition operation on left number. Key=a');
+    		if (name=='mul') $$invalidate('message', message = 'multiplication operation on left number. Key=w or m');
+    		if (name=='sub') $$invalidate('message', message = 'subtraction operation on left number. Key=s');
+    		if (name=='div') $$invalidate('message', message = 'division operation on left number. Key=d');
+    		if (name=='undo') $$invalidate('message', message = 'last operation is undone. Key=z');
+    		if (name=='circle') $$invalidate('message', message = 'jump to exercise #' + detail);
+    	}, data);
+
+    	const mousemove_handler = () => data.mm('info');
+
+    	$$self.$capture_state = () => {
+    		return {};
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('index' in $$props) $$invalidate('index', index = $$props.index);
+    		if ('curr' in $$props) $$invalidate('curr', curr = $$props.curr);
+    		if ('candidates' in $$props) candidates = $$props.candidates;
+    		if ('message' in $$props) $$invalidate('message', message = $$props.message);
+    	};
+
+    	$$self.$$.update = ($$dirty = { data: 1, index: 1 }) => {
+    		if ($$dirty.data || $$dirty.index) { $$invalidate('curr', curr = data.cand[index]); }
+    	};
+
+    	return {
+    		data,
+    		index,
+    		curr,
+    		handleKeyDown,
+    		message,
+    		mousemove_handler
+    	};
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, []);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "App", options, id: create_fragment$5.name });
+    	}
+    }
+
+    var app = new App({
+    	target: document.body
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map
