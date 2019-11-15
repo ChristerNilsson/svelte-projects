@@ -1,8 +1,12 @@
 {
   "version": 3,
   "file": "bundle.css",
-  "sources": [],
-  "sourcesContent": [],
+  "sources": [
+    "..\\src\\Folder.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n\r\n\t// export let expanded = false\r\n\t// export let name\r\n\texport let tree\r\n\texport let path=[]\r\n\r\n</script>\r\n\r\n<style>\r\n\tspan {\r\n\t\tpadding: 0 0 0 1.5em;\r\n\t\tbackground-size: 1em 1em;\r\n\t\tfont-weight: bold;\r\n\t\tcursor: pointer;\r\n\t}\r\n\r\n\tul {\r\n\t\tpadding: 0.2em 0 0 0.5em;\r\n\t\tmargin: 0 0 0 0.5em;\r\n\t\tlist-style: none;\r\n\t\tborder-left: 1px solid #eee;\r\n\t}\r\n\r\n\tli {\r\n\t\tpadding: 0.2em 0;\r\n\t}\r\n</style>\r\n\r\n<span class:expanded on:click={()=>expanded = !expanded}>{name}</span>\r\n\r\n{#if expanded}\r\n\t<ul>\r\n\t\t{#each files as file}\r\n\t\t\t<li>\r\n\t\t\t\t{#if file.type === 'folder'}\r\n\t\t\t\t\t<svelte:self {...file}/>\r\n\t\t\t\t{:else}\r\n\t\t\t\t\t<span>{file.name}</span>\r\n\t\t\t\t{/if}\r\n\t\t\t</li>\r\n\t\t{/each}\r\n\t</ul>\r\n{/if}"
+  ],
   "names": [],
-  "mappings": ""
+  "mappings": "AAUC,IAAI,cAAC,CAAC,AACL,OAAO,CAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,KAAK,CACpB,eAAe,CAAE,GAAG,CAAC,GAAG,CACxB,WAAW,CAAE,IAAI,CACjB,MAAM,CAAE,OAAO,AAChB,CAAC,AAED,EAAE,cAAC,CAAC,AACH,OAAO,CAAE,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,KAAK,CACxB,MAAM,CAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,KAAK,CACnB,UAAU,CAAE,IAAI,CAChB,WAAW,CAAE,GAAG,CAAC,KAAK,CAAC,IAAI,AAC5B,CAAC,AAED,EAAE,cAAC,CAAC,AACH,OAAO,CAAE,KAAK,CAAC,CAAC,AACjB,CAAC"
 }
