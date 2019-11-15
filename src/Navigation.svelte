@@ -1,5 +1,8 @@
 <script>
+	import {tweenedA,tweenedB} from './store.js'
 	export let data,curr,index
+	$: $tweenedA = curr.a
+	$: $tweenedB = curr.b
 </script>
 
 <style>
@@ -12,12 +15,12 @@
 </div>
 
 <div class='col s6 fs center-align' >
-	{#if curr.a==curr.b}
-		{curr.orig} to {curr.b}
+	{#if Math.round($tweenedA) == curr.b}
+		{curr.a} to {curr.b}
 	{:else}
-		<span on:mousemove={() => data.mm('left')}>{curr.a}</span>
+		<span on:mousemove={() => data.mm('left')}>{Math.round($tweenedA)}</span>
 		to 
-		<span on:mousemove={() => data.mm('right')}>{curr.b}</span>
+		<span on:mousemove={() => data.mm('right')}>{Math.round($tweenedB)}</span>
 	{/if}
 </div>
 
