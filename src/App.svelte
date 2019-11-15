@@ -36,7 +36,11 @@
 
 </script>
 
-<div class="container">
+<style>
+	.m {margin:2%}
+</style>
+
+<div class=m>
 
 	<p>You are at the {location}.</p>
 

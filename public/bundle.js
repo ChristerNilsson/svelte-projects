@@ -325,7 +325,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (45:1) {#each Object.keys(bag) as name}
+    // (49:1) {#each Object.keys(bag) as name}
     function create_each_block_2(ctx) {
     	var div, t0, t1_value = ctx.bag[ctx.name] + "", t1, t2, t3_value = ctx.name + "", t3;
 
@@ -336,7 +336,7 @@ var app = (function () {
     			t1 = text(t1_value);
     			t2 = space();
     			t3 = text(t3_value);
-    			add_location(div, file, 45, 2, 1100);
+    			add_location(div, file, 49, 2, 1128);
     		},
 
     		m: function mount(target, anchor) {
@@ -363,11 +363,11 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block_2.name, type: "each", source: "(45:1) {#each Object.keys(bag) as name}", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block_2.name, type: "each", source: "(49:1) {#each Object.keys(bag) as name}", ctx });
     	return block;
     }
 
-    // (53:2) {#if things[name]>0}
+    // (57:2) {#if things[name]>0}
     function create_if_block(ctx) {
     	var div, t0, button, t1_value = ctx.name + "", t1, dispose;
 
@@ -381,8 +381,8 @@ var app = (function () {
     			t0 = text("Take ");
     			button = element("button");
     			t1 = text(t1_value);
-    			add_location(button, file, 53, 13, 1244);
-    			add_location(div, file, 53, 3, 1234);
+    			add_location(button, file, 57, 13, 1272);
+    			add_location(div, file, 57, 3, 1262);
     			dispose = listen_dev(button, "click", click_handler);
     		},
 
@@ -408,11 +408,11 @@ var app = (function () {
     			dispose();
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block.name, type: "if", source: "(53:2) {#if things[name]>0}", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_if_block.name, type: "if", source: "(57:2) {#if things[name]>0}", ctx });
     	return block;
     }
 
-    // (52:1) {#each Object.keys(things) as name}
+    // (56:1) {#each Object.keys(things) as name}
     function create_each_block_1(ctx) {
     	var if_block_anchor;
 
@@ -452,11 +452,11 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block_1.name, type: "each", source: "(52:1) {#each Object.keys(things) as name}", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block_1.name, type: "each", source: "(56:1) {#each Object.keys(things) as name}", ctx });
     	return block;
     }
 
-    // (58:1) {#each places as place}
+    // (62:1) {#each places as place}
     function create_each_block(ctx) {
     	var div, t0, button, t1_value = ctx.place + "", t1, dispose;
 
@@ -470,8 +470,8 @@ var app = (function () {
     			t0 = text("Goto ");
     			button = element("button");
     			t1 = text(t1_value);
-    			add_location(button, file, 58, 12, 1361);
-    			add_location(div, file, 58, 2, 1351);
+    			add_location(button, file, 62, 12, 1389);
+    			add_location(div, file, 62, 2, 1379);
     			dispose = listen_dev(button, "click", click_handler_1);
     		},
 
@@ -497,7 +497,7 @@ var app = (function () {
     			dispose();
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(58:1) {#each places as place}", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(62:1) {#each places as place}", ctx });
     	return block;
     }
 
@@ -560,12 +560,12 @@ var app = (function () {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
-    			add_location(p0, file, 40, 1, 1002);
-    			add_location(p1, file, 42, 1, 1040);
-    			add_location(hr0, file, 48, 1, 1153);
-    			add_location(hr1, file, 49, 1, 1160);
-    			attr_dev(div, "class", "container");
-    			add_location(div, file, 38, 0, 974);
+    			add_location(p0, file, 44, 1, 1030);
+    			add_location(p1, file, 46, 1, 1068);
+    			add_location(hr0, file, 52, 1, 1181);
+    			add_location(hr1, file, 53, 1, 1188);
+    			attr_dev(div, "class", "m svelte-1s6zinw");
+    			add_location(div, file, 42, 0, 1012);
     		},
 
     		l: function claim(nodes) {
