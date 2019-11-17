@@ -44,7 +44,7 @@
 		for (const lvl of range(n)) {
 			const cands1 = []
 			const op = (p) => {
-				if (p <= data.MUL*data.MAX) {
+				if (-data.MUL*data.MAX <= p && p <= data.MUL*data.MAX) {
 					const key = p.toString()
 					if (!(key in memory)) {
 						cands1.push(p)
@@ -156,7 +156,7 @@
 </style>
 
 <svelte:window on:keydown={handleKeyDown} />
-<a href="https://github.com/ChristerNilsson/Lab/wiki/Shortcut"
+<a href="https://github.com/ChristerNilsson/svelte-projects/wiki/Shortcut"
 	class='center-align'
 	on:mousemove={() => data.mm('info')}
 	target="_blank"><h1>Shortcut</h1></a>
