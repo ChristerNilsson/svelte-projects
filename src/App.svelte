@@ -130,20 +130,20 @@
 	let message = ''
 
 	data.mm = (name,detail='') => {
-		if (name=='info') message = 'click for info about how to use and customize Shortcut'
-		if (name=='score') message = 'number of operations you have used. Minimize!'
-		if (name=='optimum') message = 'the minimum number of operations necessary'
-		if (name=='undos') message = 'number of undoes. Minimize'
+		if (name=='info') message = 'click title for info about how to use and customize Shortcut'
+		if (name=='score') message = 'number of steps you have used'
+		if (name=='optimum') message = 'minimum number of steps needed'
+		if (name=='undos') message = 'number of undos. Minimize'
 		if (name=='time') message = 'number of seconds you have used. Minimize'
 		if (name=='left') message = 'make this number equal to the target number'
 		if (name=='right') message = 'this is the target number'
-		if (name=='prev') message = 'previous exercise. Key=leftArrow'
-		if (name=='next') message = 'next exercise. Key=rightArrow or space'
-		if (name=='add') message = 'addition operation on left number. Key=a'
-		if (name=='mul') message = 'multiplication operation on left number. Key=w or m'
-		if (name=='sub') message = 'subtraction operation on left number. Key=s'
-		if (name=='div') message = 'division operation on left number. Key=d'
-		if (name=='undo') message = 'last operation is undone. Key=z'
+		if (name=='prev') message = 'goto previous exercise. Key=leftArrow'
+		if (name=='next') message = 'goto next exercise. Key=rightArrow or space'
+		if (name=='add') message = 'add to left number. Key=a'
+		if (name=='mul') message = 'multiply left number. Key=w or m'
+		if (name=='sub') message = 'subtract from left number. Key=s'
+		if (name=='div') message = 'divide left number. Key=d'
+		if (name=='undo') message = 'undo last operation. Key=z'
 		if (name=='circle') message = 'jump to exercise #' + detail
 	}
 
