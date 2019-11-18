@@ -4,9 +4,8 @@
 * git checkout <branch>
 * npm run dev
 * npm run build
+* ..\deploy <branch>
 * commit <branch>
-* .\deploy <branch>
-* commit master
 
 ## Branches
 
@@ -24,10 +23,3 @@ TortoiseGit | Switch/Checkout <branch>
 VS Code: Click down to the left
 git checkout <branch>
 
-## Start
-
-npm run dev
-
-## Build
-
-npm run build
