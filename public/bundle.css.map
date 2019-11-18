@@ -2,13 +2,11 @@
   "version": 3,
   "file": "bundle.css",
   "sources": [
-    "..\\src\\Menu.svelte",
     "..\\src\\Menu2.svelte"
   ],
   "sourcesContent": [
-    "<script>\r\n\texport let menus\r\n\tmenus = menus.split(' ')\r\n\texport let menu=menus[0]\r\n</script>\r\n\r\n<style>\r\n\t.nav {\r\n\t\tfloat:left;\r\n\t\twidth:100%;\r\n\t\tbackground-color:grey;\r\n\t}\r\n\t.mnu {\r\n\t\tfloat:left;\r\n\t\twidth:auto;\r\n\t\tmargin:0.5%;\r\n\t\tcolor:white;\r\n\t}\r\n\t.sel {color:yellow}\r\n</style>\r\n\r\n<div class='nav'>\r\n\t{#each menus as m}\r\n\t\t<div class='mnu {m==menu?'sel':''}' on:click={()=>menu=m}>{m}</div>\r\n\t{/each}\r\n</div>\r\n",
     "<script>\r\n\texport let menus\r\n\t// menus = menus.split(' ')\r\n\texport let menu=menus[0] // ['Adam','Adam1']\r\n</script>\r\n\r\n<style>\r\n\t.nav {\r\n\t\tfloat:left;\r\n\t\twidth:100%;\r\n\t\tbackground-color:grey;\r\n\t}\r\n\t.mnu {\r\n\t\tfloat:left;\r\n\t\twidth:auto;\r\n\t\tmargin:0.5%;\r\n\t\tcolor:white;\r\n\t}\r\n\t.sel {color:yellow}\r\n</style>\r\n\r\n<div class='nav'>\r\n\t{#each menu as m}\r\n\t\t<div class='mnu {m==menu?'sel':''}' on:click={()=>menu=m}>{m}</div>\r\n\t{/each}\r\n</div>\r\n"
   ],
   "names": [],
-  "mappings": "AAOC,IAAI,eAAC,CAAC,AACL,MAAM,IAAI,CACV,MAAM,IAAI,CACV,iBAAiB,IAAI,AACtB,CAAC,AACD,IAAI,eAAC,CAAC,AACL,MAAM,IAAI,CACV,MAAM,IAAI,CACV,OAAO,IAAI,CACX,MAAM,KAAK,AACZ,CAAC,AACD,IAAI,eAAC,CAAC,MAAM,MAAM,CAAC;ACXnB,IAAI,eAAC,CAAC,AACL,MAAM,IAAI,CACV,MAAM,IAAI,CACV,iBAAiB,IAAI,AACtB,CAAC,AACD,IAAI,eAAC,CAAC,AACL,MAAM,IAAI,CACV,MAAM,IAAI,CACV,OAAO,IAAI,CACX,MAAM,KAAK,AACZ,CAAC,AACD,IAAI,eAAC,CAAC,MAAM,MAAM,CAAC"
+  "mappings": "AAOC,IAAI,eAAC,CAAC,AACL,MAAM,IAAI,CACV,MAAM,IAAI,CACV,iBAAiB,IAAI,AACtB,CAAC,AACD,IAAI,eAAC,CAAC,AACL,MAAM,IAAI,CACV,MAAM,IAAI,CACV,OAAO,IAAI,CACX,MAAM,KAAK,AACZ,CAAC,AACD,IAAI,eAAC,CAAC,MAAM,MAAM,CAAC"
 }
