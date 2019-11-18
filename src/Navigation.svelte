@@ -1,7 +1,5 @@
 <script>
 	export let data,curr,index
-	let origa = curr.a
-	let origb = curr.b
 </script>
 
 <style>
@@ -15,7 +13,7 @@
 
 <div class='col s6 fs center-align' >
 	{#if curr.a == curr.b}
-		{origa} to {origb}
+		{curr.orig} to {curr.b}
 	{:else}
 		<span on:mousemove={() => data.mm('left')}>{curr.a}</span>
 		to 

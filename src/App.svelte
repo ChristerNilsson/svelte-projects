@@ -22,6 +22,8 @@
 	data.DIV = getParam('DIV',2)
 	data.SUB = getParam('SUB',0)
 
+	if (data.N % data.M !=0) data.M = data.N
+
 	data.score = 0
 	data.undos = 0
 
@@ -33,7 +35,7 @@
 	$: curr = data.cand[index]
 
 	const createCandidates = (n) => {
-		let a = random(1,data.MAX)
+		let a = random(0,data.MAX)
 
 		let cands0 = [a]
 		const visited = {}
@@ -54,10 +56,10 @@
 				}
 			}
 			for (const cand of cands0) {
-				op(cand + data.ADD)
-				op(cand - data.SUB)
-				op(cand * data.MUL)
-				if (cand % data.DIV==0) op(cand / data.DIV)
+				if (data.ADD != 0) op(cand + data.ADD)
+				if (data.SUB == 0) op(cand - data.SUB)
+				if (data.MUL > 1) op(cand * data.MUL)
+				if (data.DIV > 1 && cand % data.DIV==0) op(cand / data.DIV)
 			}
 			cands0 = cands1
 		}
