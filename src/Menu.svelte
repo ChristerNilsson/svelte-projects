@@ -1,26 +1,10 @@
 <script>
 	export let children
-	export let selected
-	export let path = ['']
-
-	for (const key in children) children[key] = children[key].split('|')
-	
-	$: selected = path[path.length-1]
-
-	const f = (i) => {
-		path = path.slice(0,i)
-		path = path
-	}
-
-	const g = (p) => {
-		path.push(p)
-		path = path
-	}
-
+	children = children.split('|')
+	export let selected = children[0]
 </script>
 
 <style>
-	.selected {color:yellow}
 	.nav {
 		float:left;
 		width:100%;
@@ -32,21 +16,12 @@
 		margin:0.5%;
 		color:white;
 	}
-	.white {color:white}
-	.red {color:red}
+	.text-red {color:red}
 
 </style>
 
 <div class='nav'>
-	{#each path as p,i}
-		{#if p!=''}
-			<div class="mnu {selected==p ? 'red' : ''}" on:click = {() => f(i)} >{p}</div>
-		{/if}
+	{#each children as c}
+		<div class="mnu {selected==c ? 'text-red' : ''}" on:click = {() => selected=c} >{c}</div>
 	{/each}
-
-	{#if selected in children}
-		{#each children[selected] as p}
-			<div class='mnu' on:click = {() => g(p)}> {p}</div>
-		{/each}
-	{/if}
 </div>
