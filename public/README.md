@@ -1,1 +1,1 @@
-[Try it!](https://christernilsson.github.io/svelte-projects/arkiv/021)
+[Try it!](https://christernilsson.github.io/svelte-deploy/021)
