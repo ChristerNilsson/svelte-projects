@@ -1,2 +1,1422 @@
-var app=function(){"use strict";function e(){}function t(e,t){for(const n in t)e[n]=t[n];return e}function n(e){return e()}function r(){return Object.create(null)}function c(e){e.forEach(n)}function l(e){return"function"==typeof e}function o(e,t){return e!=e?t==t:e!==t||e&&"object"==typeof e||"function"==typeof e}function s(e,t,n){e.$$.on_destroy.push(function(e,t){const n=e.subscribe(t);return n.unsubscribe?()=>n.unsubscribe():n}(t,n))}function i(e,t,n){if(e){const r=u(e,t,n);return e[0](r)}}function u(e,n,r){return e[1]?t({},t(n.$$scope.ctx,e[1](r?r(n):{}))):n.$$scope.ctx}function a(e,n,r,c){return e[1]?t({},t(n.$$scope.changed||{},e[1](c?c(r):{}))):n.$$scope.changed||{}}function d(e,t,n=t){return e.set(n),t}function f(e,t){e.appendChild(t)}function $(e,t,n){e.insertBefore(t,n||null)}function m(e){e.parentNode.removeChild(e)}function g(e,t){for(let n=0;n<e.length;n+=1)e[n]&&e[n].d(t)}function h(e){return document.createElement(e)}function p(e){return document.createElementNS("http://www.w3.org/2000/svg",e)}function y(e){return document.createTextNode(e)}function v(){return y(" ")}function x(){return y("")}function k(e,t,n,r){return e.addEventListener(t,n,r),()=>e.removeEventListener(t,n,r)}function w(e,t,n){null==n?e.removeAttribute(t):e.setAttribute(t,n)}function b(e){return""===e?void 0:+e}function _(e,t){t=""+t,e.data!==t&&(e.data=t)}function j(e,t){(null!=t||e.value)&&(e.value=t)}function L(e,t,n,r){e.style.setProperty(t,n,r?"important":"")}let N;function O(e){N=e}function C(e){(function(){if(!N)throw new Error("Function called outside component initialization");return N})().$$.on_mount.push(e)}const z=[],E=[],M=[],S=[],P=Promise.resolve();let R=!1;function B(e){M.push(e)}function G(e){S.push(e)}function F(){const e=new Set;do{for(;z.length;){const e=z.shift();O(e),I(e.$$)}for(;E.length;)E.pop()();for(let t=0;t<M.length;t+=1){const n=M[t];e.has(n)||(n(),e.add(n))}M.length=0}while(z.length);for(;S.length;)S.pop()();R=!1}function I(e){e.fragment&&(e.update(e.dirty),c(e.before_update),e.fragment.p(e.dirty,e.ctx),e.dirty=null,e.after_update.forEach(B))}const A=new Set;let D;function K(){D={r:0,c:[],p:D}}function H(){D.r||c(D.c),D=D.p}function T(e,t){e&&e.i&&(A.delete(e),e.i(t))}function q(e,t,n,r){if(e&&e.o){if(A.has(e))return;A.add(e),D.c.push(()=>{A.delete(e),r&&(n&&e.d(1),r())}),e.o(t)}}function Y(e,t,n){-1!==e.$$.props.indexOf(t)&&(e.$$.bound[t]=n,n(e.$$.ctx[t]))}function J(e,t,r){const{fragment:o,on_mount:s,on_destroy:i,after_update:u}=e.$$;o.m(t,r),B(()=>{const t=s.map(n).filter(l);i?i.push(...t):c(t),e.$$.on_mount=[]}),u.forEach(B)}function Q(e,t){e.$$.fragment&&(c(e.$$.on_destroy),e.$$.fragment.d(t),e.$$.on_destroy=e.$$.fragment=null,e.$$.ctx={})}function U(e,t){e.$$.dirty||(z.push(e),R||(R=!0,P.then(F)),e.$$.dirty=r()),e.$$.dirty[t]=!0}function V(t,n,l,o,s,i){const u=N;O(t);const a=n.props||{},d=t.$$={fragment:null,ctx:null,props:i,update:e,not_equal:s,bound:r(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(u?u.$$.context:[]),callbacks:r(),dirty:null};let f=!1;var $;d.ctx=l?l(t,a,(e,n,r=n)=>(d.ctx&&s(d.ctx[e],d.ctx[e]=r)&&(d.bound[e]&&d.bound[e](r),f&&U(t,e)),n)):a,d.update(),f=!0,c(d.before_update),d.fragment=o(d.ctx),n.target&&(n.hydrate?d.fragment.l(($=n.target,Array.from($.childNodes))):d.fragment.c(),n.intro&&T(t.$$.fragment),J(t,n.target,n.anchor),F()),O(u)}class W{$destroy(){Q(this,1),this.$destroy=e}$on(e,t){const n=this.$$.callbacks[e]||(this.$$.callbacks[e]=[]);return n.push(t),()=>{const e=n.indexOf(t);-1!==e&&n.splice(e,1)}}$set(){}}const X=[];const Z=function(t,n=e){let r;const c=[];function l(e){if(o(t,e)&&(t=e,r)){const e=!X.length;for(let e=0;e<c.length;e+=1){const n=c[e];n[1](),X.push(n,t)}if(e){for(let e=0;e<X.length;e+=2)X[e][0](X[e+1]);X.length=0}}}return{set:l,update:function(e){l(e(t))},subscribe:function(o,s=e){const i=[o,s];return c.push(i),1===c.length&&(r=n(l)||e),o(t),()=>{const e=c.indexOf(i);-1!==e&&c.splice(e,1),0===c.length&&(r(),r=null)}}}}("crispEdges");var ee=1/0,te=9007199254740991,ne=1.7976931348623157e308,re=NaN,ce="[object Function]",le="[object GeneratorFunction]",oe="[object Symbol]",se=/^\s+|\s+$/g,ie=/^[-+]0x[0-9a-f]+$/i,ue=/^0b[01]+$/i,ae=/^0o[0-7]+$/i,de=/^(?:0|[1-9]\d*)$/,fe=parseInt,$e=Object.prototype.toString,me=Math.ceil,ge=Math.max;function he(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function pe(e){return e?(e=function(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&$e.call(e)==oe}(e))return re;if(he(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=he(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(se,"");var n=ue.test(e);return n||ae.test(e)?fe(e.slice(2),n?2:8):ie.test(e)?re:+e}(e))===ee||e===-ee?(e<0?-1:1)*ne:e==e?e:0:0===e?e:0}var ye,ve=function(e,t,n){return n&&"number"!=typeof n&&function(e,t,n){if(!he(n))return!1;var r=typeof t;return!!("number"==r?function(e){return null!=e&&function(e){return"number"==typeof e&&e>-1&&e%1==0&&e<=te}(e.length)&&!function(e){var t=he(e)?$e.call(e):"";return t==ce||t==le}(e)}(n)&&function(e,t){return!!(t=null==t?te:t)&&("number"==typeof e||de.test(e))&&e>-1&&e%1==0&&e<t}(t,n.length):"string"==r&&t in n)&&function(e,t){return e===t||e!=e&&t!=t}(n[t],e)}(e,t,n)&&(t=n=void 0),e=pe(e),void 0===t?(t=e,e=0):t=pe(t),function(e,t,n,r){for(var c=-1,l=ge(me((t-e)/(n||1)),0),o=Array(l);l--;)o[r?l:++c]=e,e+=n;return o}(e,t,n=void 0===n?e<t?1:-1:pe(n),ye)};function xe(e,t,n){const r=Object.create(e);return r.c=t[n],r}function ke(e){var t,n,r,c=e.c+"";function l(){return e.click_handler_1(e)}return{c(){t=h("div"),n=y(c),w(t,"class","mnu svelte-a3tg82"),L(t,"color",e.color),r=k(t,"click",l)},m(e,r){$(e,t,r),f(t,n)},p(r,l){e=l,r.children&&c!==(c=e.c+"")&&_(n,c),r.color&&L(t,"color",e.color)},d(e){e&&m(t),r()}}}function we(e){var t,n,r,c=e.c+"";function l(){return e.click_handler(e)}return{c(){t=h("div"),n=y(c),w(t,"class","mnu text-red svelte-a3tg82"),r=k(t,"click",l)},m(e,r){$(e,t,r),f(t,n)},p(t,r){e=r,t.children&&c!==(c=e.c+"")&&_(n,c)},d(e){e&&m(t),r()}}}function be(e){var t;function n(e,t){return t.selected==t.c?we:ke}var r=n(0,e),c=r(e);return{c(){c.c(),t=x()},m(e,n){c.m(e,n),$(e,t,n)},p(e,l){r===(r=n(0,l))&&c?c.p(e,l):(c.d(1),(c=r(l))&&(c.c(),c.m(t.parentNode,t)))},d(e){c.d(e),e&&m(t)}}}function _e(t){var n;let r=t.children,c=[];for(let e=0;e<r.length;e+=1)c[e]=be(xe(t,r,e));return{c(){n=h("div");for(let e=0;e<c.length;e+=1)c[e].c();w(n,"class","nav svelte-a3tg82"),L(n,"background-color",t.bgcolor)},m(e,t){$(e,n,t);for(let e=0;e<c.length;e+=1)c[e].m(n,null)},p(e,t){if(e.selected||e.children||e.color){let l;for(r=t.children,l=0;l<r.length;l+=1){const o=xe(t,r,l);c[l]?c[l].p(e,o):(c[l]=be(o),c[l].c(),c[l].m(n,null))}for(;l<c.length;l+=1)c[l].d(1);c.length=r.length}e.bgcolor&&L(n,"background-color",t.bgcolor)},i:e,o:e,d(e){e&&m(n),g(c,e)}}}function je(e,t,n){let{color:r="black",bgcolor:c="grey",children:l,selected:o=l[0]}=t;return e.$set=(e=>{"color"in e&&n("color",r=e.color),"bgcolor"in e&&n("bgcolor",c=e.bgcolor),"children"in e&&n("children",l=e.children),"selected"in e&&n("selected",o=e.selected)}),{color:r,bgcolor:c,children:l,selected:o,click_handler:({c:e})=>n("selected",o=e),click_handler_1:({c:e})=>n("selected",o=e)}}class Le extends W{constructor(e){super(),V(this,e,je,_e,o,["color","bgcolor","children","selected"])}}function Ne(e){var t,n,r,c;const l=e.$$slots.default,o=i(l,e,null);return{c(){t=p("svg"),n=p("rect"),o&&o.c(),w(n,"width","200"),w(n,"height","200"),L(n,"stroke-width","0"),w(t,"class","col left s6 svelte-nsyltz"),w(t,"width","200"),w(t,"height","200"),L(t,"margin","2px 2px 0px"),w(t,"shape-rendering",e.$shapeRendering),c=k(n,"click",e.click)},l(e){o&&o.l(svg_nodes)},m(e,c){$(e,t,c),f(t,n),o&&o.m(t,null),r=!0},p(e,n){o&&o.p&&e.$$scope&&o.p(a(l,n,e,null),u(l,n,null)),r&&!e.$shapeRendering||w(t,"shape-rendering",n.$shapeRendering)},i(e){r||(T(o,e),r=!0)},o(e){q(o,e),r=!1},d(e){e&&m(t),o&&o.d(e),c()}}}function Oe(e,t,n){let r;s(e,Z,e=>{n("$shapeRendering",r=e)});let{click:c=(()=>{})}=t,{$$slots:l={},$$scope:o}=t;return e.$set=(e=>{"click"in e&&n("click",c=e.click),"$$scope"in e&&n("$$scope",o=e.$$scope)}),{click:c,$shapeRendering:r,$$slots:l,$$scope:o}}class Ce extends W{constructor(e){super(),V(this,e,Oe,Ne,o,["click"])}}function ze(e,t,n){const r=Object.create(e);return r.i=t[n],r}function Ee(t){var n,r,c;return{c(){n=p("line"),r=v(),c=p("line"),w(n,"x1",t.i),w(n,"x2",t.i),w(n,"y1","0"),w(n,"y2","200"),L(n,"stroke-width","1"),L(n,"stroke","gray"),w(c,"x1","0"),w(c,"x2","200"),w(c,"y1",t.i),w(c,"y2",t.i),L(c,"stroke-width","1"),L(c,"stroke","gray")},m(e,t){$(e,n,t),$(e,r,t),$(e,c,t)},p:e,d(e){e&&(m(n),m(r),m(c))}}}function Me(e){var t,n;let r=ve(0,200,20),c=[];for(let t=0;t<r.length;t+=1)c[t]=Ee(ze(e,r,t));const l=e.$$slots.default,o=i(l,e,null);return{c(){for(let e=0;e<c.length;e+=1)c[e].c();t=v(),o&&o.c()},l(e){o&&o.l(e)},m(e,r){for(let t=0;t<c.length;t+=1)c[t].m(e,r);$(e,t,r),o&&o.m(e,r),n=!0},p(e,n){if(e.range){let l;for(r=ve(0,200,20),l=0;l<r.length;l+=1){const o=ze(n,r,l);c[l]?c[l].p(e,o):(c[l]=Ee(o),c[l].c(),c[l].m(t.parentNode,t))}for(;l<c.length;l+=1)c[l].d(1);c.length=r.length}o&&o.p&&e.$$scope&&o.p(a(l,n,e,null),u(l,n,null))},i(e){n||(T(o,e),n=!0)},o(e){q(o,e),n=!1},d(e){g(c,e),e&&m(t),o&&o.d(e)}}}function Se(e){var t,n=new Ce({props:{click:e.click,$$slots:{default:[Me]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.click&&(r.click=t.click),e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Pe(e,t,n){let{click:r=(()=>{})}=t,{$$slots:c={},$$scope:l}=t;return e.$set=(e=>{"click"in e&&n("click",r=e.click),"$$scope"in e&&n("$$scope",l=e.$$scope)}),{click:r,$$slots:c,$$scope:l}}class Re extends W{constructor(e){super(),V(this,e,Pe,Se,o,["click"])}}function Be(e){var t,n,r;return{c(){t=p("rect"),n=v(),r=p("rect"),w(t,"x","10"),w(t,"y","20"),w(t,"width","30"),w(t,"height","40"),L(t,"stroke-width","1"),L(t,"stroke","red"),L(t,"fill","yellow"),w(r,"x","30"),w(r,"y","40"),w(r,"width","40"),w(r,"height","50"),L(r,"stroke-width","1"),L(r,"stroke","yellow"),L(r,"fill","red")},m(e,c){$(e,t,c),$(e,n,c),$(e,r,c)},d(e){e&&(m(t),m(n),m(r))}}}function Ge(e){var t,n=new Re({props:{$$slots:{default:[Be]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class Fe extends W{constructor(e){super(),V(this,e,null,Ge,o,[])}}function Ie(e){var t,n,r,c,l;return{c(){t=p("circle"),n=v(),r=p("circle"),c=v(),l=p("circle"),w(t,"cx","50"),w(t,"cy","40"),w(t,"r","40"),L(t,"stroke-width","2"),L(t,"stroke","red"),L(t,"fill","yellow"),w(r,"cx","130"),w(r,"cy","140"),w(r,"r","60"),L(r,"stroke-width","3"),L(r,"stroke","yellow"),L(r,"fill","red"),w(l,"cx","100"),w(l,"cy","100"),w(l,"r","50"),L(l,"stroke-width","5"),L(l,"stroke","white"),L(l,"fill","black")},m(e,o){$(e,t,o),$(e,n,o),$(e,r,o),$(e,c,o),$(e,l,o)},d(e){e&&(m(t),m(n),m(r),m(c),m(l))}}}function Ae(e){var t,n=new Re({props:{$$slots:{default:[Ie]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class De extends W{constructor(e){super(),V(this,e,null,Ae,o,[])}}function Ke(e){var t,n,r;return{c(){t=p("line"),n=v(),r=p("line"),w(t,"x1","50"),w(t,"y1","40"),w(t,"x2","100"),w(t,"y2","100"),L(t,"stroke-width","2"),L(t,"stroke","red"),w(r,"x1","100"),w(r,"y1","100"),w(r,"x2","190"),w(r,"y2","100"),L(r,"stroke-width","5"),L(r,"stroke","yellow")},m(e,c){$(e,t,c),$(e,n,c),$(e,r,c)},d(e){e&&(m(t),m(n),m(r))}}}function He(e){var t,n=new Re({props:{$$slots:{default:[Ke]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class Te extends W{constructor(e){super(),V(this,e,null,He,o,[])}}function qe(t){var n,r,c;return{c(){w(n=p("rect"),"x",r=t.x-t.w/2),w(n,"y",c=t.y-t.h/2),w(n,"width",t.w),w(n,"height",t.h),w(n,"style",t.style)},m(e,t){$(e,n,t)},p(e,t){(e.x||e.w)&&r!==(r=t.x-t.w/2)&&w(n,"x",r),(e.y||e.h)&&c!==(c=t.y-t.h/2)&&w(n,"y",c),e.w&&w(n,"width",t.w),e.h&&w(n,"height",t.h),e.style&&w(n,"style",t.style)},i:e,o:e,d(e){e&&m(n)}}}function Ye(e,t,n){let{x:r=0,y:c=0,w:l=100,h:o=100,style:s=""}=t;return e.$set=(e=>{"x"in e&&n("x",r=e.x),"y"in e&&n("y",c=e.y),"w"in e&&n("w",l=e.w),"h"in e&&n("h",o=e.h),"style"in e&&n("style",s=e.style)}),{x:r,y:c,w:l,h:o,style:s}}class Je extends W{constructor(e){super(),V(this,e,Ye,qe,o,["x","y","w","h","style"])}}function Qe(e){var t,n;const r=e.$$slots.default,c=i(r,e,null);return{c(){t=p("text"),c&&c.c(),w(t,"x",e.x),w(t,"y",e.y),w(t,"style",e.style),w(t,"text-anchor","middle"),w(t,"alignment-baseline","middle")},l(e){c&&c.l(text_1_nodes)},m(e,r){$(e,t,r),c&&c.m(t,null),n=!0},p(e,l){c&&c.p&&e.$$scope&&c.p(a(r,l,e,null),u(r,l,null)),n&&!e.x||w(t,"x",l.x),n&&!e.y||w(t,"y",l.y),n&&!e.style||w(t,"style",l.style)},i(e){n||(T(c,e),n=!0)},o(e){q(c,e),n=!1},d(e){e&&m(t),c&&c.d(e)}}}function Ue(e,t,n){let{x:r=0,y:c=0,style:l=""}=t,{$$slots:o={},$$scope:s}=t;return e.$set=(e=>{"x"in e&&n("x",r=e.x),"y"in e&&n("y",c=e.y),"style"in e&&n("style",l=e.style),"$$scope"in e&&n("$$scope",s=e.$$scope)}),{x:r,y:c,style:l,$$slots:o,$$scope:s}}class Ve extends W{constructor(e){super(),V(this,e,Ue,Qe,o,["x","y","style"])}}function We(e){var t;return{c(){t=y("Grumpy!")},m(e,n){$(e,t,n)},d(e){e&&m(t)}}}function Xe(e){var t,n,r,c,l,o=new Je({props:{w:"144",h:"45"}}),s=new Ve({props:{$$slots:{default:[We]},$$scope:{ctx:e}}});return{c(){t=p("g"),n=p("g"),o.$$.fragment.c(),r=p("g"),s.$$.fragment.c(),w(n,"class","fn red svelte-15h7gt4"),w(r,"class","sw0 fs40 f-yellow svelte-15h7gt4"),w(t,"transform",c="translate(100,100) rotate("+e.angle+")")},m(e,c){$(e,t,c),f(t,n),J(o,n,null),f(t,r),J(s,r,null),l=!0},p(e,n){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:n}),s.$set(r),l&&!e.angle||c===(c="translate(100,100) rotate("+n.angle+")")||w(t,"transform",c)},i(e){l||(T(o.$$.fragment,e),T(s.$$.fragment,e),l=!0)},o(e){q(o.$$.fragment,e),q(s.$$.fragment,e),l=!1},d(e){e&&m(t),Q(o),Q(s)}}}function Ze(e){var t,n=new Re({props:{click:e.func,$$slots:{default:[Xe]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.angle&&(r.click=t.func),(e.$$scope||e.angle)&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function et(e,t,n){let r=0;return{angle:r,func:()=>n("angle",r+=10)}}class tt extends W{constructor(e){super(),V(this,e,et,Ze,o,[])}}function nt(e,t,n){const r=Object.create(e);return r.i=t[n],r}function rt(e){var t;return{c(){w(t=p("circle"),"cx",e.i),w(t,"cy",e.i),w(t,"r","10"),w(t,"class","svelte-1fr0k24")},m(e,n){$(e,t,n)},d(e){e&&m(t)}}}function ct(t){var n;let r=[50,100,150],c=[];for(let e=0;e<3;e+=1)c[e]=rt(nt(t,r,e));return{c(){for(let e=0;e<3;e+=1)c[e].c();n=x()},m(e,t){for(let n=0;n<3;n+=1)c[n].m(e,t);$(e,n,t)},p:e,d(e){g(c,e),e&&m(n)}}}function lt(e){var t,n=new Re({props:{$$slots:{default:[ct]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class ot extends W{constructor(e){super(),V(this,e,null,lt,o,[])}}function st(e,t,n){const r=Object.create(e);return r.i=t[n],r}function it(t){var n;return{c(){w(n=p("rect"),"x",20*t.i-10),w(n,"y",20*t.i-10),w(n,"width","20"),w(n,"height","20"),w(n,"class","svelte-1604l3w")},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function ut(t){var n;return{c(){w(n=p("circle"),"cx",20*t.i),w(n,"cy",20*t.i),w(n,"r","10"),w(n,"class","svelte-1604l3w")},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function at(e){var t;var n=function(e,t){return t.i%2==0?ut:it}(0,e)(e);return{c(){n.c(),t=x()},m(e,r){n.m(e,r),$(e,t,r)},p(e,t){n.p(e,t)},d(e){n.d(e),e&&m(t)}}}function dt(e){var t;let n=ve(11),r=[];for(let t=0;t<n.length;t+=1)r[t]=at(st(e,n,t));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();t=x()},m(e,n){for(let t=0;t<r.length;t+=1)r[t].m(e,n);$(e,t,n)},p(e,c){if(e.range){let l;for(n=ve(11),l=0;l<n.length;l+=1){const o=st(c,n,l);r[l]?r[l].p(e,o):(r[l]=at(o),r[l].c(),r[l].m(t.parentNode,t))}for(;l<r.length;l+=1)r[l].d(1);r.length=n.length}},d(e){g(r,e),e&&m(t)}}}function ft(e){var t,n=new Re({props:{$$slots:{default:[dt]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class $t extends W{constructor(e){super(),V(this,e,null,ft,o,[])}}function mt(e,t,n){const r=Object.create(e);return r.i=t[n],r}function gt(t){var n;return{c(){w(n=p("circle"),"cx",20*t.i),w(n,"cy",20*t.i),w(n,"r",2*t.i),w(n,"class","svelte-1fr0k24")},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function ht(e){var t;let n=ve(11),r=[];for(let t=0;t<n.length;t+=1)r[t]=gt(mt(e,n,t));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();t=x()},m(e,n){for(let t=0;t<r.length;t+=1)r[t].m(e,n);$(e,t,n)},p(e,c){if(e.range){let l;for(n=ve(11),l=0;l<n.length;l+=1){const o=mt(c,n,l);r[l]?r[l].p(e,o):(r[l]=gt(o),r[l].c(),r[l].m(t.parentNode,t))}for(;l<r.length;l+=1)r[l].d(1);r.length=n.length}},d(e){g(r,e),e&&m(t)}}}function pt(e){var t,n=new Re({props:{$$slots:{default:[ht]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class yt extends W{constructor(e){super(),V(this,e,null,pt,o,[])}}function vt(e,t,n){const r=Object.create(e);return r.j=t[n],r}function xt(e,t,n){const r=Object.create(e);return r.i=t[n],r}function kt(t){var n;return{c(){w(n=p("rect"),"x",20+20*t.i),w(n,"y",20+20*t.j),w(n,"width","20"),w(n,"height","20"),L(n,"fill","black")},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function wt(t){var n;return{c(){w(n=p("rect"),"x",20+20*t.i),w(n,"y",20+20*t.j),w(n,"width","20"),w(n,"height","20"),L(n,"fill","white")},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function bt(e){var t;var n=function(e,t){return(t.i+t.j)%2==0?wt:kt}(0,e)(e);return{c(){n.c(),t=x()},m(e,r){n.m(e,r),$(e,t,r)},p(e,t){n.p(e,t)},d(e){n.d(e),e&&m(t)}}}function _t(e){var t;let n=ve(8),r=[];for(let t=0;t<n.length;t+=1)r[t]=bt(vt(e,n,t));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();t=x()},m(e,n){for(let t=0;t<r.length;t+=1)r[t].m(e,n);$(e,t,n)},p(e,c){if(e.range){let l;for(n=ve(8),l=0;l<n.length;l+=1){const o=vt(c,n,l);r[l]?r[l].p(e,o):(r[l]=bt(o),r[l].c(),r[l].m(t.parentNode,t))}for(;l<r.length;l+=1)r[l].d(1);r.length=n.length}},d(e){g(r,e),e&&m(t)}}}function jt(e){var t;let n=ve(8),r=[];for(let t=0;t<n.length;t+=1)r[t]=_t(xt(e,n,t));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();t=x()},m(e,n){for(let t=0;t<r.length;t+=1)r[t].m(e,n);$(e,t,n)},p(e,c){if(e.range){let l;for(n=ve(8),l=0;l<n.length;l+=1){const o=xt(c,n,l);r[l]?r[l].p(e,o):(r[l]=_t(o),r[l].c(),r[l].m(t.parentNode,t))}for(;l<r.length;l+=1)r[l].d(1);r.length=n.length}},d(e){g(r,e),e&&m(t)}}}function Lt(e){var t,n=new Ce({props:{$$slots:{default:[jt]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class Nt extends W{constructor(e){super(),V(this,e,null,Lt,o,[])}}var Ot=1/0,Ct=9007199254740991,zt=1.7976931348623157e308,Et=NaN,Mt="[object Function]",St="[object GeneratorFunction]",Pt="[object Symbol]",Rt=/^\s+|\s+$/g,Bt=/^[-+]0x[0-9a-f]+$/i,Gt=/^0b[01]+$/i,Ft=/^0o[0-7]+$/i,It=/^(?:0|[1-9]\d*)$/,At=parseFloat,Dt=parseInt,Kt=Object.prototype.toString,Ht=Math.floor,Tt=Math.min,qt=Math.random;function Yt(e,t,n){if(!Jt(n))return!1;var r=typeof t;return!!("number"==r?function(e){return null!=e&&function(e){return"number"==typeof e&&e>-1&&e%1==0&&e<=Ct}(e.length)&&!function(e){var t=Jt(e)?Kt.call(e):"";return t==Mt||t==St}(e)}(n)&&function(e,t){return!!(t=null==t?Ct:t)&&("number"==typeof e||It.test(e))&&e>-1&&e%1==0&&e<t}(t,n.length):"string"==r&&t in n)&&function(e,t){return e===t||e!=e&&t!=t}(n[t],e)}function Jt(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function Qt(e){return e?(e=function(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&Kt.call(e)==Pt}(e))return Et;if(Jt(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=Jt(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(Rt,"");var n=Gt.test(e);return n||Ft.test(e)?Dt(e.slice(2),n?2:8):Bt.test(e)?Et:+e}(e))===Ot||e===-Ot?(e<0?-1:1)*zt:e==e?e:0:0===e?e:0}var Ut=function(e,t,n){if(n&&"boolean"!=typeof n&&Yt(e,t,n)&&(t=n=void 0),void 0===n&&("boolean"==typeof t?(n=t,t=void 0):"boolean"==typeof e&&(n=e,e=void 0)),void 0===e&&void 0===t?(e=0,t=1):(e=Qt(e),void 0===t?(t=e,e=0):t=Qt(t)),e>t){var r=e;e=t,t=r}if(n||e%1||t%1){var c=qt();return Tt(e+c*(t-e+At("1e-"+((c+"").length-1))),t)}return function(e,t){return e+Ht(qt()*(t-e+1))}(e,t)};function Vt(e,t,n){const r=Object.create(e);return r.i=t[n],r}function Wt(t){var n;return{c(){w(n=p("circle"),"cx",Ut(1,200)),w(n,"cy",Ut(1,200)),w(n,"r",Ut(10,20)),L(n,"fill","black"),L(n,"stroke","white"),L(n,"stroke-width","1")},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function Xt(e){var t;let n=ve(10),r=[];for(let t=0;t<n.length;t+=1)r[t]=Wt(Vt(e,n,t));return{c(){for(let e=0;e<r.length;e+=1)r[e].c();t=x()},m(e,n){for(let t=0;t<r.length;t+=1)r[t].m(e,n);$(e,t,n)},p(e,c){if(e.random||e.range){let l;for(n=ve(10),l=0;l<n.length;l+=1){const o=Vt(c,n,l);r[l]?r[l].p(e,o):(r[l]=Wt(),r[l].c(),r[l].m(t.parentNode,t))}for(;l<r.length;l+=1)r[l].d(1);r.length=n.length}},d(e){g(r,e),e&&m(t)}}}function Zt(e){var t,n=new Re({props:{$$slots:{default:[Xt]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};e.$$scope&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}class en extends W{constructor(e){super(),V(this,e,null,Zt,o,[])}}function tn(t){var n,r,c,l,o;return{c(){n=h("div"),r=y(t.i),c=v(),(l=h("button")).textContent="Click!",L(n,"color","red"),o=k(l,"click",t.click_handler)},m(e,t){$(e,n,t),f(n,r),$(e,c,t),$(e,l,t)},p(e,t){e.i&&_(r,t.i)},i:e,o:e,d(e){e&&(m(n),m(c),m(l)),o()}}}function nn(e,t,n){let r=0;return{i:r,click_handler:()=>n("i",r++,r)}}class rn extends W{constructor(e){super(),V(this,e,nn,tn,o,[])}}function cn(t){return{c:e,m:e,p:e,i:e,o:e,d:e}}class ln extends W{constructor(e){super(),V(this,e,null,cn,o,[])}}function on(t){var n,r,l,o,s,i,u,a,d,g,p;return{c(){n=h("div"),r=y(t.a),l=y(" to "),o=y(sn),s=v(),(i=h("button")).textContent="+2",u=v(),(a=h("button")).textContent="*2",d=v(),(g=h("button")).textContent="/2",L(n,"color","white"),p=[k(i,"click",t.click_handler),k(a,"click",t.click_handler_1),k(g,"click",t.click_handler_2)]},m(e,t){$(e,n,t),f(n,r),f(n,l),f(n,o),$(e,s,t),$(e,i,t),$(e,u,t),$(e,a,t),$(e,d,t),$(e,g,t)},p(e,t){e.a&&_(r,t.a)},i:e,o:e,d(e){e&&(m(n),m(s),m(i),m(u),m(a),m(d),m(g)),c(p)}}}let sn=1;function un(e,t,n){let r=17;const c=e=>n("a",r=e);return{a:r,op:c,click_handler:()=>c(r+2),click_handler_1:()=>c(2*r),click_handler_2:()=>r%2==0?c(r/2):r}}class an extends W{constructor(e){super(),V(this,e,un,on,o,[])}}function dn(e,t,n){const r=Object.create(e);return r.c=t[n],r}function fn(e){var t,n,r,c,l;function o(){return e.click_handler(e)}return{c(){w(t=p("circle"),"cx",n=e.c.x),w(t,"cy",r=e.c.y),w(t,"r",gn),w(t,"fill",c=e.c.color),l=k(t,"click",o)},m(e,n){$(e,t,n)},p(l,o){e=o,l.circles&&n!==(n=e.c.x)&&w(t,"cx",n),l.circles&&r!==(r=e.c.y)&&w(t,"cy",r),l.circles&&c!==(c=e.c.color)&&w(t,"fill",c)},d(e){e&&m(t),l()}}}function $n(e){var t;let n=e.circles,r=[];for(let t=0;t<n.length;t+=1)r[t]=fn(dn(e,n,t));return{c(){t=p("g");for(let e=0;e<r.length;e+=1)r[e].c();w(t,"stroke","#fff"),w(t,"stroke-width","1")},m(e,n){$(e,t,n);for(let e=0;e<r.length;e+=1)r[e].m(t,null)},p(e,c){if(e.circles||e.r){let l;for(n=c.circles,l=0;l<n.length;l+=1){const o=dn(c,n,l);r[l]?r[l].p(e,o):(r[l]=fn(o),r[l].c(),r[l].m(t,null))}for(;l<r.length;l+=1)r[l].d(1);r.length=n.length}},d(e){e&&m(t),g(r,e)}}}function mn(e){var t,n=new Re({props:{$$slots:{default:[$n]},$$scope:{ctx:e}}});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},p(e,t){var r={};(e.$$scope||e.circles)&&(r.$$scope={changed:e,ctx:t}),n.$set(r)},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}const gn=50;function hn(e,t,n){let r=[];for(const e of[80,120])for(const t of[80,120]){const n=r.length%2==0?"#00f8":"#ff08";r.push({color:n,x:e,y:t})}const c=e=>n("circles",r=r.filter(t=>t!=e));return{circles:r,click:c,click_handler:({c:e})=>c(e)}}class pn extends W{constructor(e){super(),V(this,e,hn,mn,o,[])}}function yn(t){var n,r,c,l,o,s=t.i*t.i+"",i=!1;function u(){i=!0,t.input_input_handler.call(l)}return{c(){n=h("div"),r=y(s),c=v(),l=h("input"),L(n,"color","red"),w(l,"type","number"),o=k(l,"input",u)},m(e,o){$(e,n,o),f(n,r),$(e,c,o),$(e,l,o),j(l,t.i)},p(e,t){e.i&&s!==(s=t.i*t.i+"")&&_(r,s),!i&&e.i&&j(l,t.i),i=!1},i:e,o:e,d(e){e&&(m(n),m(c),m(l)),o()}}}function vn(e,t,n){let r=10;return{i:r,input_input_handler:function(){r=b(this.value),n("i",r)}}}class xn extends W{constructor(e){super(),V(this,e,vn,yn,o,[])}}function kn(t){var n,r,c,l,o,s,i,u,a,d;return{c(){n=h("div"),r=y("key: "),c=y(t.key),l=v(),o=h("div"),s=y("keycode: "),i=y(t.keyCode),u=v(),a=h("input"),L(n,"color","red"),L(o,"color","yellow"),d=k(a,"keyup",t.handleKey)},m(e,t){$(e,n,t),f(n,r),f(n,c),$(e,l,t),$(e,o,t),f(o,s),f(o,i),$(e,u,t),$(e,a,t)},p(e,t){e.key&&_(c,t.key),e.keyCode&&_(i,t.keyCode)},i:e,o:e,d(e){e&&(m(n),m(l),m(o),m(u),m(a)),d()}}}function wn(e,t,n){let r="",c="";return{key:r,keyCode:c,handleKey:e=>{n("key",r=e.key),n("keyCode",c=e.keyCode)}}}class bn extends W{constructor(e){super(),V(this,e,wn,kn,o,[])}}function _n(t){var n,r,l,o,s,i,u,a,d,g=!1;function p(){g=!0,t.input_input_handler.call(a)}return{c(){n=h("div"),r=y(t.low),l=y(" to "),o=y(t.high),s=v(),i=y(t.msg),u=v(),w(a=h("input"),"type","number"),L(n,"color","white"),d=[k(a,"input",p),k(a,"keyup",t.keyup)]},m(e,c){$(e,n,c),f(n,r),f(n,l),f(n,o),f(n,s),f(n,i),f(n,u),f(n,a),j(a,t.guess)},p(e,t){e.low&&_(r,t.low),e.high&&_(o,t.high),e.msg&&_(i,t.msg),!g&&e.guess&&j(a,t.guess),g=!1},i:e,o:e,d(e){e&&m(n),c(d)}}}function jn(e,t,n){let r,c=1,l=127,o="",s=Ut(c,l);return{low:c,high:l,guess:r,msg:o,keyup:e=>{"Enter"==e.key&&(r<s&&n("low",c=r+1),r>s&&n("high",l=r-1),r==s&&n("msg",o="Yes! The number was "+s))},input_input_handler:function(){r=b(this.value),n("guess",r)}}}class Ln extends W{constructor(e){super(),V(this,e,jn,_n,o,[])}}function Nn(t){var n,r,c,l;return{c(){n=p("svg"),r=p("rect"),c=p("line"),l=p("line"),w(r,"x","-100"),w(r,"y","-100"),w(r,"width","200"),w(r,"height","200"),L(r,"fill","grey"),w(c,"y1","0"),w(c,"y2","90"),L(c,"stroke","black"),w(c,"class","svelte-1uht7ny"),w(l,"y1","0"),w(l,"y2","90"),L(l,"stroke","red"),w(l,"transform","translate(20)"),w(l,"class","svelte-1uht7ny"),w(n,"viewBox","-100 -100 200 200"),w(n,"class","svelte-1uht7ny")},m(e,t){$(e,n,t),f(n,r),f(n,c),f(n,l)},p:e,i:e,o:e,d(e){e&&m(n)}}}class On extends W{constructor(e){super(),V(this,e,null,Nn,o,[])}}function Cn(t){var n,r,c,l;return{c(){n=p("svg"),r=p("rect"),c=p("line"),l=p("line"),w(r,"x","-100"),w(r,"y","-100"),w(r,"width","200"),w(r,"height","200"),L(r,"fill","grey"),w(c,"y2","90"),L(c,"stroke","black"),w(c,"class","svelte-1uht7ny"),w(l,"y2","90"),L(l,"stroke","red"),w(l,"transform","rotate(45)"),w(l,"class","svelte-1uht7ny"),w(n,"viewBox","-100 -100 200 200"),w(n,"class","svelte-1uht7ny")},m(e,t){$(e,n,t),f(n,r),f(n,c),f(n,l)},p:e,i:e,o:e,d(e){e&&m(n)}}}class zn extends W{constructor(e){super(),V(this,e,null,Cn,o,[])}}function En(t){var n,r,c,l;return{c(){n=p("svg"),r=p("rect"),c=p("line"),l=p("line"),w(r,"x","-100"),w(r,"y","-100"),w(r,"width","200"),w(r,"height","200"),L(r,"fill","grey"),w(c,"y1","0"),w(c,"y2","90"),L(c,"stroke","black"),w(c,"class","svelte-1uht7ny"),w(l,"y1","0"),w(l,"y2","90"),L(l,"stroke","red"),w(l,"transform","rotate(90) scale(0.5)"),w(l,"class","svelte-1uht7ny"),w(n,"viewBox","-100 -100 200 200"),w(n,"class","svelte-1uht7ny")},m(e,t){$(e,n,t),f(n,r),f(n,c),f(n,l)},p:e,i:e,o:e,d(e){e&&m(n)}}}class Mn extends W{constructor(e){super(),V(this,e,null,En,o,[])}}function Sn(e,t,n){const r=Object.create(e);return r.offset=t[n],r}function Pn(e,t,n){const r=Object.create(e);return r.i=t[n],r}function Rn(t){var n,r=1+(t.i+2)%12+"";return{c(){n=y(r)},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function Bn(t){var n;return{c(){w(n=p("line"),"class","minor svelte-1izseje"),w(n,"y1","42"),w(n,"y2","45"),w(n,"transform","rotate("+6*t.offset+")")},m(e,t){$(e,n,t)},p:e,d(e){e&&m(n)}}}function Gn(e){var t,n,r,c,l=new Ve({props:{$$slots:{default:[Rn]},$$scope:{ctx:e}}});let o=ve(1,5),s=[];for(let t=0;t<o.length;t+=1)s[t]=Bn(Sn(e,o,t));return{c(){t=p("g"),n=p("line"),r=p("g"),l.$$.fragment.c();for(let e=0;e<s.length;e+=1)s[e].c();w(n,"class","major svelte-1izseje"),w(n,"y1","35"),w(n,"y2","45"),w(r,"transform","translate(30) rotate("+-30*e.i+")"),w(r,"class","fs svelte-1izseje"),w(t,"transform","rotate("+30*e.i+")")},m(e,o){$(e,t,o),f(t,n),f(t,r),J(l,r,null);for(let e=0;e<s.length;e+=1)s[e].m(t,null);c=!0},p(e,n){var r={};if(e.$$scope&&(r.$$scope={changed:e,ctx:n}),l.$set(r),e.range){let r;for(o=ve(1,5),r=0;r<o.length;r+=1){const c=Sn(n,o,r);s[r]?s[r].p(e,c):(s[r]=Bn(c),s[r].c(),s[r].m(t,null))}for(;r<s.length;r+=1)s[r].d(1);s.length=o.length}},i(e){c||(T(l.$$.fragment,e),c=!0)},o(e){q(l.$$.fragment,e),c=!1},d(e){e&&m(t),Q(l),g(s,e)}}}function Fn(e){var t,n,r,c,l,o,s,i,u,a,d;let h=ve(12),y=[];for(let t=0;t<h.length;t+=1)y[t]=Gn(Pn(e,h,t));const v=e=>q(y[e],1,1,()=>{y[e]=null});return{c(){t=p("svg"),n=p("circle");for(let e=0;e<y.length;e+=1)y[e].c();r=p("line"),l=p("line"),s=p("g"),i=p("line"),u=p("line"),w(n,"class","clock-face svelte-1izseje"),w(n,"r","48"),w(r,"class","hour svelte-1izseje"),w(r,"y1","2"),w(r,"y2","-20"),w(r,"transform",c="rotate("+(30*e.hours+e.minutes/2)+")"),w(l,"class","minute svelte-1izseje"),w(l,"y1","4"),w(l,"y2","-30"),w(l,"transform",o="rotate("+(6*e.minutes+e.seconds/10)+")"),w(i,"class","second svelte-1izseje"),w(i,"y1","10"),w(i,"y2","-38"),w(u,"class","second-counterweight svelte-1izseje"),w(u,"y1","10"),w(u,"y2","2"),w(s,"transform",a="rotate("+6*e.seconds+")"),w(t,"viewBox","-50 -50 100 100"),w(t,"class","svelte-1izseje")},m(e,c){$(e,t,c),f(t,n);for(let e=0;e<y.length;e+=1)y[e].m(t,null);f(t,r),f(t,l),f(t,s),f(s,i),f(s,u),d=!0},p(e,n){if(e.range){let c;for(h=ve(12),c=0;c<h.length;c+=1){const l=Pn(n,h,c);y[c]?(y[c].p(e,l),T(y[c],1)):(y[c]=Gn(l),y[c].c(),T(y[c],1),y[c].m(t,r))}for(K(),c=h.length;c<y.length;c+=1)v(c);H()}d&&!e.hours&&!e.minutes||c===(c="rotate("+(30*n.hours+n.minutes/2)+")")||w(r,"transform",c),d&&!e.minutes&&!e.seconds||o===(o="rotate("+(6*n.minutes+n.seconds/10)+")")||w(l,"transform",o),d&&!e.seconds||a===(a="rotate("+6*n.seconds+")")||w(s,"transform",a)},i(e){if(!d){for(let e=0;e<h.length;e+=1)T(y[e]);d=!0}},o(e){y=y.filter(Boolean);for(let e=0;e<y.length;e+=1)q(y[e]);d=!1},d(e){e&&m(t),g(y,e)}}}function In(e,t,n){let r,c,l,o=new Date;return C(()=>{const e=setInterval(()=>{n("time",o=new Date)},1e3);return()=>clearInterval(e)}),e.$$.update=((e={time:1})=>{e.time&&n("hours",r=o.getHours()),e.time&&n("minutes",c=o.getMinutes()),e.time&&n("seconds",l=o.getSeconds())}),{hours:r,minutes:c,seconds:l}}class An extends W{constructor(e){super(),V(this,e,In,Fn,o,[])}}const Dn={L1grid:"<script>\n  import range from 'lodash.range'\n<\/script>\n\n<style>\n  * {stroke:#ccc; fill:#888}\n  line {shape-rendering:crispEdges; stroke-width:1}\n</style>\n\n<svg width=200 height=200>\n  <rect width=200 height=200 />\n  {#each range(0,200,20) as i}\n    <line x1={i} y1={0} x2={i} y2={200} />\n    <line y1={i} x1={0} y2={i} x2={200} />\n  {/each}\n  <slot/>\n</svg>",L1rect:"<script>\n  import Grid from './Grid.svelte'\n<\/script>\n\n<Grid>\n  <rect x=... y=... width=... height=... style='stroke-width:...; stroke:...; fill:...'/>\n</Grid>",L1circle:"<circle cx=... cy=... r=.../>",L1line:"<line x1=... y1=... x2=... y2=.../>",L2each:"{#each range(...) as i}\n  <circle cx={...} cy={...} r=... />\n{/each}",L2if:"{#if ... }\n  <circle ... />\n{:else}\n  <rect ... />\n{/if}",L2range:"{#each range(...) as i}\n  <circle ... />\n{/each}",L2chess:"{#each ...}\n  {#each ...}\n    {#if ...}\n      <rect .../>\n    {:else}\n      <rect .../>\n    {/if}\n  {/each}\n{/each}",L3random:"<...>\n  import range from 'lodash.range'\n  import random from 'lodash.random'\n</...>\n\n{#each range(...) as ... }\n  <circle cx={random(0,200)} cy=... r=... />\n{/each}",L3button:"<...>\n  let i=0\n</...>\n\n<div style=...>...</div>\n<button on:click = { () => i++ } > ... </button>",L3shortcut:"<...>\n  let ...=17\n  let ...=1\n  const op=(value) => ...\n</...>\n\n<div ...> {a} to {b} </div>\n<button on:click={()=>op(a+2)}> ... </button>\n<button on:click={...}> ... </button>\n<button on:click={()=> ... ? ... : ... } > ... </button>",L4canvas:"<svg>\n  <rect x=... y=... width=... height=... style='fill:...'/>\n</svg>",L4colorPair:"<...>\n  let circles = []\n  const r=...\n  for (const x of [...]) {\n    for (const y of [...]) {\n      const color = circles.length ... == 0 ? '#00f8' : '#...'\n      circles.push({..., ..., ...})\n    }\n  }\n  const click = (...) => ... = ... .filter((...) => ... != ...)\n</...>\n\n<g stroke='#...' stroke-width=...>\n  {#each ...}\n    <... on:click={()=>click(c)} cx=... cy=... r=... fill=.../>\n  {/each}\n</g>","L5bind:":"<...>\n  let i=...\n</...>\n\n<div ...>{...}</div>\n<input type=number bind:value={i}/>","L5on:keyup":"<...>\n  let key=''\n  let keyCode=''\n  const handleKey = (...) => {\n    ... = event.key\n    ... = event.keyCode\n  }\n</...>\n\n<div ...>key: {...}</div>\n<div ...>keycode: {...}</div>\n<input on:keyup={...}/>",L5guessMyNumber:"<...>\n  import ... from 'lodash.random'\n  let low = 1\n  let high = 127\n  let guess\n  let msg =''\n  let secret = random(..., ...)\n  const keyup = (...)=> {\n    if (event.key != 'Enter') return\n    if (... < ...) low = ...\n    if (... > ...) high = ...\n    if (... == ...) msg = ...\n  }\n</...>\n<div ...>\n  {...} to {...} {...}\n  <input on:keyup = {...} type=... bind:value={...}/>\n</div>",L6text:"<style>\n  .fs40 {font: italic 1px serif}\n</style>\n\n<text x=... y=... class='fs40' text-anchor=... alignment-baseline=... >\n  ...\n</text>",L6translate:'<... y1=... y2=... style=... transform="translate(...)"/>',L6rotate:'<... y2=... style=... transform="rotate(...)"/>',L6scale:'<... y1=... y2=... style=... transform="rotate(...) scale(...)"/>',L6clock:"<...>\n  import range from 'lodash.range'\n  import { onMount } from 'svelte'\n\n  let time = new Date()\n\n  $: hours = time.getHours()\n  $: minutes = time.getMinutes()\n  $: seconds = time.getSeconds()\n\n  onMount(() => {\n    const interval = setInterval(() => {time = new Date()}, ...)\n    return () => clearInterval(interval)\n  })\n</...>\n\n<style>\n  svg { width: 100%; height: 100% }\n  .clock-face { stroke: ...; fill: ... }\n  .minor { stroke: ...; stroke-width: ... }\n  .major { stroke: ...; stroke-width: ... }\n  .hour { stroke: ... }\n  .minute { stroke: ... }\n  .second, .second-counterweight { stroke: rgb(...,...,...) }\n  .second-counterweight { stroke-width: ... }\n  .fs {font-size: ... }\n</style>\n\n<svg viewBox='-50 -50 100 100'>\n  <circle class='...' r = ... />\n\n  \x3c!-- markers --\x3e\n  {#each range(...) as i}\n    <g transform = 'rotate({...})'>\n      <line class='major' y1=... y2=... />\n\n      {#each range(..., ...) as offset}\n        <line class='minor' y1=... y2=... transform='rotate(...)' />\n      {/each}\n    </g>\n  {/each}\n\n  \x3c!-- hands --\x3e\n  <line class='hour' y1=... y2=... transform='rotate({...})' />\n  <line class='minute' y1=... y2=... transform='rotate(...)' />\n  <g transform='rotate(...)'>\n    <line class='second' y1=... y2=... />\n    <line class='second-counterweight' y1=... y2=... />\n  </g>\n</svg>"};function Kn(e){var t,n;function r(n){e.menu_selected_binding_1.call(null,n),t=!0,G(()=>t=!1)}let c={children:e.children1};void 0!==e.selected1&&(c.selected=e.selected1);var l=new Le({props:c});return E.push(()=>Y(l,"selected",r)),{c(){l.$$.fragment.c()},m(e,t){J(l,e,t),n=!0},p(e,n){var r={};e.children1&&(r.children=n.children1),!t&&e.selected1&&(r.selected=n.selected1),l.$set(r)},i(e){n||(T(l.$$.fragment,e),n=!0)},o(e){q(l.$$.fragment,e),n=!1},d(e){Q(l,e)}}}function Hn(e){var t,n;function r(n){e.menu_selected_binding.call(null,n),t=!0,G(()=>t=!1)}let c={children:e.children1,color:"yellow",bgcolor:"black"};void 0!==e.selected1&&(c.selected=e.selected1);var l=new Le({props:c});return E.push(()=>Y(l,"selected",r)),{c(){l.$$.fragment.c()},m(e,t){J(l,e,t),n=!0},p(e,n){var r={};e.children1&&(r.children=n.children1),!t&&e.selected1&&(r.selected=n.selected1),l.$set(r)},i(e){n||(T(l.$$.fragment,e),n=!0)},o(e){q(l.$$.fragment,e),n=!1},d(e){Q(l,e)}}}function Tn(e){var t,n=new Ce({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function qn(e){var t,n=new Ce({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Yn(e){var t,n=new Re({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Jn(e){var t,n=new Fe({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Qn(e){var t,n=new De({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Un(e){var t,n=new Te({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Vn(e){var t,n=new tt({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Wn(e){var t,n=new ot({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Xn(e){var t,n=new $t({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function Zn(e){var t,n=new yt({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function er(e){var t,n=new Nt({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function tr(e){var t,n=new en({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function nr(e){var t,n=new rn({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function rr(e){var t,n=new ln({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function cr(e){var t,n=new an({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function lr(e){var t,n=new pn({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function or(e){var t,n=new xn({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function sr(e){var t,n=new bn({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function ir(e){var t,n=new Ln({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function ur(e){var t,n=new On({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function ar(e){var t,n=new zn({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function dr(e){var t,n=new Mn({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function fr(e){var t,n=new An({});return{c(){n.$$.fragment.c()},m(e,r){J(n,e,r),t=!0},i(e){t||(T(n.$$.fragment,e),t=!0)},o(e){q(n.$$.fragment,e),t=!1},d(e){Q(n,e)}}}function $r(e){var t,n;return{c(){(t=h("textarea")).disabled=!0,L(t,"width","500px"),L(t,"height","500px"),t.value=n=Dn[e.selected0+e.selected1],w(t,"class","svelte-ckszui")},m(e,n){$(e,t,n)},p(e,r){(e.selected0||e.selected1)&&n!==(n=Dn[r.selected0+r.selected1])&&(t.value=n)},d(e){e&&m(t)}}}function mr(e){var t,n,r,c,l,o,s,i,u,a,d,g,p,y,x,k,b,_,j,L,N,O,C,z,M,S,P,R,B,F,I,A,D,U;function V(t){e.menu0_selected_binding.call(null,t),n=!0,G(()=>n=!1)}let W={children:e.children3};void 0!==e.selected3&&(W.selected=e.selected3);var X=new Le({props:W});function Z(t){e.menu1_selected_binding.call(null,t),c=!0,G(()=>c=!1)}E.push(()=>Y(X,"selected",V));let ee={children:e.children0};void 0!==e.selected0&&(ee.selected=e.selected0);var te=new Le({props:ee});E.push(()=>Y(te,"selected",Z));var ne=[Hn,Kn],re=[];function ce(e,t){return"keywords"==t.selected0?0:1}o=ce(0,e),s=re[o]=ne[o](e);var le="svg"==e.selected1&&Tn(),oe="canvas"==e.selected1&&qn(),se="grid"==e.selected1&&Yn(),ie="rect"==e.selected1&&Jn(),ue="circle"==e.selected1&&Qn(),ae="line"==e.selected1&&Un(),de="text"==e.selected1&&Vn(),fe="each"==e.selected1&&Wn(),$e="if"==e.selected1&&Xn(),me="range"==e.selected1&&Zn(),ge="chess"==e.selected1&&er(),he="random"==e.selected1&&tr(),pe="button"==e.selected1&&nr(),ye="on:click"==e.selected1&&rr(),ve="shortcut"==e.selected1&&cr(),xe="colorPair"==e.selected1&&lr(),ke="bind:"==e.selected1&&or(),we="on:keyup"==e.selected1&&sr(),be="guessMyNumber"==e.selected1&&ir(),_e="translate"==e.selected1&&ur(),je="rotate"==e.selected1&&ar(),Ne="scale"==e.selected1&&dr(),Oe="clock"==e.selected1&&fr(),Ce=Dn[e.selected0+e.selected1]&&$r(e);return{c(){t=h("div"),X.$$.fragment.c(),r=v(),te.$$.fragment.c(),l=v(),s.c(),i=v(),u=h("div"),le&&le.c(),a=v(),oe&&oe.c(),d=v(),se&&se.c(),g=v(),ie&&ie.c(),p=v(),ue&&ue.c(),y=v(),ae&&ae.c(),x=v(),de&&de.c(),k=v(),fe&&fe.c(),b=v(),$e&&$e.c(),_=v(),me&&me.c(),j=v(),ge&&ge.c(),L=v(),he&&he.c(),N=v(),pe&&pe.c(),O=v(),ye&&ye.c(),C=v(),ve&&ve.c(),z=v(),xe&&xe.c(),M=v(),ke&&ke.c(),S=v(),we&&we.c(),P=v(),be&&be.c(),R=v(),_e&&_e.c(),B=v(),je&&je.c(),F=v(),Ne&&Ne.c(),I=v(),Oe&&Oe.c(),A=v(),D=h("div"),Ce&&Ce.c(),w(t,"class","row left s1 m svelte-ckszui"),w(u,"class","col left s2 m svelte-ckszui"),w(D,"class","col left s8 m svelte-ckszui")},m(e,n){$(e,t,n),J(X,t,null),f(t,r),J(te,t,null),f(t,l),re[o].m(t,null),$(e,i,n),$(e,u,n),le&&le.m(u,null),f(u,a),oe&&oe.m(u,null),f(u,d),se&&se.m(u,null),f(u,g),ie&&ie.m(u,null),f(u,p),ue&&ue.m(u,null),f(u,y),ae&&ae.m(u,null),f(u,x),de&&de.m(u,null),f(u,k),fe&&fe.m(u,null),f(u,b),$e&&$e.m(u,null),f(u,_),me&&me.m(u,null),f(u,j),ge&&ge.m(u,null),f(u,L),he&&he.m(u,null),f(u,N),pe&&pe.m(u,null),f(u,O),ye&&ye.m(u,null),f(u,C),ve&&ve.m(u,null),f(u,z),xe&&xe.m(u,null),f(u,M),ke&&ke.m(u,null),f(u,S),we&&we.m(u,null),f(u,P),be&&be.m(u,null),f(u,R),_e&&_e.m(u,null),f(u,B),je&&je.m(u,null),f(u,F),Ne&&Ne.m(u,null),f(u,I),Oe&&Oe.m(u,null),$(e,A,n),$(e,D,n),Ce&&Ce.m(D,null),U=!0},p(e,r){var l={};!n&&e.selected3&&(l.selected=r.selected3),X.$set(l);var i={};!c&&e.selected0&&(i.selected=r.selected0),te.$set(i);var f=o;(o=ce(0,r))===f?re[o].p(e,r):(K(),q(re[f],1,1,()=>{re[f]=null}),H(),(s=re[o])||(s=re[o]=ne[o](r)).c(),T(s,1),s.m(t,null)),"svg"==r.selected1?le?T(le,1):((le=Tn()).c(),T(le,1),le.m(u,a)):le&&(K(),q(le,1,1,()=>{le=null}),H()),"canvas"==r.selected1?oe?T(oe,1):((oe=qn()).c(),T(oe,1),oe.m(u,d)):oe&&(K(),q(oe,1,1,()=>{oe=null}),H()),"grid"==r.selected1?se?T(se,1):((se=Yn()).c(),T(se,1),se.m(u,g)):se&&(K(),q(se,1,1,()=>{se=null}),H()),"rect"==r.selected1?ie?T(ie,1):((ie=Jn()).c(),T(ie,1),ie.m(u,p)):ie&&(K(),q(ie,1,1,()=>{ie=null}),H()),"circle"==r.selected1?ue?T(ue,1):((ue=Qn()).c(),T(ue,1),ue.m(u,y)):ue&&(K(),q(ue,1,1,()=>{ue=null}),H()),"line"==r.selected1?ae?T(ae,1):((ae=Un()).c(),T(ae,1),ae.m(u,x)):ae&&(K(),q(ae,1,1,()=>{ae=null}),H()),"text"==r.selected1?de?T(de,1):((de=Vn()).c(),T(de,1),de.m(u,k)):de&&(K(),q(de,1,1,()=>{de=null}),H()),"each"==r.selected1?fe?T(fe,1):((fe=Wn()).c(),T(fe,1),fe.m(u,b)):fe&&(K(),q(fe,1,1,()=>{fe=null}),H()),"if"==r.selected1?$e?T($e,1):(($e=Xn()).c(),T($e,1),$e.m(u,_)):$e&&(K(),q($e,1,1,()=>{$e=null}),H()),"range"==r.selected1?me?T(me,1):((me=Zn()).c(),T(me,1),me.m(u,j)):me&&(K(),q(me,1,1,()=>{me=null}),H()),"chess"==r.selected1?ge?T(ge,1):((ge=er()).c(),T(ge,1),ge.m(u,L)):ge&&(K(),q(ge,1,1,()=>{ge=null}),H()),"random"==r.selected1?he?T(he,1):((he=tr()).c(),T(he,1),he.m(u,N)):he&&(K(),q(he,1,1,()=>{he=null}),H()),"button"==r.selected1?pe?T(pe,1):((pe=nr()).c(),T(pe,1),pe.m(u,O)):pe&&(K(),q(pe,1,1,()=>{pe=null}),H()),"on:click"==r.selected1?ye?T(ye,1):((ye=rr()).c(),T(ye,1),ye.m(u,C)):ye&&(K(),q(ye,1,1,()=>{ye=null}),H()),"shortcut"==r.selected1?ve?T(ve,1):((ve=cr()).c(),T(ve,1),ve.m(u,z)):ve&&(K(),q(ve,1,1,()=>{ve=null}),H()),"colorPair"==r.selected1?xe?T(xe,1):((xe=lr()).c(),T(xe,1),xe.m(u,M)):xe&&(K(),q(xe,1,1,()=>{xe=null}),H()),"bind:"==r.selected1?ke?T(ke,1):((ke=or()).c(),T(ke,1),ke.m(u,S)):ke&&(K(),q(ke,1,1,()=>{ke=null}),H()),"on:keyup"==r.selected1?we?T(we,1):((we=sr()).c(),T(we,1),we.m(u,P)):we&&(K(),q(we,1,1,()=>{we=null}),H()),"guessMyNumber"==r.selected1?be?T(be,1):((be=ir()).c(),T(be,1),be.m(u,R)):be&&(K(),q(be,1,1,()=>{be=null}),H()),"translate"==r.selected1?_e?T(_e,1):((_e=ur()).c(),T(_e,1),_e.m(u,B)):_e&&(K(),q(_e,1,1,()=>{_e=null}),H()),"rotate"==r.selected1?je?T(je,1):((je=ar()).c(),T(je,1),je.m(u,F)):je&&(K(),q(je,1,1,()=>{je=null}),H()),"scale"==r.selected1?Ne?T(Ne,1):((Ne=dr()).c(),T(Ne,1),Ne.m(u,I)):Ne&&(K(),q(Ne,1,1,()=>{Ne=null}),H()),"clock"==r.selected1?Oe?T(Oe,1):((Oe=fr()).c(),T(Oe,1),Oe.m(u,null)):Oe&&(K(),q(Oe,1,1,()=>{Oe=null}),H()),Dn[r.selected0+r.selected1]?Ce?Ce.p(e,r):((Ce=$r(r)).c(),Ce.m(D,null)):Ce&&(Ce.d(1),Ce=null)},i(e){U||(T(X.$$.fragment,e),T(te.$$.fragment,e),T(s),T(le),T(oe),T(se),T(ie),T(ue),T(ae),T(de),T(fe),T($e),T(me),T(ge),T(he),T(pe),T(ye),T(ve),T(xe),T(ke),T(we),T(be),T(_e),T(je),T(Ne),T(Oe),U=!0)},o(e){q(X.$$.fragment,e),q(te.$$.fragment,e),q(s),q(le),q(oe),q(se),q(ie),q(ue),q(ae),q(de),q(fe),q($e),q(me),q(ge),q(he),q(pe),q(ye),q(ve),q(xe),q(ke),q(we),q(be),q(_e),q(je),q(Ne),q(Oe),U=!1},d(e){e&&m(t),Q(X),Q(te),re[o].d(),e&&(m(i),m(u)),le&&le.d(),oe&&oe.d(),se&&se.d(),ie&&ie.d(),ue&&ue.d(),ae&&ae.d(),de&&de.d(),fe&&fe.d(),$e&&$e.d(),me&&me.d(),ge&&ge.d(),he&&he.d(),pe&&pe.d(),ye&&ye.d(),ve&&ve.d(),xe&&xe.d(),ke&&ke.d(),we&&we.d(),be&&be.d(),_e&&_e.d(),je&&je.d(),Ne&&Ne.d(),Oe&&Oe.d(),e&&(m(A),m(D)),Ce&&Ce.d()}}}function gr(e,t,n){let r;s(e,Z,e=>{n("$shapeRendering",r=e)});const c={Svelte:"https://github.com/ChristerNilsson/svelte-projects/wiki/Svelte",REPL:"https://svelte.dev/repl/hello-world?version=3.15.0"},l="L1|L2|L3|L4|L5|L6|keywords".split("|");let o="",i=[""],u="Svelte|REPL|render:auto|render:crisp".split("|"),a="",f="";return e.$$.update=((e={selected0:1,selected1:1,selected3:1})=>{e.selected0&&"L1"==o&&n("children1",i="grid|rect|circle|line".split("|")),e.selected0&&"L2"==o&&n("children1",i="each|if|range|chess".split("|")),e.selected0&&"L3"==o&&n("children1",i="random|button|shortcut".split("|")),e.selected0&&"L4"==o&&n("children1",i="canvas|colorPair".split("|")),e.selected0&&"L5"==o&&n("children1",i="bind:|on:keyup|guessMyNumber".split("|")),e.selected0&&"L6"==o&&n("children1",i="text|translate|rotate|scale|clock".split("|")),e.selected0&&"keywords"==o&&n("children1",i="bind:|button|circle|$:|each|g|if|line|on:click|on:keyup|random|range|rect|rotate|scale|style|styles|svg|text|translate".split("|")),e.selected0&&o&&n("selected1",a=""),(e.selected0||e.selected1)&&((e,t)=>"keywords"==e&&""!=a?window.open("https://github.com/ChristerNilsson/svelte-projects/wiki/"+t,"_blank"):0)(o,a),e.selected3&&("render:auto"==f?d(Z,r="auto"):"render:crisp"==f?d(Z,r="crispEdges"):(e=>window.open(c[e],"_blank"))(f))}),{children0:l,selected0:o,children1:i,children3:u,selected1:a,selected3:f,menu0_selected_binding:function(e){n("selected3",f=e)},menu1_selected_binding:function(e){n("selected0",o=e)},menu_selected_binding:function(e){n("selected1",a=e),n("selected0",o)},menu_selected_binding_1:function(e){n("selected1",a=e),n("selected0",o)}}}return new class extends W{constructor(e){super(),V(this,e,gr,mr,o,[])}}({target:document.body,props:{}})}();
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.head.appendChild(r) })(window.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error(`Function called outside component initialization`);
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    function flush() {
+        const seen_callbacks = new Set();
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            while (dirty_components.length) {
+                const component = dirty_components.shift();
+                set_current_component(component);
+                update(component.$$);
+            }
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    callback();
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+    }
+    function update($$) {
+        if ($$.fragment) {
+            $$.update($$.dirty);
+            run_all($$.before_update);
+            $$.fragment.p($$.dirty, $$.ctx);
+            $$.dirty = null;
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        if (component.$$.fragment) {
+            run_all(component.$$.on_destroy);
+            component.$$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            component.$$.on_destroy = component.$$.fragment = null;
+            component.$$.ctx = {};
+        }
+    }
+    function make_dirty(component, key) {
+        if (!component.$$.dirty) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty = blank_object();
+        }
+        component.$$.dirty[key] = true;
+    }
+    function init(component, options, instance, create_fragment, not_equal, prop_names) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const props = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props: prop_names,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty: null
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, props, (key, ret, value = ret) => {
+                if ($$.ctx && not_equal($$.ctx[key], $$.ctx[key] = value)) {
+                    if ($$.bound[key])
+                        $$.bound[key](value);
+                    if (ready)
+                        make_dirty(component, key);
+                }
+                return ret;
+            })
+            : props;
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        $$.fragment = create_fragment($$.ctx);
+        if (options.target) {
+            if (options.hydrate) {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.l(children(options.target));
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set() {
+            // overridden by instance, if it has props
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, detail));
+    }
+    function append_dev(target, node) {
+        dispatch_dev("SvelteDOMInsert", { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev("SvelteDOMInsert", { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev("SvelteDOMRemove", { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ["capture"] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev("SvelteDOMAddEventListener", { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev("SvelteDOMRemoveEventListener", { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev("SvelteDOMRemoveAttribute", { node, attribute });
+        else
+            dispatch_dev("SvelteDOMSetAttribute", { node, attribute, value });
+    }
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error(`'target' is a required option`);
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn(`Component was already destroyed`); // eslint-disable-line no-console
+            };
+        }
+    }
+
+    /**
+     * lodash (Custom Build) <https://lodash.com/>
+     * Build: `lodash modularize exports="npm" -o ./`
+     * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+     * Released under MIT license <https://lodash.com/license>
+     * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+     * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+     */
+
+    /** Used as references for various `Number` constants. */
+    var INFINITY = 1 / 0,
+        MAX_SAFE_INTEGER = 9007199254740991,
+        MAX_INTEGER = 1.7976931348623157e+308,
+        NAN = 0 / 0;
+
+    /** `Object#toString` result references. */
+    var funcTag = '[object Function]',
+        genTag = '[object GeneratorFunction]',
+        symbolTag = '[object Symbol]';
+
+    /** Used to match leading and trailing whitespace. */
+    var reTrim = /^\s+|\s+$/g;
+
+    /** Used to detect bad signed hexadecimal string values. */
+    var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+    /** Used to detect binary string values. */
+    var reIsBinary = /^0b[01]+$/i;
+
+    /** Used to detect octal string values. */
+    var reIsOctal = /^0o[0-7]+$/i;
+
+    /** Used to detect unsigned integer values. */
+    var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+    /** Built-in method references without a dependency on `root`. */
+    var freeParseInt = parseInt;
+
+    /** Used for built-in method references. */
+    var objectProto = Object.prototype;
+
+    /**
+     * Used to resolve the
+     * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+     * of values.
+     */
+    var objectToString = objectProto.toString;
+
+    /* Built-in method references for those with the same name as other `lodash` methods. */
+    var nativeCeil = Math.ceil,
+        nativeMax = Math.max;
+
+    /**
+     * The base implementation of `_.range` and `_.rangeRight` which doesn't
+     * coerce arguments.
+     *
+     * @private
+     * @param {number} start The start of the range.
+     * @param {number} end The end of the range.
+     * @param {number} step The value to increment or decrement by.
+     * @param {boolean} [fromRight] Specify iterating from right to left.
+     * @returns {Array} Returns the range of numbers.
+     */
+    function baseRange(start, end, step, fromRight) {
+      var index = -1,
+          length = nativeMax(nativeCeil((end - start) / (step || 1)), 0),
+          result = Array(length);
+
+      while (length--) {
+        result[fromRight ? length : ++index] = start;
+        start += step;
+      }
+      return result;
+    }
+
+    /**
+     * Creates a `_.range` or `_.rangeRight` function.
+     *
+     * @private
+     * @param {boolean} [fromRight] Specify iterating from right to left.
+     * @returns {Function} Returns the new range function.
+     */
+    function createRange(fromRight) {
+      return function(start, end, step) {
+        if (step && typeof step != 'number' && isIterateeCall(start, end, step)) {
+          end = step = undefined;
+        }
+        // Ensure the sign of `-0` is preserved.
+        start = toFinite(start);
+        if (end === undefined) {
+          end = start;
+          start = 0;
+        } else {
+          end = toFinite(end);
+        }
+        step = step === undefined ? (start < end ? 1 : -1) : toFinite(step);
+        return baseRange(start, end, step, fromRight);
+      };
+    }
+
+    /**
+     * Checks if `value` is a valid array-like index.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+     * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+     */
+    function isIndex(value, length) {
+      length = length == null ? MAX_SAFE_INTEGER : length;
+      return !!length &&
+        (typeof value == 'number' || reIsUint.test(value)) &&
+        (value > -1 && value % 1 == 0 && value < length);
+    }
+
+    /**
+     * Checks if the given arguments are from an iteratee call.
+     *
+     * @private
+     * @param {*} value The potential iteratee value argument.
+     * @param {*} index The potential iteratee index or key argument.
+     * @param {*} object The potential iteratee object argument.
+     * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+     *  else `false`.
+     */
+    function isIterateeCall(value, index, object) {
+      if (!isObject(object)) {
+        return false;
+      }
+      var type = typeof index;
+      if (type == 'number'
+            ? (isArrayLike(object) && isIndex(index, object.length))
+            : (type == 'string' && index in object)
+          ) {
+        return eq(object[index], value);
+      }
+      return false;
+    }
+
+    /**
+     * Performs a
+     * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+     * comparison between two values to determine if they are equivalent.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to compare.
+     * @param {*} other The other value to compare.
+     * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+     * @example
+     *
+     * var object = { 'a': 1 };
+     * var other = { 'a': 1 };
+     *
+     * _.eq(object, object);
+     * // => true
+     *
+     * _.eq(object, other);
+     * // => false
+     *
+     * _.eq('a', 'a');
+     * // => true
+     *
+     * _.eq('a', Object('a'));
+     * // => false
+     *
+     * _.eq(NaN, NaN);
+     * // => true
+     */
+    function eq(value, other) {
+      return value === other || (value !== value && other !== other);
+    }
+
+    /**
+     * Checks if `value` is array-like. A value is considered array-like if it's
+     * not a function and has a `value.length` that's an integer greater than or
+     * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+     * @example
+     *
+     * _.isArrayLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isArrayLike(document.body.children);
+     * // => true
+     *
+     * _.isArrayLike('abc');
+     * // => true
+     *
+     * _.isArrayLike(_.noop);
+     * // => false
+     */
+    function isArrayLike(value) {
+      return value != null && isLength(value.length) && !isFunction(value);
+    }
+
+    /**
+     * Checks if `value` is classified as a `Function` object.
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+     * @example
+     *
+     * _.isFunction(_);
+     * // => true
+     *
+     * _.isFunction(/abc/);
+     * // => false
+     */
+    function isFunction(value) {
+      // The use of `Object#toString` avoids issues with the `typeof` operator
+      // in Safari 8-9 which returns 'object' for typed array and other constructors.
+      var tag = isObject(value) ? objectToString.call(value) : '';
+      return tag == funcTag || tag == genTag;
+    }
+
+    /**
+     * Checks if `value` is a valid array-like length.
+     *
+     * **Note:** This method is loosely based on
+     * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+     * @example
+     *
+     * _.isLength(3);
+     * // => true
+     *
+     * _.isLength(Number.MIN_VALUE);
+     * // => false
+     *
+     * _.isLength(Infinity);
+     * // => false
+     *
+     * _.isLength('3');
+     * // => false
+     */
+    function isLength(value) {
+      return typeof value == 'number' &&
+        value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+    }
+
+    /**
+     * Checks if `value` is the
+     * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     *
+     * @static
+     * @memberOf _
+     * @since 0.1.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+     * @example
+     *
+     * _.isObject({});
+     * // => true
+     *
+     * _.isObject([1, 2, 3]);
+     * // => true
+     *
+     * _.isObject(_.noop);
+     * // => true
+     *
+     * _.isObject(null);
+     * // => false
+     */
+    function isObject(value) {
+      var type = typeof value;
+      return !!value && (type == 'object' || type == 'function');
+    }
+
+    /**
+     * Checks if `value` is object-like. A value is object-like if it's not `null`
+     * and has a `typeof` result of "object".
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+     * @example
+     *
+     * _.isObjectLike({});
+     * // => true
+     *
+     * _.isObjectLike([1, 2, 3]);
+     * // => true
+     *
+     * _.isObjectLike(_.noop);
+     * // => false
+     *
+     * _.isObjectLike(null);
+     * // => false
+     */
+    function isObjectLike(value) {
+      return !!value && typeof value == 'object';
+    }
+
+    /**
+     * Checks if `value` is classified as a `Symbol` primitive or object.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+     * @example
+     *
+     * _.isSymbol(Symbol.iterator);
+     * // => true
+     *
+     * _.isSymbol('abc');
+     * // => false
+     */
+    function isSymbol(value) {
+      return typeof value == 'symbol' ||
+        (isObjectLike(value) && objectToString.call(value) == symbolTag);
+    }
+
+    /**
+     * Converts `value` to a finite number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.12.0
+     * @category Lang
+     * @param {*} value The value to convert.
+     * @returns {number} Returns the converted number.
+     * @example
+     *
+     * _.toFinite(3.2);
+     * // => 3.2
+     *
+     * _.toFinite(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toFinite(Infinity);
+     * // => 1.7976931348623157e+308
+     *
+     * _.toFinite('3.2');
+     * // => 3.2
+     */
+    function toFinite(value) {
+      if (!value) {
+        return value === 0 ? value : 0;
+      }
+      value = toNumber(value);
+      if (value === INFINITY || value === -INFINITY) {
+        var sign = (value < 0 ? -1 : 1);
+        return sign * MAX_INTEGER;
+      }
+      return value === value ? value : 0;
+    }
+
+    /**
+     * Converts `value` to a number.
+     *
+     * @static
+     * @memberOf _
+     * @since 4.0.0
+     * @category Lang
+     * @param {*} value The value to process.
+     * @returns {number} Returns the number.
+     * @example
+     *
+     * _.toNumber(3.2);
+     * // => 3.2
+     *
+     * _.toNumber(Number.MIN_VALUE);
+     * // => 5e-324
+     *
+     * _.toNumber(Infinity);
+     * // => Infinity
+     *
+     * _.toNumber('3.2');
+     * // => 3.2
+     */
+    function toNumber(value) {
+      if (typeof value == 'number') {
+        return value;
+      }
+      if (isSymbol(value)) {
+        return NAN;
+      }
+      if (isObject(value)) {
+        var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+        value = isObject(other) ? (other + '') : other;
+      }
+      if (typeof value != 'string') {
+        return value === 0 ? value : +value;
+      }
+      value = value.replace(reTrim, '');
+      var isBinary = reIsBinary.test(value);
+      return (isBinary || reIsOctal.test(value))
+        ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+        : (reIsBadHex.test(value) ? NAN : +value);
+    }
+
+    /**
+     * Creates an array of numbers (positive and/or negative) progressing from
+     * `start` up to, but not including, `end`. A step of `-1` is used if a negative
+     * `start` is specified without an `end` or `step`. If `end` is not specified,
+     * it's set to `start` with `start` then set to `0`.
+     *
+     * **Note:** JavaScript follows the IEEE-754 standard for resolving
+     * floating-point values which can produce unexpected results.
+     *
+     * @static
+     * @since 0.1.0
+     * @memberOf _
+     * @category Util
+     * @param {number} [start=0] The start of the range.
+     * @param {number} end The end of the range.
+     * @param {number} [step=1] The value to increment or decrement by.
+     * @returns {Array} Returns the range of numbers.
+     * @see _.inRange, _.rangeRight
+     * @example
+     *
+     * _.range(4);
+     * // => [0, 1, 2, 3]
+     *
+     * _.range(-4);
+     * // => [0, -1, -2, -3]
+     *
+     * _.range(1, 5);
+     * // => [1, 2, 3, 4]
+     *
+     * _.range(0, 20, 5);
+     * // => [0, 5, 10, 15]
+     *
+     * _.range(0, -4, -1);
+     * // => [0, -1, -2, -3]
+     *
+     * _.range(1, 4, 0);
+     * // => [1, 1, 1]
+     *
+     * _.range(0);
+     * // => []
+     */
+    var range = createRange();
+
+    var lodash_range = range;
+
+    /* src\App.svelte generated by Svelte v3.12.1 */
+
+    const file = "src\\App.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.i = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.i = list[i];
+    	return child_ctx;
+    }
+
+    function get_each_context_2(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.i = list[i];
+    	return child_ctx;
+    }
+
+    // (268:3) {#each range(200) as i}
+    function create_each_block_2(ctx) {
+    	var div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			add_location(div, file, 268, 4, 7560);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block_2.name, type: "each", source: "(268:3) {#each range(200) as i}", ctx });
+    	return block;
+    }
+
+    // (271:3) {#each range(10) as i}
+    function create_each_block_1(ctx) {
+    	var div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			attr_dev(div, "class", "block3");
+    			add_location(div, file, 271, 4, 7616);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block_1.name, type: "each", source: "(271:3) {#each range(10) as i}", ctx });
+    	return block;
+    }
+
+    // (283:5) {#each range(18) as i}
+    function create_each_block(ctx) {
+    	var div;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			add_location(div, file, 283, 6, 7910);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(283:5) {#each range(18) as i}", ctx });
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	var div4, input, t0, div1, div0, t1, div3, div2, h20, t3, p, t4, b0, t6, b1, t8, b2, t10, br, t11, b3, t13, t14, button0, t16, header, h21, t18, h10, t20, main, div6, div5, t21, t22, section, div9, h22, t24, h11, t26, div8, div7, t27, h23, t28, span, t29, button1, t31, h3, dispose;
+
+    	let each_value_2 = lodash_range(200);
+
+    	let each_blocks_2 = [];
+
+    	for (let i = 0; i < each_value_2.length; i += 1) {
+    		each_blocks_2[i] = create_each_block_2(get_each_context_2(ctx, each_value_2, i));
+    	}
+
+    	let each_value_1 = lodash_range(10);
+
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	let each_value = lodash_range(18);
+
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div4 = element("div");
+    			input = element("input");
+    			t0 = space();
+    			div1 = element("div");
+    			div0 = element("div");
+    			t1 = space();
+    			div3 = element("div");
+    			div2 = element("div");
+    			h20 = element("h2");
+    			h20.textContent = "rules";
+    			t3 = space();
+    			p = element("p");
+    			t4 = text("Please use the ");
+    			b0 = element("b");
+    			b0.textContent = "UP";
+    			t6 = text(" key to rotate your tetromino, and ");
+    			b1 = element("b");
+    			b1.textContent = "LEFT";
+    			t8 = text(" and ");
+    			b2 = element("b");
+    			b2.textContent = "RIGHT";
+    			t10 = text(" to ");
+    			br = element("br");
+    			t11 = text(" move across the board. Pressing ");
+    			b3 = element("b");
+    			b3.textContent = "DOWN";
+    			t13 = text(" will speed up the tetromino.");
+    			t14 = space();
+    			button0 = element("button");
+    			button0.textContent = "X";
+    			t16 = space();
+    			header = element("header");
+    			h21 = element("h2");
+    			h21.textContent = "Welcome";
+    			t18 = space();
+    			h10 = element("h1");
+    			h10.textContent = "to tetris";
+    			t20 = space();
+    			main = element("main");
+    			div6 = element("div");
+    			div5 = element("div");
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].c();
+    			}
+
+    			t21 = space();
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t22 = space();
+    			section = element("section");
+    			div9 = element("div");
+    			h22 = element("h2");
+    			h22.textContent = "Your Score";
+    			t24 = space();
+    			h11 = element("h1");
+    			h11.textContent = "0";
+    			t26 = space();
+    			div8 = element("div");
+    			div7 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t27 = space();
+    			h23 = element("h2");
+    			t28 = text("Lines:");
+    			span = element("span");
+    			t29 = space();
+    			button1 = element("button");
+    			button1.textContent = "Start / Pause";
+    			t31 = space();
+    			h3 = element("h3");
+    			h3.textContent = "made with love 2020";
+    			attr_dev(input, "type", "checkbox");
+    			attr_dev(input, "class", "toggler");
+    			add_location(input, file, 248, 1, 6962);
+    			add_location(div0, file, 249, 24, 7027);
+    			attr_dev(div1, "class", "hamburger");
+    			add_location(div1, file, 249, 1, 7004);
+    			add_location(h20, file, 252, 3, 7100);
+    			attr_dev(b0, "class", "bold");
+    			add_location(b0, file, 253, 21, 7137);
+    			attr_dev(b1, "class", "bold");
+    			add_location(b1, file, 253, 78, 7194);
+    			attr_dev(b2, "class", "bold");
+    			add_location(b2, file, 253, 107, 7223);
+    			add_location(br, file, 253, 136, 7252);
+    			attr_dev(b3, "class", "bold");
+    			add_location(b3, file, 253, 173, 7289);
+    			add_location(p, file, 253, 3, 7119);
+    			attr_dev(button0, "class", "close");
+    			add_location(button0, file, 254, 3, 7351);
+    			attr_dev(div2, "class", "menu-content");
+    			add_location(div2, file, 251, 2, 7069);
+    			attr_dev(div3, "class", "menu");
+    			add_location(div3, file, 250, 1, 7047);
+    			attr_dev(div4, "class", "menu-wrap");
+    			add_location(div4, file, 247, 0, 6936);
+    			add_location(h21, file, 260, 1, 7425);
+    			add_location(h10, file, 261, 1, 7444);
+    			add_location(header, file, 259, 0, 7414);
+    			attr_dev(div5, "class", "grid");
+    			add_location(div5, file, 266, 2, 7508);
+    			attr_dev(div6, "class", "game");
+    			add_location(div6, file, 265, 1, 7486);
+    			attr_dev(h22, "class", "score");
+    			add_location(h22, file, 278, 3, 7737);
+    			attr_dev(h11, "class", "score-display");
+    			add_location(h11, file, 279, 3, 7775);
+    			attr_dev(div7, "class", "previous-grid");
+    			add_location(div7, file, 281, 4, 7846);
+    			attr_dev(span, "class", "lines-score");
+    			add_location(span, file, 286, 36, 7985);
+    			attr_dev(h23, "class", "lines-display");
+    			add_location(h23, file, 286, 4, 7953);
+    			attr_dev(div8, "class", "previous-shape");
+    			add_location(div8, file, 280, 3, 7812);
+    			attr_dev(div9, "class", "display");
+    			add_location(div9, file, 277, 2, 7711);
+    			attr_dev(button1, "class", "button");
+    			attr_dev(button1, "href", "#");
+    			add_location(button1, file, 289, 2, 8048);
+    			attr_dev(h3, "class", "footer");
+    			add_location(h3, file, 290, 2, 8131);
+    			attr_dev(section, "class", "column-left");
+    			add_location(section, file, 276, 1, 7678);
+    			add_location(main, file, 264, 0, 7477);
+    			dispose = listen_dev(button1, "click", ctx.startBtnClick);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, input);
+    			append_dev(div4, t0);
+    			append_dev(div4, div1);
+    			append_dev(div1, div0);
+    			append_dev(div4, t1);
+    			append_dev(div4, div3);
+    			append_dev(div3, div2);
+    			append_dev(div2, h20);
+    			append_dev(div2, t3);
+    			append_dev(div2, p);
+    			append_dev(p, t4);
+    			append_dev(p, b0);
+    			append_dev(p, t6);
+    			append_dev(p, b1);
+    			append_dev(p, t8);
+    			append_dev(p, b2);
+    			append_dev(p, t10);
+    			append_dev(p, br);
+    			append_dev(p, t11);
+    			append_dev(p, b3);
+    			append_dev(p, t13);
+    			append_dev(div2, t14);
+    			append_dev(div2, button0);
+    			insert_dev(target, t16, anchor);
+    			insert_dev(target, header, anchor);
+    			append_dev(header, h21);
+    			append_dev(header, t18);
+    			append_dev(header, h10);
+    			insert_dev(target, t20, anchor);
+    			insert_dev(target, main, anchor);
+    			append_dev(main, div6);
+    			append_dev(div6, div5);
+
+    			for (let i = 0; i < each_blocks_2.length; i += 1) {
+    				each_blocks_2[i].m(div5, null);
+    			}
+
+    			append_dev(div5, t21);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(div5, null);
+    			}
+
+    			append_dev(main, t22);
+    			append_dev(main, section);
+    			append_dev(section, div9);
+    			append_dev(div9, h22);
+    			append_dev(div9, t24);
+    			append_dev(div9, h11);
+    			append_dev(div9, t26);
+    			append_dev(div9, div8);
+    			append_dev(div8, div7);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div7, null);
+    			}
+
+    			append_dev(div8, t27);
+    			append_dev(div8, h23);
+    			append_dev(h23, t28);
+    			append_dev(h23, span);
+    			append_dev(section, t29);
+    			append_dev(section, button1);
+    			append_dev(section, t31);
+    			append_dev(section, h3);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (changed.range) {
+    				const old_length = each_value_2.length;
+    				each_value_2 = lodash_range(200);
+
+    				let i;
+    				for (i = old_length; i < each_value_2.length; i += 1) {
+    					const child_ctx = get_each_context_2(ctx, each_value_2, i);
+
+    					if (!each_blocks_2[i]) {
+    						each_blocks_2[i] = create_each_block_2(child_ctx);
+    						each_blocks_2[i].c();
+    						each_blocks_2[i].m(div5, t21);
+    					}
+    				}
+
+    				for (i = each_value_2.length; i < old_length; i += 1) {
+    					each_blocks_2[i].d(1);
+    				}
+    				each_blocks_2.length = each_value_2.length;
+    			}
+
+    			if (changed.range) {
+    				const old_length = each_value_1.length;
+    				each_value_1 = lodash_range(10);
+
+    				let i;
+    				for (i = old_length; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (!each_blocks_1[i]) {
+    						each_blocks_1[i] = create_each_block_1(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(div5, null);
+    					}
+    				}
+
+    				for (i = each_value_1.length; i < old_length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (changed.range) {
+    				const old_length = each_value.length;
+    				each_value = lodash_range(18);
+
+    				let i;
+    				for (i = old_length; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (!each_blocks[i]) {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(div7, null);
+    					}
+    				}
+
+    				for (i = each_value.length; i < old_length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(div4);
+    				detach_dev(t16);
+    				detach_dev(header);
+    				detach_dev(t20);
+    				detach_dev(main);
+    			}
+
+    			destroy_each(each_blocks_2, detaching);
+
+    			destroy_each(each_blocks_1, detaching);
+
+    			destroy_each(each_blocks, detaching);
+
+    			dispose();
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment.name, type: "component", source: "", ctx });
+    	return block;
+    }
+
+    const width = 10;
+
+    function instance($$self) {
+    	
+
+    	let currentIndex = 0;
+    	let currentRotation = 0;
+    	let score = 0;
+    	let lines = 0;
+    	let timerId;
+    	let nextRandom = 0;
+
+    	let squares;
+
+    	const colors = [
+    		'url(images/blue_block.png)',
+    		'url(images/pink_block.png)',
+    		'url(images/purple_block.png)',
+    		'url(images/peach_block.png)',
+    		'url(images/yellow_block.png)'
+    	];
+
+    	function control(e) {
+    		if (e.key === 'd') moveright();
+    		if (e.key === 'w') rotate();
+    		if (e.key === 'a') moveleft();
+    		if (e.key === 's') moveDown();
+    	}
+    	document.addEventListener('keypress', control);
+
+    	//The Tetrominoes
+    	const lTetromino = [
+    		[1,width+1,width*2+1,2],
+    		[width,width+1,width+2,width*2+2],
+    		[1,width+1,width*2+1,width*2],
+    		[width,width*2,width*2+1,width*2+2]
+    	];
+
+    	const zTetromino = [
+    		[0,width,width+1,width*2+1],
+    		[width+1, width+2,width*2,width*2+1],
+    		[0,width,width+1,width*2+1],
+    		[width+1, width+2,width*2,width*2+1]
+    	];
+
+    	const tTetromino = [
+    		[1,width,width+1,width+2],
+    		[1,width+1,width+2,width*2+1],
+    		[width,width+1,width+2,width*2+1],
+    		[1,width,width+1,width*2+1]
+    	];
+
+    	const oTetromino = [
+    		[0,1,width,width+1],
+    		[0,1,width,width+1],
+    		[0,1,width,width+1],
+    		[0,1,width,width+1]
+    	];
+
+    	const iTetromino = [
+    		[1,width+1,width*2+1,width*3+1],
+    		[width,width+1,width+2,width+3],
+    		[1,width+1,width*2+1,width*3+1],
+    		[width,width+1,width+2,width+3]
+    	];
+
+    	const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+
+    	//Randomly Select Tetromino
+    	let random = Math.floor(Math.random()*theTetrominoes.length);
+    	let current = theTetrominoes[random][currentRotation];
+
+    	//move the Tetromino moveDown
+    	let currentPosition = 4;
+
+    	//draw the shape
+    	function draw() {
+    		current.forEach( index => {
+    			squares[currentPosition + index].classList.add('block');
+    			squares[currentPosition + index].style.backgroundImage = colors[random];
+    		});
+    	}
+
+    	//undraw the shape
+    	function undraw() {
+    		current.forEach( index => {
+    			squares[currentPosition + index].classList.remove('block');
+    			squares[currentPosition + index].style.backgroundImage = 'none';
+
+    		});
+    	}
+
+    	//move down on loop
+    	function moveDown() {
+    		undraw();
+    		currentPosition = currentPosition += width;
+    		draw();
+    		freeze();
+    	}
+
+    	//move left and prevent collisions with shapes moving left
+    	function moveright() {
+    		undraw();
+    		const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1);
+    		if(!isAtRightEdge) currentPosition += 1;
+    		if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+    			currentPosition -= 1;
+    		}
+    		draw();
+    	}
+
+    	//move right and prevent collisions with shapes moving right
+    	function moveleft() {
+    		undraw();
+    		const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
+    		if(!isAtLeftEdge) currentPosition -= 1;
+    		if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+    			currentPosition += 1;
+    		}
+    		draw();
+    	}
+
+    	//freeze the shape
+    	function freeze() {
+    		// if block has settled
+    		if(current.some(index => squares[currentPosition + index + width].classList.contains('block3') || squares[currentPosition + index + width].classList.contains('block2'))) {
+    			// make it block2
+    			current.forEach(index => squares[index + currentPosition].classList.add('block2'));
+    			// start a new tetromino falling
+    			random = nextRandom;
+    			nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+    			current = theTetrominoes[random][currentRotation];
+    			currentPosition = 4;
+    			draw();
+    			displayShape();
+    			addScore();
+    			gameOver();
+    		}
+    	}
+    	freeze();
+
+    	//Rotate the Tetromino
+    	function rotate() {
+    		undraw();
+    		currentRotation ++;
+    		if(currentRotation === current.length) {
+    			currentRotation=0;
+    		}
+    		current = theTetrominoes[random][currentRotation];
+    		draw();
+    	}
+
+    	//Game Over
+    	function gameOver() {
+    		if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+    			scoreDisplay.innerHTML = 'end';
+    			clearInterval(timerId);
+    		}
+    	}
+
+
+    onMount(async () => {
+
+    		const grid = document.querySelector('.grid');
+    		squares = Array.from(grid.querySelectorAll('div'));
+    	//	const startBtn = document.querySelector('.button')
+    		const hamburgerBtn = document.querySelector('.toggler');
+    		const menu = document.querySelector('.menu');
+    		const span = document.getElementsByClassName('close')[0];
+    		const scoreDisplay = document.querySelector('.score-display');
+    		const linesDisplay = document.querySelector('.lines-score');
+    		const displaySquares = document.querySelectorAll('.previous-grid div');
+
+    		//Styling eventListeners
+    		hamburgerBtn.addEventListener('click', () => {
+    			menu.style.display = 'flex';
+    		});
+
+    		span.addEventListener('click', () => {
+    			menu.style.display = 'none';
+    		});
+    	
+
+    	});
+
+    	const startBtnClick = () => {
+    		if (timerId) {
+    			clearInterval(timerId);
+    			timerId = null;
+    		} else {
+    			draw();
+    			timerId = setInterval(moveDown, 1000);
+    			nextRandom = Math.floor(Math.random()*theTetrominoes.length);
+    			displayShape();
+    		}
+    	};
+
+    	$$self.$capture_state = () => {
+    		return {};
+    	};
+
+    	$$self.$inject_state = $$props => {
+    		if ('currentIndex' in $$props) currentIndex = $$props.currentIndex;
+    		if ('currentRotation' in $$props) currentRotation = $$props.currentRotation;
+    		if ('score' in $$props) score = $$props.score;
+    		if ('lines' in $$props) lines = $$props.lines;
+    		if ('timerId' in $$props) timerId = $$props.timerId;
+    		if ('nextRandom' in $$props) nextRandom = $$props.nextRandom;
+    		if ('squares' in $$props) squares = $$props.squares;
+    		if ('random' in $$props) random = $$props.random;
+    		if ('current' in $$props) current = $$props.current;
+    		if ('currentPosition' in $$props) currentPosition = $$props.currentPosition;
+    	};
+
+    	return { startBtnClick };
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, []);
+    		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "App", options, id: create_fragment.name });
+    	}
+    }
+
+    const app = new App({
+    	target: document.body,
+    	props: {}
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map
