@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	export let selected
 </script>
 
@@ -16,4 +16,4 @@
 
 {#if selected=='bg_4'}
 	<rect width=200 height=200 style='fill:yellow'/>
-{/if}
+{/if} -->

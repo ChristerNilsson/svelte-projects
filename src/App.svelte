@@ -1,4 +1,5 @@
 <script>
+	import {shapeRendering} from './store.js'
 	import range from 'lodash.range'
 	import Menu from './Menu.svelte'
 
@@ -50,11 +51,14 @@
 	$: if (selected0=='L6') children1 = 'translate|rotate|scale|clock'.split('|')
 
 	$: help(selected2)
-	$: link(selected3)
+
+	$:if (selected3 == 'render:auto') $shapeRendering='auto'
+		else if (selected3 == 'render:crisp') $shapeRendering='crispEdges'
+		else link(selected3)
 	
 	let children1 = ['']
-	let children2 = 'bind:|button|circle|$:|each|if|line|on:click|on:keyup|random|range|rect|rotate|scale|svg|text|translate'.split('|')
-	let children3 = 'Svelte|Tutorial|API|Examples|REPL'.split('|')
+	let children2 = 'bind:|button|circle|$:|each|g|if|line|on:click|on:keyup|random|range|rect|rotate|scale|svg|text|translate'.split('|')
+	let children3 = 'Svelte|Tutorial|API|Examples|REPL|render:auto|render:crisp'.split('|')
 		
 	let selected1 = ''
 	let selected2 = ''
@@ -75,37 +79,41 @@
 	<Menu children={children1} bind:selected={selected1}/>
 </div>
 
-<!-- L1 -->
-{#if selected1 == 'svg'}<Canvas />{/if}
-{#if selected1 == 'canvas'}<Canvas />{/if}
-{#if selected1 == 'grid'}<Grid />{/if}
-{#if selected1 == 'rect'}<Rect />{/if}
-{#if selected1 == 'circle'}<Circle />{/if}
-{#if selected1 == 'line'}<Line />{/if}
-{#if selected1 == 'text'}<Text />{/if}
+<div class='col left s11 m'>
 
-<!-- L2 -->
-{#if selected1 == 'each'}<Each />{/if}
-{#if selected1 == 'if'}<If />{/if}
-{#if selected1 == 'range'}<Range />{/if}
-{#if selected1 == 'chess'}<Chess />{/if}
+	<!-- L1 -->
+	{#if selected1 == 'svg'}<Canvas />{/if}
+	{#if selected1 == 'canvas'}<Canvas />{/if}
+	{#if selected1 == 'grid'}<Grid />{/if}
+	{#if selected1 == 'rect'}<Rect />{/if}
+	{#if selected1 == 'circle'}<Circle />{/if}
+	{#if selected1 == 'line'}<Line />{/if}
+	{#if selected1 == 'text'}<Text />{/if}
 
-<!-- L3 -->
-{#if selected1 == 'random'}<Random />{/if}
-{#if selected1 == 'button'}<Button />{/if}
-{#if selected1 == 'on:click'}<Click />{/if}
-{#if selected1 == 'shortcut'}<Shortcut />{/if}
+	<!-- L2 -->
+	{#if selected1 == 'each'}<Each />{/if}
+	{#if selected1 == 'if'}<If />{/if}
+	{#if selected1 == 'range'}<Range />{/if}
+	{#if selected1 == 'chess'}<Chess />{/if}
 
-<!-- L4 -->
-{#if selected1 == 'colorPair'}<ColorPair />{/if}
+	<!-- L3 -->
+	{#if selected1 == 'random'}<Random />{/if}
+	{#if selected1 == 'button'}<Button />{/if}
+	{#if selected1 == 'on:click'}<Click />{/if}
+	{#if selected1 == 'shortcut'}<Shortcut />{/if}
 
-<!-- L5 -->
-{#if selected1 == 'bind:'}<Bind />{/if}
-{#if selected1 == 'on:keyup'}<KeyUp />{/if}
-{#if selected1 == 'guessMyNumber'}<GuessMyNumber />{/if}
+	<!-- L4 -->
+	{#if selected1 == 'colorPair'}<ColorPair />{/if}
 
-<!-- L6 -->
-{#if selected1 == 'translate'}<Translate />{/if}
-{#if selected1 == 'rotate'}<Rotate />{/if}
-{#if selected1 == 'scale'}<Scale />{/if}
-{#if selected1 == 'clock'}<Clock />{/if}
+	<!-- L5 -->
+	{#if selected1 == 'bind:'}<Bind />{/if}
+	{#if selected1 == 'on:keyup'}<KeyUp />{/if}
+	{#if selected1 == 'guessMyNumber'}<GuessMyNumber />{/if}
+
+	<!-- L6 -->
+	{#if selected1 == 'translate'}<Translate />{/if}
+	{#if selected1 == 'rotate'}<Rotate />{/if}
+	{#if selected1 == 'scale'}<Scale />{/if}
+	{#if selected1 == 'clock'}<Clock />{/if}
+
+</div>

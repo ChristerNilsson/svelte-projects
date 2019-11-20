@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+/* Christer Nilsson begin */
+/* svg {shape-rendering:crispEdges}
+circle {shape-rendering:auto}  */
+/* Christer Nilsson end */
+
 /* Global Styles */
+
 :root {
   --primary-color: #204f6e;
   --dark-color: #333333;

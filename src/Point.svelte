@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	export let selected
 </script>
 
@@ -124,4 +124,4 @@
 		<circle cx=115 cy=175 r=1 />
 	</g>
 
-{/if}
+{/if} -->

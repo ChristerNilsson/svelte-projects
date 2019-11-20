@@ -1,17 +1,27 @@
 <script>
-	import Canvas from './Canvas.svelte'
-</script>
+	import Grid from './Grid.svelte'
+	import { onMount } from 'svelte'
+	import CRect from './CRect.svelte'
+	import CText from './CText.svelte'
+	let angle = 0
+</script> 
 
 <style>
-	text {fill:red}
-	.small { font: italic 13px sans-serif}
-	.heavy { font: bold 30px sans-serif}
-	.Rrrrr { font: italic 40px serif; fill: yellow}
+	.fn {fill:none}
+	.red {stroke:red}
+	.yellow {stroke:yellow}
+	.f-yellow {fill:yellow}
+	.sw0 {stroke-width:0}
+	.fs40 {font: italic 40px serif}
 </style>
 
-<Canvas>
-	<text x=20 y=35 class=small>My</text>
-	<text x=40 y=35 class=heavy>cat</text>
-	<text x=45 y=75 class="small">is</text>
-	<text x="55" y="75" class="Rrrrr">Grumpy!</text>
-</Canvas>
+<Grid click={() => angle=angle+10}>
+	<g transform='translate(100,100) rotate({angle})' >
+		<g class='fn red'>
+			<CRect w=144 h=45 />
+		</g>
+		<g class='sw0 fs40 f-yellow'>
+			<CText>Grumpy!</CText>
+		</g>
+	</g>
+</Grid>
