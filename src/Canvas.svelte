@@ -1,7 +1,6 @@
 <script>
 	import {shapeRendering} from './store.js'
 	export let click = () => {}
-	console.log(click)
 </script>
 
 <style>

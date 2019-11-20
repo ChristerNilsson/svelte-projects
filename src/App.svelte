@@ -32,12 +32,9 @@
 	const link=(link) => window.open(links[link], '_blank')
 	
 	const links = {}
-	links['Svelte'] = 'https://svelte.dev'
-	links['Tutorial'] = 'https://svelte.dev/tutorial'
-	links['API'] = 'https://svelte.dev/docs'
-	links['Examples'] = 'https://svelte.dev/examples'
+	links['Svelte'] = 'https://github.com/ChristerNilsson/svelte-projects/wiki/Svelte'
 	links['REPL'] = 'https://svelte.dev/repl/hello-world?version=3.15.0'
-
+	
 	let selectedTree=''
 	let hor = 'hor'
 	let path = [""]
@@ -45,10 +42,10 @@
 
 	const children0 = 'L1|L2|L3|L4|L5|L6|keywords'.split('|')
 	let selected0 = ''
-	$: if (selected0=='L1') children1 = 'rect|circle|line'.split('|')
+	$: if (selected0=='L1') children1 = 'grid|rect|circle|line'.split('|')
 	$: if (selected0=='L2') children1 = 'each|if|range|chess'.split('|')
 	$: if (selected0=='L3') children1 = 'random|button|shortcut'.split('|')
-	$: if (selected0=='L4') children1 = 'canvas|grid|colorPair'.split('|')
+	$: if (selected0=='L4') children1 = 'canvas|colorPair'.split('|')
 	$: if (selected0=='L5') children1 = 'bind:|on:keyup|guessMyNumber'.split('|')
 	$: if (selected0=='L6') children1 = 'text|translate|rotate|scale|clock'.split('|')
 	$: if (selected0=='keywords') children1 = 'bind:|button|circle|$:|each|g|if|line|on:click|on:keyup|random|range|rect|rotate|scale|style|styles|svg|text|translate'.split('|')
@@ -62,7 +59,7 @@
 		else link(selected3)
 	
 	let children1 = ['']
-	let children3 = 'Svelte|Tutorial|API|Examples|REPL|render:auto|render:crisp'.split('|')
+	let children3 = 'Svelte|REPL|render:auto|render:crisp'.split('|')
 		
 	let selected1 = ''
 	let selected2 = ''

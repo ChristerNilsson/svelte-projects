@@ -1,31 +1,56 @@
 const helpTexts = {
-	L1rect:
-`<svg>
-  <rect x=... y=... width=... height=... style='stroke-width:...; stroke:...; fill:...'/>
+
+	L1grid:
+`<script>
+  import range from 'lodash.range'
+</script>
+
+<style>
+  * {stroke:#ccc; fill:#888}
+  line {shape-rendering:crispEdges; stroke-width:1}
+</style>
+
+<svg width=200 height=200>
+  <rect width=200 height=200 />
+  {#each range(0,200,20) as i}
+    <line x1={i} y1={0} x2={i} y2={200} />
+    <line y1={i} x1={0} y2={i} x2={200} />
+  {/each}
+  <slot/>
 </svg>`,
+
+	L1rect:
+`<script>
+  import Grid from './Grid.svelte'
+</script>
+
+<Grid>
+  <rect x=... y=... width=... height=... style='stroke-width:...; stroke:...; fill:...'/>
+</Grid>`,
+
 	L1circle:
-`<circle cx=... cy=... r=.../>
-`,
+`<circle cx=... cy=... r=.../>`,
+
 	L1line:
-`<line x1=... y1=... x2=... y2=.../>
-`,
+`<line x1=... y1=... x2=... y2=.../>`,
+
 	L2each:
 `{#each range(...) as i}
   <circle cx={...} cy={...} r=... />
-{/each}
-`,
+{/each}`,
+
 	L2if:
 `{#if ... }
   <circle ... />
 {:else}
   <rect ... />
-{/if}
-`,
+{/if}`,
+
 	L2range:
 `{#each range(...) as i}
   <circle ... />
-{/each}
-`,
+{/each}`,
+
 	L2chess:
 `{#each ...}
   {#each ...}
@@ -35,8 +60,8 @@ const helpTexts = {
       <rect .../>
     {/if}
   {/each}
-{/each}
-`,
+{/each}`,
+
 	L3random:
 `<...>
   import range from 'lodash.range'
@@ -45,16 +70,16 @@ const helpTexts = {
 
 {#each range(...) as ... }
   <circle cx={random(0,200)} cy=... r=... />
-{/each}
-`,
+{/each}`,
+
 	L3button:
 `<...>
   let i=0
 </...>
 
 <div style=...>...</div>
-<button on:click = { () => i++ } > ... </button>
-`,
+<button on:click = { () => i++ } > ... </button>`,
+
 	L3shortcut:
 `<...>
   let ...=17
@@ -65,24 +90,13 @@ const helpTexts = {
 <div ...> {a} to {b} </div>
 <button on:click={()=>op(a+2)}> ... </button>
 <button on:click={...}> ... </button>
-<button on:click={()=> ... ? ... : ... } > ... </button>
-`,
+<button on:click={()=> ... ? ... : ... } > ... </button>`,
+
 	L4canvas:
 `<svg>
   <rect x=... y=... width=... height=... style='fill:...'/>
-</svg>
-`,
-	L4grid:
-`<...>
-  import range from 'lodash.range'
-</...>
-<svg>
-  {#each range(...) as i}
-    <line x1={...} x2={...} y1=... y2=... style='stroke-width:...;stroke:...'/>
-    <line x1=... x2=... y1={...} y2={...} style='stroke-width:...;stroke:...'/>
-  {/each}
-</svg>
-`,
+</svg>`,
+
 	L4colorPair:
 `<...>
   let circles = []
@@ -100,16 +114,16 @@ const helpTexts = {
   {#each ...}
     <... on:click={()=>click(c)} cx=... cy=... r=... fill=.../>
   {/each}
-</g>
-`,
+</g>`,
+
 	'L5bind:':
 `<...>
   let i=...
 </...>
 
 <div ...>{...}</div>
-<input type=number bind:value={i}/>
-`,
+<input type=number bind:value={i}/>`,
+
 	'L5on:keyup':
 `<...>
   let key=''
@@ -122,8 +136,8 @@ const helpTexts = {
 
 <div ...>key: {...}</div>
 <div ...>keycode: {...}</div>
-<input on:keyup={...}/>
-`,
+<input on:keyup={...}/>`,
+
 	L5guessMyNumber:
 `<...>
   import ... from 'lodash.random'
@@ -142,8 +156,8 @@ const helpTexts = {
 <div ...>
   {...} to {...} {...}
   <input on:keyup = {...} type=... bind:value={...}/>
-</div>
-`,
+</div>`,
+
 	L6text:
 `<style>
   .fs40 {font: italic 1px serif}
@@ -151,17 +165,16 @@ const helpTexts = {
 
 <text x=... y=... class='fs40' text-anchor=... alignment-baseline=... >
   ...
-</text>
-`,
+</text>`,
+
 	L6translate:
-`<... y1=... y2=... style=... transform="translate(...)"/>
-`,
+`<... y1=... y2=... style=... transform="translate(...)"/>`,
+
 	L6rotate:
-`<... y2=... style=... transform="rotate(...)"/>
-`,
+`<... y2=... style=... transform="rotate(...)"/>`,
+
 	L6scale:
-`<... y1=... y2=... style=... transform="rotate(...) scale(...)"/>
-`,
+`<... y1=... y2=... style=... transform="rotate(...) scale(...)"/>`,
 
 	L6clock:
 `<...>
@@ -213,8 +226,8 @@ const helpTexts = {
     <line class='second' y1=... y2=... />
     <line class='second-counterweight' y1=... y2=... />
   </g>
-</svg>
-`
+</svg>`
+
 }
 
 export {helpTexts}
