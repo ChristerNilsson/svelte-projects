@@ -8,7 +8,7 @@
 
 <style>
 	.fn {fill:none}
-	.red {stroke:red}
+	.red {stroke:	red}
 	.yellow {stroke:yellow}
 	.f-yellow {fill:yellow}
 	.sw0 {stroke-width:0}

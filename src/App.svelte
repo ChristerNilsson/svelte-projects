@@ -26,7 +26,7 @@
 	import Scale from './Scale.svelte'
 	import Clock from './Clock.svelte'
 
-	const help=(keyword) => window.open('https://github.com/ChristerNilsson/svelte-projects/wiki/'+keyword, '_blank')
+	const help=(selected0,keyword) => selected0=='keywords' && selected1!='' ? window.open('https://github.com/ChristerNilsson/svelte-projects/wiki/'+keyword, '_blank') : 0
 	const link=(link) => window.open(links[link], '_blank')
 	
 	const links = {}
@@ -41,28 +41,82 @@
 	let path = [""]
 	const fs = 'font-size:30px'
 
-	const children0 = 'L1|L2|L3|L4|L5|L6'.split('|')
+	const children0 = 'L1|L2|L3|L4|L5|L6|keywords'.split('|')
 	let selected0 = ''
-	$: if (selected0=='L1') children1 = 'canvas|grid|rect|circle|line|text'.split('|')
+	$: if (selected0=='L1') children1 = 'rect|circle|line'.split('|')
 	$: if (selected0=='L2') children1 = 'each|if|range|chess'.split('|')
 	$: if (selected0=='L3') children1 = 'random|button|shortcut'.split('|')
-	$: if (selected0=='L4') children1 = 'colorPair'.split('|')
+	$: if (selected0=='L4') children1 = 'canvas|grid|colorPair'.split('|')
 	$: if (selected0=='L5') children1 = 'bind:|on:keyup|guessMyNumber'.split('|')
-	$: if (selected0=='L6') children1 = 'translate|rotate|scale|clock'.split('|')
+	$: if (selected0=='L6') children1 = 'text|translate|rotate|scale|clock'.split('|')
+	$: if (selected0=='keywords') children1 = 'bind:|button|circle|$:|each|g|if|line|on:click|on:keyup|random|range|rect|rotate|scale|style|styles|svg|text|translate'.split('|')
 
-	$: help(selected2)
+	$: help(selected0,selected1)
+
+	$: if (selected0) selected1 = ''
 
 	$:if (selected3 == 'render:auto') $shapeRendering='auto'
 		else if (selected3 == 'render:crisp') $shapeRendering='crispEdges'
 		else link(selected3)
 	
 	let children1 = ['']
-	let children2 = 'bind:|button|circle|$:|each|g|if|line|on:click|on:keyup|random|range|rect|rotate|scale|svg|text|translate'.split('|')
 	let children3 = 'Svelte|Tutorial|API|Examples|REPL|render:auto|render:crisp'.split('|')
 		
 	let selected1 = ''
 	let selected2 = ''
 	let selected3 = ''
+
+	let helpTexts = {
+		L1rect:`
+<svg>
+  <rect x=... y=... width=... height=... style='stroke-width:...; stroke:...; fill:...'/>
+</svg>`,
+		L2each:`
+<svg width=... height=... >
+  <rect width=... height=... style="fill:..."/>
+  {#each range(...) as i}
+    <circle cx={...} cy={...} r={...} style='stroke:...; stroke-width:...; fill:...'/>
+  {/each}
+</svg>`,
+		L1canvas:`
+<svg>
+  <rect x=... y=... width=... height=... style='fill:...'/>
+</svg>
+`,
+		L1grid:`
+<scxipt>
+  import range from 'lodash.range'
+</scrxpt>
+<svg>
+  {#each range(...) as i}
+    <line x1={...} x2={...} y1=... y2=... style='stroke-width:...;stroke:...'/>
+    <line x1=... x2=... y1={...} y2={...} style='stroke-width:...;stroke:...'/>
+  {/each}
+</svg>
+`,
+		L1circle:`
+<circle cx=... cy=... r=.../>
+`,
+		L1line:`
+<line x1=... y1=... x2=... y2=.../>
+`,
+		L2if:`
+{#if ... }
+  <circle ... />
+{:else}
+  <rect ... />
+{/if}
+`,
+		L1text:`
+<style>
+  .fs40 {font: italic 1px serif}
+</style>
+
+<text x=... y=... class='fs40' text-anchor=... alignment-baseline=... >
+  ....
+</text>
+`,
+}
 
 </script>
 
@@ -70,16 +124,21 @@
 	:global(body) {background-color:#000}
 	.left {float:left}
 	.m {margin:0px}
+	.s8 {width: 67%}
+	textarea {font-size:20px}
 </style>
 
 <div class='row left s1 m'>
 	<Menu children={children3} bind:selected={selected3}/>
-	<Menu children={children2} bind:selected={selected2} color='yellow' bgcolor='black'/>
 	<Menu children={children0} bind:selected={selected0}/>
-	<Menu children={children1} bind:selected={selected1}/>
+	{#if selected0=='keywords'}
+		<Menu children={children1} bind:selected={selected1} color='yellow' bgcolor='black'/>
+	{:else}
+		<Menu children={children1} bind:selected={selected1}/>
+	{/if}
 </div>
 
-<div class='col left s11 m'>
+<div class='col left s2 m'>
 
 	<!-- L1 -->
 	{#if selected1 == 'svg'}<Canvas />{/if}
@@ -117,3 +176,10 @@
 	{#if selected1 == 'clock'}<Clock />{/if}
 
 </div>
+
+<div class='col left s8 m'>
+	{#if helpTexts[selected0+selected1]}
+		<textarea disabled style='width:500px; height:300px;'>{helpTexts[selected0+selected1]}</textarea>
+	{/if}
+</div>
+
