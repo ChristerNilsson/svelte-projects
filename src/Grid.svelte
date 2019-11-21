@@ -4,10 +4,21 @@
 	export let click = () => {}
 </script>
 
-<Canvas click={click}>
+<style>
+  .grid {
+		stroke:#ccc; 
+		fill:#888;
+	}
+  * {
+		stroke:black;
+		fill:white;
+	}
+</style>
+
+<Canvas {click}>
 	{#each range(0,200,20) as i}
-		<line x1={i} x2={i} y1=0 y2=200 style='stroke-width:1;stroke:gray'/>
-		<line x1=0 x2=200 y1={i} y2={i} style='stroke-width:1;stroke:gray'/>
+    <line x1={i} y1={0} x2={i} y2={200} class=grid />
+    <line y1={i} x1={0} y2={i} x2={200} class=grid />
 	{/each}
 	<slot/>
 </Canvas>

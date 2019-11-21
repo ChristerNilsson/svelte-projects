@@ -6,15 +6,22 @@ const helpTexts = {
 </script>
 
 <style>
-  * {stroke:#ccc; fill:#888}
-  line {shape-rendering:crispEdges; stroke-width:1}
+  .grid {
+    stroke:#ccc; 
+    fill:#888;
+  }
+  * {
+    shape-rendering:crispEdges;
+    stroke:black;
+    fill:white;
+  }
 </style>
 
 <svg width=200 height=200>
-  <rect width=200 height=200 />
+  <rect width=200 height=200 class=grid/>
   {#each range(0,200,20) as i}
-    <line x1={i} y1={0} x2={i} y2={200} />
-    <line y1={i} x1={0} y2={i} x2={200} />
+    <line x1={i} y1={0} x2={i} y2={200} class=grid />
+    <line y1={i} x1={0} y2={i} x2={200} class=grid />
   {/each}
   <slot/>
 </svg>`,
@@ -36,7 +43,7 @@ const helpTexts = {
 
 	L2each:
 `{#each range(...) as i}
-  <circle cx={...} cy={...} r=... />
+  <circle ... />
 {/each}`,
 
 	L2if:
@@ -47,7 +54,7 @@ const helpTexts = {
 {/if}`,
 
 	L2range:
-`{#each range(...) as i}
+`{#each ... }
   <circle ... />
 {/each}`,
 
@@ -64,7 +71,7 @@ const helpTexts = {
 
 	L3random:
 `<...>
-  import range from 'lodash.range'
+  import ... from '...'
   import random from 'lodash.random'
 </...>
 
@@ -94,7 +101,7 @@ const helpTexts = {
 
 	L4canvas:
 `<svg>
-  <rect x=... y=... width=... height=... style='fill:...'/>
+  <rect ... />
 </svg>`,
 
 	L4colorPair:
@@ -134,8 +141,8 @@ const helpTexts = {
   }
 </...>
 
-<div ...>key: {...}</div>
-<div ...>keycode: {...}</div>
+<div ...> ... </div>
+<div ...> ... </div>
 <input on:keyup={...}/>`,
 
 	L5guessMyNumber:
