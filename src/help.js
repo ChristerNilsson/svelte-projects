@@ -3,6 +3,7 @@ const helpTexts = {
 	L1grid:
 `<script>
   import range from 'lodash.range'
+  const N=200
 </script>
 
 <style>
@@ -17,11 +18,11 @@ const helpTexts = {
   }
 </style>
 
-<svg width=200 height=200>
-  <rect width=200 height=200 class=grid/>
-  {#each range(0,200,20) as i}
-    <line x1={i} y1={0} x2={i} y2={200} class=grid />
-    <line y1={i} x1={0} y2={i} x2={200} class=grid />
+<svg width={N} height={N}>
+  <rect width={N} height={N} class=grid/>
+  {#each range(0,N,20) as i}
+    <line x1={i} y1={0} x2={i} y2={N} class=grid />
+    <line y1={i} x1={0} y2={i} x2={N} class=grid />
   {/each}
   <slot/>
 </svg>`,
