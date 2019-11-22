@@ -38,6 +38,26 @@ let script = `
 				UNDO @ {"a":17,"b":1,"hist":[]}              # based on line 12
 	MUL ADD DIV ADD DIV ADD DIV ADD DIV DIV DIV @a @b  # from 17 to 1 in 11 steps
 `
+
+// INC and DEC
+// const reducers = {
+// }
+
+// let script = `
+// `
+
+// Complex Numbers
+// const reducers = {
+// }
+
+// let script = `
+// {"re":1,"im":2}
+// 	TRANS @re 2 @im 2
+// 	SCALE @re 2 @im 4
+// 	ROTATE @re -2 @im 1
+// 	MIRROR @re 2 @im 1
+// `
+
 </script>
 
 <TestReducer {stack} {script} {reducers} />
