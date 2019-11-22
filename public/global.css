@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-/* Christer Nilsson begin */
-/* svg {shape-rendering:crispEdges}
-circle {shape-rendering:auto}  */
-/* Christer Nilsson end */
-
-/* Global Styles */
+.col1 {
+	float: left; 
+	width: 100%;  
+}
+.col2 {
+	float: left; 
+	width: 50%;  
+}
+.col3 {
+	float: left; 
+	width: 33.333333%;  
+}
 
 :root {
   --primary-color: #204f6e;
@@ -187,6 +193,12 @@ img {
   display: grid;
   grid-template-columns: 2fr 3fr;
   grid-gap: 2rem;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: 3fr 3fr;
+  grid-gap: 0rem;
 }
 
 .btn {
@@ -441,3 +453,4 @@ table th {
     justify-content: center;
   }
 }
+
