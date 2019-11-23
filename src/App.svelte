@@ -1,66 +1,41 @@
 <script>
+	import range from 'lodash.range'
+	import shuffle from 'lodash.shuffle'
 
-	const bag = {coin:20}
-	const price = {}
-	price.coin = -1
-	price.key = 10
-	price.torch = 10
-	price.knife = 6
-	const mud = {}
+	let cards = shuffle(range(12).map( (i) => ({state:0, value:i%6})))
 
-	const make = (s) => {
-		const result = {}
-		for (const thing of s.split(' ')) {
-			result[thing] = result[thing] ? result[thing] + 1 : 1
+	const visible = []
+	const click = (card) => {
+		if (visible.length == 2) {
+			const value = (visible[0].value == visible[1].value) ? 2 : 0
+			visible.pop().state = value
+			visible.pop().state = value
+			cards = cards
 		}
-		return result
+		if (card.state == 2) return
+		card.state = 1
+		visible.push(card)
+		cards = cards
 	}
-
-	mud.village = {places:'river shop farm'.split(' '), things:make('coin'), desc:'There is a well here'}
-	mud.shop = {places:'village'.split(' '), things:make('coin key torch'), desc:'The owner greets you!'}
-	mud.river = {places:'farm'.split(' '), things:make('coin'), desc:'It is a cold day'}
-	mud.farm = {places:'village'.split(' '), things:make('coin coin'), desc:'No carrots here'}
-
-	let location = 'village'
-	$: curr = mud[location]
-	$: things = curr.things
-	$: places = curr.places
-
-	const take = (thing) => {
-		if (things[thing]>0) {
-			bag[thing] = bag[thing] ? bag[thing] + 1 : 1
-			things[thing]--
-			bag = bag
-		}
-	}
-
 </script>
 
 <style>
-	.m {margin:2%}
+	.card {
+		margin:1px;
+		font-size:120px;
+		width:33%;
+		float:left;
+		text-align:center;
+	}
+	.state0 {background-color:red;  color:red;}
+	.state1 {background-color:black;color:white;}
+	.state2 {background-color:white;color:white;}
 </style>
 
-<div class=m>
-
-	<p>You are at the {location}.</p>
-
-	<p>{curr.desc}.</p>
-
-	{#each Object.keys(bag) as name}
-		<div>You have {bag[name]} {name}</div>
+<div style='float:left; width:100%'>
+	{#each cards as card}
+		<div class='card {'state'+card.state}' on:click={()=>click(card)}>
+			{card.state==1 ? card.value : '.'}
+		</div>
 	{/each}
-
-	<hr>
-	<hr>
-
-	{#each Object.keys(things) as name}
-		{#if things[name]>0}	
-			<div>Take <button on:click={()=> take(name)}>{name}</button></div>
-		{/if}
-	{/each}
-
-	{#each places as place}
-		<div>Goto <button on:click={()=>location=place}>{place}</button></div>
-	{/each}
-
 </div>
