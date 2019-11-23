@@ -158,7 +158,7 @@
 </style>
 
 <svelte:window on:keydown={handleKeyDown} />
-<a href="https://github.com/ChristerNilsson/svelte-projects/wiki/Shortcut"
+<a href="https://github.com/ChristerNilsson/svelte-projects/wiki/017"
 	class='center-align'
 	on:mousemove={() => data.mm('info')}
 	target="_blank"><h1>Shortcut</h1></a>
