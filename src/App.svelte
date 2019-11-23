@@ -76,6 +76,7 @@
 	$: help(keyword)
 
 	$: if (selected0) selected1 = ''
+	$: if (selected0) keywords = []
 
 	$:if (selected3 == 'render:auto') $shapeRendering='auto'
 		else if (selected3 == 'render:crisp') $shapeRendering='crispEdges'
