@@ -28,29 +28,52 @@
 
 	import {helpTexts} from './help.js'
 
-	const help=(selected0,keyword) => selected0=='keywords' && selected1!='' ? window.open('https://github.com/ChristerNilsson/svelte-projects/wiki/'+keyword, '_blank') : 0
+	const help=(keyword) => keyword != '' ? window.open('https://github.com/ChristerNilsson/svelte-projects/wiki/'+keyword, '_blank') : 0
 	const link=(link) => window.open(links[link], '_blank')
 	
 	const links = {}
 	links['Svelte'] = 'https://github.com/ChristerNilsson/svelte-projects/wiki/Svelte'
-	links['REPL'] = 'https://svelte.dev/repl/hello-world?version=3.15.0'
+	links['REPL'] = 'https://svelte.dev/repl/884dce5bfde14f7bb0903684aaac2f80?version=3.15.0'
 	
 	let selectedTree=''
 	let hor = 'hor'
 	let path = [""]
 	const fs = 'font-size:30px'
 
-	const children0 = 'L1|L2|L3|L4|L5|L6|keywords'.split('|')
-	let selected0 = ''
-	$: if (selected0=='L1') children1 = 'grid|rect|circle|line'.split('|')
+	const children0 = 'L1|L2|L3|L4|L5|L6'.split('|')
+	// const keywords = 'bind:|button|circle|$:|each|g|if|line|on:click|on:keyup|random|range|rect|rotate|scale|style|styles|svg|text|translate'.split('|')
+	
+	let selected0 = 'L1'
+	$: if (selected0=='L1') children1 = 'rect|circle|line'.split('|')
 	$: if (selected0=='L2') children1 = 'each|if|range|chess'.split('|')
 	$: if (selected0=='L3') children1 = 'random|button|shortcut'.split('|')
-	$: if (selected0=='L4') children1 = 'canvas|colorPair'.split('|')
+	$: if (selected0=='L4') children1 = 'canvas|grid|colorPair'.split('|')
 	$: if (selected0=='L5') children1 = 'bind:|on:keyup|guessMyNumber'.split('|')
 	$: if (selected0=='L6') children1 = 'text|translate|rotate|scale|clock'.split('|')
-	$: if (selected0=='keywords') children1 = 'bind:|button|circle|$:|each|g|if|line|on:click|on:keyup|random|range|rect|rotate|scale|style|styles|svg|text|translate'.split('|')
 
-	$: help(selected0,selected1)
+	$: if (selected1=='rect') keywords = 'rect|import|style|stroke|stroke-width|fill|color'.split('|')
+	$: if (selected1=='circle') keywords = 'circle'.split('|')
+	$: if (selected1=='line') keywords = 'line'.split('|')
+	$: if (selected1=='each') keywords = 'each|{}'.split('|')
+	$: if (selected1=='if') keywords = 'if'.split('|')
+	$: if (selected1=='range') keywords = 'range'.split('|')
+	$: if (selected1=='chess') keywords = 'each|if|rect'.split('|')
+	$: if (selected1=='random') keywords = 'random'.split('|')
+	$: if (selected1=='button') keywords = 'button'.split('|')
+	$: if (selected1=='shortcut') keywords = 'button|on:click'.split('|')
+	$: if (selected1=='canvas') keywords = 'svg'.split('|')
+	$: if (selected1=='grid') keywords = 'stroke|fill|each|range|line|slot|class'.split('|')
+	$: if (selected1=='colorPair') keywords = 'on:click|g|each|filter'.split('|')
+	$: if (selected1=='bind:') keywords = 'bind:|input'.split('|')
+	$: if (selected1=='on:keyup') keywords = 'on:keyup|input'.split('|')
+	$: if (selected1=='guessMyNumber') keywords = 'random|on:keyup|input|bind:|import'.split('|')
+	$: if (selected1=='text') keywords = 'text|text-anchor|alignment-baseline'.split('|')
+	$: if (selected1=='translate') keywords = 'translate'.split('|')
+	$: if (selected1=='rotate') keywords = 'rotate'.split('|')
+	$: if (selected1=='scale') keywords = 'scale'.split('|')
+	$: if (selected1=='clock') keywords = 'range|onMount|Date|circle|line|stroke|stroke-width|fill|import|class|g|setInterval|clearInterval|transform|rgb|each|rotate|$:'.split('|')
+	
+	$: help(keyword)
 
 	$: if (selected0) selected1 = ''
 
@@ -60,9 +83,10 @@
 	
 	let children1 = ['']
 	let children3 = 'Svelte|REPL|render:auto|render:crisp'.split('|')
+	let keywords = []
 		
 	let selected1 = ''
-	let selected2 = ''
+	let keyword = ''
 	let selected3 = ''
 
 </script>
@@ -75,14 +99,11 @@
 	textarea {font-size:20px}
 </style>
 
-<div class='row left s1 m'>
+<div >
 	<Menu children={children3} bind:selected={selected3}/>
 	<Menu children={children0} bind:selected={selected0}/>
-	{#if selected0=='keywords'}
-		<Menu children={children1} bind:selected={selected1} color='yellow' bgcolor='black'/>
-	{:else}
-		<Menu children={children1} bind:selected={selected1}/>
-	{/if}
+	<Menu children={children1} bind:selected={selected1}/>
+	<Menu children={keywords} bind:selected={keyword} color='yellow' bgcolor='black'/>
 </div>
 
 <div class='col left s2 m'>

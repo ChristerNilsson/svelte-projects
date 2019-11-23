@@ -7,13 +7,15 @@
 
 <style>
 	.nav {
-		width:150px;
-		margin:2px;
+		float:left;
+		width:100%;
+		margin:1px;
 		cursor:default;
 	}
 	.mnu {
-		width:150px;
-		margin:0.5%;
+		float:left;
+		width:auto;
+		margin:0.2%;
 		color:white;
 	}
 	.text-red {color:red}
