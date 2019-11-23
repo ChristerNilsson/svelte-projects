@@ -2,11 +2,11 @@
   "version": 3,
   "file": "bundle.css",
   "sources": [
-    "..\\src\\App.svelte"
+    "..\\src\\Card.svelte"
   ],
   "sourcesContent": [
-    "<script>\r\n\r\n\tconst bag = {coin:20}\r\n\tconst price = {}\r\n\tprice.coin = -1\r\n\tprice.key = 10\r\n\tprice.torch = 10\r\n\tprice.knife = 6\r\n\tconst mud = {}\r\n\r\n\tconst make = (s) => {\r\n\t\tconst result = {}\r\n\t\tfor (const thing of s.split(' ')) {\r\n\t\t\tresult[thing] = result[thing] ? result[thing] + 1 : 1\r\n\t\t}\r\n\t\treturn result\r\n\t}\r\n\r\n\tmud.village = {places:'river shop farm'.split(' '), things:make('coin'), desc:'There is a well here'}\r\n\tmud.shop = {places:'village'.split(' '), things:make('coin key torch'), desc:'The owner greets you!'}\r\n\tmud.river = {places:'farm'.split(' '), things:make('coin'), desc:'It is a cold day'}\r\n\tmud.farm = {places:'village'.split(' '), things:make('coin coin'), desc:'No carrots here'}\r\n\r\n\tlet location = 'village'\r\n\t$: curr = mud[location]\r\n\t$: things = curr.things\r\n\t$: places = curr.places\r\n\r\n\tconst take = (thing) => {\r\n\t\tif (things[thing]>0) {\r\n\t\t\tbag[thing] = bag[thing] ? bag[thing] + 1 : 1\r\n\t\t\tthings[thing]--\r\n\t\t\tbag = bag\r\n\t\t}\r\n\t}\r\n\r\n</script>\r\n\r\n<style>\r\n\t.m {margin:2%}\r\n</style>\r\n\r\n<div class=m>\r\n\r\n\t<p>You are at the {location}.</p>\r\n\r\n\t<p>{curr.desc}.</p>\r\n\r\n\t{#each Object.keys(bag) as name}\r\n\t\t<div>You have {bag[name]} {name}</div>\r\n\t{/each}\r\n\r\n\t<hr>\r\n\t<hr>\r\n\r\n\t{#each Object.keys(things) as name}\r\n\t\t{#if things[name]>0}\t\r\n\t\t\t<div>Take <button on:click={()=> take(name)}>{name}</button></div>\r\n\t\t{/if}\r\n\t{/each}\r\n\r\n\t{#each places as place}\r\n\t\t<div>Goto <button on:click={()=>location=place}>{place}</button></div>\r\n\t{/each}\r\n\r\n</div>\r\n"
+    "<script>\r\n\timport { tweened } from 'svelte/motion'\r\n\r\n\texport let x\r\n\texport let y\r\n\texport let value\r\n\tconst progress = tweened(1,{duration:1000})\r\n\tconst click = () => progress.set($progress > 0.5 ? 0 : 1)\r\n$: color = $progress > 0.5 ? 'red' : 'green'\r\n\r\n</script>\r\n\r\n<style>\r\n\t.text {\r\n \t\tfill : white;\r\n\t\ttext-anchor : middle;\r\n\t\talignment-baseline : middle;\r\n\t\tfont-size : 80px;\r\n\t}\r\n</style>\r\n\r\n<circle \r\n\ton:click={()=>click()}\r\n\tr=49\r\n\tstyle='fill:{color}' \r\n\ttransform='translate({x},{y}) scale({2*Math.abs($progress-0.5)},1)'\r\n/>\r\n{#if color=='green'}\r\n\t<text class='text' \r\n\t\ton:click={()=>click()}\r\n\t\ttransform='translate({x},{5+y}) scale({2*Math.abs($progress-0.5)},1)'\r\n\t>{value}</text>\r\n{/if}\r\n"
   ],
   "names": [],
-  "mappings": "AAuCC,EAAE,eAAC,CAAC,OAAO,EAAE,CAAC"
+  "mappings": "AAaC,KAAK,eAAC,CAAC,AACL,IAAI,CAAG,KAAK,CACb,WAAW,CAAG,MAAM,CACpB,kBAAkB,CAAG,MAAM,CAC3B,SAAS,CAAG,IAAI,AACjB,CAAC"
 }
