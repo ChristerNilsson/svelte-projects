@@ -25,6 +25,7 @@ $: color = $progress > 0.5 ? 'red' : 'green'
 	style='fill:{color}' 
 	transform='translate({x},{y}) scale({2*Math.abs($progress-0.5)},1)'
 />
+
 {#if color=='green'}
 	<text class='text' 
 		on:click={()=>click()}
