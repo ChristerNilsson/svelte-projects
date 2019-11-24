@@ -8,10 +8,6 @@
 	let x = SIZE/2 + SIZE * (index % 4)
 	let y = SIZE/2 + SIZE * Math.floor(index / 4)
 
-	// const click = (card) => {
-	// 	click0(card)
-	// }
-
 </script>
 
 <style>
