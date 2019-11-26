@@ -1,8 +1,12 @@
 {
   "version": 3,
   "file": "bundle.css",
-  "sources": [],
-  "sourcesContent": [],
+  "sources": [
+    "..\\src\\Card.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n\texport let index // 0..11\r\n\texport let state // 0..2\r\n\texport let name\r\n\r\n\texport let flipped // []\r\n\texport let locked    // boolean\r\n\texport let compare // ()\r\n\r\n\tconst SIZE = 200\r\n\t$: href = state == 0 ? 'js-badge' : name\r\n\tlet x = SIZE*(index % 4)\r\n\tlet y = SIZE*Math.floor(index / 4)\r\n\r\n\tconst flip = () => {\r\n\t\tif (locked) return\r\n\t\tif (index == flipped[0]) return\r\n\t\tif (state == 2) return\r\n\t\tstate = 1 - state\r\n\t\tflipped.push(index)\r\n\t\tif (flipped.length==2) compare()\r\n\t}\r\n\r\n</script>\r\n\r\n<style>\r\n\timage {\r\n\t\ttransform:'rotate(90,{x},{y})'\r\n\t}\r\n</style>\r\n\r\n{#if state < 2}\r\n\t<image  {x} {y} width={SIZE-10} height={SIZE-10} href='./img/{href}.svg' on:click={flip}/>\r\n{/if}\r\n"
+  ],
   "names": [],
-  "mappings": ""
+  "mappings": "AA0BC,KAAK,eAAC,CAAC,AACN,UAAU,oBAAoB;CAC/B,CAAC"
 }
